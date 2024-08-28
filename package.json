@@ -1,37 +1,39 @@
 {
-  "name": "starbucks_front_end",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@gsap/react": "^2.1.1",
-    "@types/lodash": "^4.17.7",
-    "lodash": "^4.17.21",
-    "next": "14.2.6",
-    "react": "^18",
-    "react-dom": "^18",
-    "zod": "^3.23.8"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "14.2.6",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^6.9.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.35.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "postcss": "^8",
-    "prettier": "^3.3.3",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
-  }
+	"name": "starbucks_front_end",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\""
+	},
+	"dependencies": {
+		"@gsap/react": "^2.1.1",
+		"@types/lodash": "^4.17.7",
+		"lodash": "^4.17.21",
+		"next": "14.2.6",
+		"react": "^18",
+		"react-dom": "^18",
+		"zod": "^3.23.8"
+	},
+	"devDependencies": {
+		"@svgr/webpack": "^8.1.0",
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"eslint": "^8.57.0",
+		"eslint-config-next": "14.2.6",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-jsx-a11y": "^6.9.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"eslint-plugin-react": "^7.35.0",
+		"eslint-plugin-react-hooks": "^4.6.2",
+		"postcss": "^8",
+		"prettier": "^3.3.3",
+		"tailwindcss": "^3.4.1",
+		"typescript": "^5"
+	}
 }

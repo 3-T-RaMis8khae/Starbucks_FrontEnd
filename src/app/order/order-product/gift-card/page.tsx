@@ -1,8 +1,3 @@
-export default function GiftCardPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function GiftCardPage() {
+	return <main></main>
 }

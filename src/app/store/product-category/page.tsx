@@ -1,8 +1,3 @@
-export default function ProductCategoryPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function ProductCategoryPage() {
+	return <main></main>
 }

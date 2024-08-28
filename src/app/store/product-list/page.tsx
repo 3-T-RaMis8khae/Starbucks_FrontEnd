@@ -1,8 +1,3 @@
-export default function ProductListPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function ProductListPage() {
+	return <main></main>
 }

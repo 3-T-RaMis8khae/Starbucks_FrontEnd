@@ -1,8 +1,3 @@
-export default function RegisterCouponAndGiftCardPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function RegisterCouponAndGiftCardPage() {
+	return <main></main>
 }

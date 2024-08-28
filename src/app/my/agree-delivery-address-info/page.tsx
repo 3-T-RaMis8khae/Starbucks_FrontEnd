@@ -1,8 +1,3 @@
-export default function AgreeDeliveryAddressInfoPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function AgreeDeliveryAddressInfoPage() {
+	return <main></main>
 }

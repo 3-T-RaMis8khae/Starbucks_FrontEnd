@@ -1,8 +1,3 @@
-export default function ManageUserInfoPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function ManageUserInfoPage() {
+	return <main></main>
 }

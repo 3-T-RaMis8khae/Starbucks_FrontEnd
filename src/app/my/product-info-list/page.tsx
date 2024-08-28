@@ -1,8 +1,3 @@
-export default function ProductInfoListPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function ProductInfoListPage() {
+	return <main></main>
 }

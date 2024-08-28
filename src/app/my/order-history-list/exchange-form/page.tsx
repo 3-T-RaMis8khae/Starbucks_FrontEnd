@@ -1,8 +1,3 @@
-export default function ExchangeFormPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function ExchangeFormPage() {
+	return <main></main>
 }

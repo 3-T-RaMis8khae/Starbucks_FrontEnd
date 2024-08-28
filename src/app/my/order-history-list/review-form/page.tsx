@@ -1,8 +1,3 @@
-export default function ReviewFormPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function ReviewFormPage() {
+	return <main></main>
 }

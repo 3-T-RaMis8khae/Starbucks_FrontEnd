@@ -1,8 +1,3 @@
-export default function SetNicknamePage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function SetNicknamePage() {
+	return <main></main>
 }

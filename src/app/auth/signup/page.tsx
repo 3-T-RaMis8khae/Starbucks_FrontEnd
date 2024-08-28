@@ -1,7 +1,3 @@
 export default function SignupPage() {
-	return (
-		<main>
-
-		</main>
-	)
+	return <main></main>
 }

@@ -1,8 +1,3 @@
-export default function AccountInfoPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function AccountInfoPage() {
+	return <main></main>
 }

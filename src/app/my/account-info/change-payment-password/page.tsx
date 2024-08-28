@@ -1,8 +1,3 @@
-export default function ChangePaymentPasswordPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function ChangePaymentPasswordPage() {
+	return <main></main>
 }

@@ -1,8 +1,3 @@
-export default function ReturnFormPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function ReturnFormPage() {
+	return <main></main>
 }

@@ -1,8 +1,3 @@
-export default function ForgotAccountPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function ForgotAccountPage() {
+	return <main></main>
 }

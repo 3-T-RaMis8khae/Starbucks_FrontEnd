@@ -1,8 +1,3 @@
-export default function RefundFormPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function RefundFormPage() {
+	return <main></main>
 }

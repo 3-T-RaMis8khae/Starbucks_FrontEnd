@@ -1,8 +1,3 @@
-export default function ChangeDeliveryAddressPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function ChangeDeliveryAddressPage() {
+	return <main></main>
 }

@@ -1,7 +1,3 @@
 export default function DetailPage() {
-	return (
-		<main>
-
-		</main>
-	)
+	return <main></main>
 }

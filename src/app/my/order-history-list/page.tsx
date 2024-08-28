@@ -1,8 +1,3 @@
-export default function OrderHistoryListPage()
-{
-	return (
-		<main>
-
-		</main>
-	)
+export default function OrderHistoryListPage() {
+	return <main></main>
 }
