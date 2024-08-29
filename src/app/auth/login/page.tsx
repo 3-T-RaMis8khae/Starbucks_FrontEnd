@@ -21,7 +21,9 @@ export default function LoginPage() {
 
 				<div className="flex flex-col gap-2 mb-10">
 					<p className="text-2xl text-sb-black-100 font-bold">안녕하세요.</p>
-					<p className="text-2xl text-sb-black-100 font-bold">스타벅스입니다.</p>
+					<p className="text-2xl text-sb-black-100 font-bold">
+						스타벅스입니다.
+					</p>
 					<p className="text-base">회원 서비스 이용을 위해 로그인 해주세요.</p>
 				</div>
 
@@ -30,7 +32,10 @@ export default function LoginPage() {
 						<LabelInput label_name={"아이디"}></LabelInput>
 						<LabelInput label_name={"비밀번호"}></LabelInput>
 					</div>
-					<ButtonFooter button_title="로그인하기" button_props={{ type: "submit" }}></ButtonFooter>
+					<ButtonFooter
+						button_title="로그인하기"
+						button_props={{ type: "submit" }}
+					></ButtonFooter>
 				</form>
 
 				<div className="flex items-center justify-center mt-8">
