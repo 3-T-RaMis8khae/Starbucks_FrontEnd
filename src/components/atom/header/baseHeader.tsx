@@ -14,7 +14,7 @@ function BaseHeader(
 	}
 ) {
 	return (
-		<header className="w-full h-[50px] p-[10px] fixed flex items-center justify-between bg-white">
+		<header className="w-full h-[50px] py-[10px] px-[24px] fixed flex items-center justify-between bg-white">
 			{props.leftComponent}
 			<h1
 				className="
