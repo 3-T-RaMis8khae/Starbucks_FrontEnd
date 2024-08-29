@@ -29,6 +29,19 @@
 		--chart-3: 197 37% 24%;
 		--chart-4: 43 74% 66%;
 		--chart-5: 27 87% 67%;
+
+		--sb-green-100: #01A862;
+		--sb-green-150: #09743E;
+		--sb-green-200: #036140;
+
+		--sb-gray-0: #E0E0E0;
+		--sb-gray-100: #A5A5A5;
+		--sb-gray-200: #6F6F6F;
+
+		--sb-red-100: #DA5D54;
+
+		--sb-blue-100: #3182F7;
+
 	}
 
 	.dark {
@@ -65,5 +78,11 @@
 	}
 	body {
 		@apply bg-background text-foreground;
+	}
+}
+
+@layer components {
+	.green-radio {
+
 	}
 }
