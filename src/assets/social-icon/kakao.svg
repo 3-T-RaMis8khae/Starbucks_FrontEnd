@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="37" height="37" viewBox="0 0 37 37">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: #3e2723;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="사각형_3267" data-name="사각형 3267" class="cls-1" width="22" height="19" transform="translate(-0.44 0.262)"/>
+    </clipPath>
+  </defs>
+  <g id="kakao" transform="translate(-794 -320)">
+    <rect id="사각형_3273" data-name="사각형 3273" class="cls-1" width="37" height="37" transform="translate(794 320)"/>
+    <g id="그룹_6616" data-name="그룹 6616" transform="translate(802.44 328.738)">
+      <g id="그룹_6581" data-name="그룹 6581" transform="translate(0 0)">
+        <g id="그룹_6580" data-name="그룹 6580" class="cls-2" transform="translate(0 0)">
+          <path id="패스_2438" data-name="패스 2438" class="cls-3" d="M-166.818-161c-5.623,0-10.182,3.57-10.182,7.975,0,2.847,1.906,5.346,4.773,6.756-1.424,4.878-2.26,5.2,3.6,1.092a13,13,0,0,0,1.808.126c5.623,0,10.182-3.57,10.182-7.975S-161.2-161-166.818-161Zm0,0" transform="translate(177.015 161.227)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

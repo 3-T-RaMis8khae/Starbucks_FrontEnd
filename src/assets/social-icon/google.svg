@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="37" height="37" viewBox="0 0 37 37">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        clip-path: url(#clip-path-2);
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-5 {
+        clip-path: url(#clip-path-3);
+      }
+
+      .cls-6 {
+        fill: #3e82f1;
+      }
+
+      .cls-7 {
+        clip-path: url(#clip-path-4);
+      }
+
+      .cls-8 {
+        fill: #32a753;
+      }
+
+      .cls-9 {
+        clip-path: url(#clip-path-5);
+      }
+
+      .cls-10 {
+        fill: #f9bb00;
+      }
+
+      .cls-11 {
+        clip-path: url(#clip-path-6);
+      }
+
+      .cls-12 {
+        fill: #e74235;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <path id="교차_17" data-name="교차 17" class="cls-1" d="M1.847,37A1.846,1.846,0,0,1,0,35.153V1.847A1.845,1.845,0,0,1,1.847,0H35.153A1.846,1.846,0,0,1,37,1.847V35.153A1.846,1.846,0,0,1,35.153,37Z" transform="translate(0.032 -0.429)"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="교차_20" data-name="교차 20" class="cls-1" d="M.918,35A.922.922,0,0,1,0,34.082V.918A.921.921,0,0,1,.918,0H34.082A.921.921,0,0,1,35,.918V34.082a.922.922,0,0,1-.918.918Z" transform="translate(-0.027 -0.488)"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <path id="교차_23" data-name="교차 23" class="cls-1" d="M2.824,7.836V5.743A3.837,3.837,0,0,0,4.488,3.226H0V0H7.854a9.591,9.591,0,0,1,.152,1.706,8.137,8.137,0,0,1-2.487,6.13Z"/>
+    </clipPath>
+    <clipPath id="clip-path-4">
+      <path id="교차_26" data-name="교차 26" class="cls-1" d="M0,2.161V0H2.786A4.971,4.971,0,0,0,7.453,3.438a5.011,5.011,0,0,0,2.824-.8l2.7,2.093a7.967,7.967,0,0,1-5.519,2.02A8.338,8.338,0,0,1,0,2.161Z"/>
+    </clipPath>
+    <clipPath id="clip-path-5">
+      <path id="교차_29" data-name="교차 29" class="cls-1" d="M0,3.745A8.338,8.338,0,0,1,.886,0H3.673V2.161a4.94,4.94,0,0,0,0,3.169L.886,7.491A8.341,8.341,0,0,1,0,3.745Z"/>
+    </clipPath>
+    <clipPath id="clip-path-6">
+      <path id="교차_31" data-name="교차 31" class="cls-1" d="M0,4.594A8.338,8.338,0,0,1,7.453,0a8.018,8.018,0,0,1,5.58,2.172L10.64,4.563A4.506,4.506,0,0,0,7.453,3.317,4.97,4.97,0,0,0,2.786,6.755Z"/>
+    </clipPath>
+  </defs>
+  <g id="google" transform="translate(-0.032 0.429)">
+    <g id="그룹_6568" data-name="그룹 6568" transform="translate(1.059 1.059)">
+      <g id="그룹_6567" data-name="그룹 6567" class="cls-3" transform="translate(0 0)">
+        <rect id="사각형_3252" data-name="사각형 3252" class="cls-4" width="44" height="45" transform="translate(-5.027 -5.488)"/>
+      </g>
+    </g>
+    <g id="그룹_6570" data-name="그룹 6570" transform="translate(18.532 17.016)">
+      <g id="그룹_6569" data-name="그룹 6569" class="cls-5">
+        <rect id="사각형_3255" data-name="사각형 3255" class="cls-6" width="17.272" height="17.102" transform="translate(-4.633 -4.633)"/>
+      </g>
+    </g>
+    <g id="그룹_6572" data-name="그룹 6572" transform="translate(11.079 20.117)">
+      <g id="그룹_6571" data-name="그룹 6571" class="cls-7" transform="translate(0 0)">
+        <rect id="사각형_3258" data-name="사각형 3258" class="cls-8" width="22.238" height="16.021" transform="translate(-4.633 -4.633)"/>
+      </g>
+    </g>
+    <g id="그룹_6574" data-name="그룹 6574" transform="translate(10.193 14.787)">
+      <g id="그룹_6573" data-name="그룹 6573" class="cls-9">
+        <rect id="사각형_3261" data-name="사각형 3261" class="cls-10" width="12.939" height="16.757" transform="translate(-4.633 -4.633)"/>
+      </g>
+    </g>
+    <g id="그룹_6576" data-name="그룹 6576" transform="translate(11.079 10.193)">
+      <g id="그룹_6575" data-name="그룹 6575" class="cls-11" transform="translate(0)">
+        <rect id="사각형_3264" data-name="사각형 3264" class="cls-12" width="22.299" height="16.021" transform="translate(-4.633 -4.633)"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -44,9 +44,10 @@ function LabelInput(props: LabelInputProps) {
 				htmlFor={`${props.name ?? "labelInput"}`}
 				className={`
           transition-all duration-100
-          absolute select-none
-          peer-focus/input:left-0 peer-focus/input:top-0 peer-focus/input:text-xs
-          ${isInputValue ? "top-0 left-0 text-xs" : "text-xl left-2 top-5"}
+          absolute select-none text-sb-gray-200
+          peer-focus/input:left-0 peer-focus/input:text-sb-black-100
+          peer-focus/input:top-1 peer-focus/input:text-xs
+          ${isInputValue ? "top-1 left-0 text-xs" : "text-base left-1 top-7"}
         `}
 			>
 				{label_name}
