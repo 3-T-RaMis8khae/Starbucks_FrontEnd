@@ -17,27 +17,6 @@ const config = {
 				"2xl": "1400px"
 			}
 		},
-		colors: {
-			"sb-green": {
-				100: "#01A862",
-				150: "#09743E",
-				200: "#036140"
-			},
-			"sb-gray": {
-				0: "#E0E0E0",
-				100: "#A5A5A5",
-				200: "#6F6F6F"
-			},
-			"sb-black": {
-				100: "#222222"
-			},
-			"sb-red": {
-				100: "#DA5D54"
-			},
-			"sb-blue": {
-				100: "#3182F7"
-			}
-		},
 		extend: {
 			colors: {
 				border: "hsl(var(--border))",
@@ -72,6 +51,25 @@ const config = {
 				card: {
 					DEFAULT: "hsl(var(--card))",
 					foreground: "hsl(var(--card-foreground))"
+				},
+				"sb-green": {
+					100: "#01A862",
+					150: "#09743E",
+					200: "#036140"
+				},
+				"sb-gray": {
+					0: "#E0E0E0",
+					100: "#A5A5A5",
+					200: "#6F6F6F"
+				},
+				"sb-black": {
+					100: "#222222"
+				},
+				"sb-red": {
+					100: "#DA5D54"
+				},
+				"sb-blue": {
+					100: "#3182F7"
 				}
 			},
 			borderRadius: {
