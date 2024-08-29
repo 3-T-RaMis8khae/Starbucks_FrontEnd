@@ -1,10 +1,13 @@
 import { Button } from "@/components/ui/button"
 import { CloseIcon } from "next/dist/client/components/react-dev-overlay/internal/icons/CloseIcon"
 import { Input } from "@/components/ui/input"
-import CloseSvg from "@/assets/svg/close.svg"
-import CloseSvgURI from "@/assets/svg/close.svg?url"
 import Image from "next/image"
 import LabelInput from "@/components/atom/Input/LabelInput"
+import VerificationCard from "@/components/atom/card/verificationCard"
+import CloseSvg from "@/assets/svg/close.svg"
+import CloseSvgURI from "@/assets/svg/close.svg?url"
+import TossURI from "@/assets/image/tossImage.webp"
+import PhoneURI from "@/assets/image/mobilePhone.png"
 
 export default function ComponentPage() {
 	return (
@@ -36,8 +39,16 @@ export default function ComponentPage() {
 
 			<h2 className="mt-5">Identity Verification card</h2>
 			<div className="flex flex-col gap-2.5">
-				<LabelInput label_name="label" />
-				<LabelInput label_name="error test" />
+				<VerificationCard
+					image={{ url: TossURI, alt: "phone.png" }}
+					title="토스로 인증하기"
+					sub_title="5초만에 간편하게 인증할 수 있어요."
+				></VerificationCard>
+				<VerificationCard
+					image={{ url: PhoneURI, alt: "phone.png" }}
+					title="휴대폰 본인 인증하기"
+					sub_title="본인 명의 휴대폰으로 인증할 수 있어요."
+				></VerificationCard>
 			</div>
 		</main>
 	)
