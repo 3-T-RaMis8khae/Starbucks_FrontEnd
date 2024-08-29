@@ -10,7 +10,7 @@ export default function LoginPage() {
 		<main className="w-screen h-full flex flex-col">
 			<BaseHeader title={"로그인"}></BaseHeader>
 
-			<div className="w-full flex flex-col mt-[50px] px-[30px]">
+			<div className="w-full flex flex-col mt-[60px] px-[30px]">
 				<Image
 					className="mb-6 mt-8"
 					src={StarbucksSvgUrl}
