@@ -33,6 +33,12 @@ export default function ComponentPage() {
 				<LabelInput label_name="label" />
 				<LabelInput label_name="error test" />
 			</div>
+
+			<h2 className="mt-5">Identity Verification card</h2>
+			<div className="flex flex-col gap-2.5">
+				<LabelInput label_name="label" />
+				<LabelInput label_name="error test" />
+			</div>
 		</main>
 	)
 }
