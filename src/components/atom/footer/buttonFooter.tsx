@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import React from "react"
 
 interface BtFooterIf {
-	button_props?: React.InputHTMLAttributes<HTMLButtonElement>
+	button_props?: React.ButtonHTMLAttributes<HTMLButtonElement>
 	button_title?: string
 }
 
