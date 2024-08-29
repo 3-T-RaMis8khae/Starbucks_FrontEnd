@@ -29,14 +29,20 @@ export default function IdentityVerificationPage() {
 	return (
 		<main className="w-screen h-full flex flex-col">
 			<BaseHeader
-				leftComponent={<Image width={20} height={20} src={CloseURL} alt="close.svg"></Image>}
+				leftComponent={
+					<Image width={20} height={20} src={CloseURL} alt="close.svg"></Image>
+				}
 				title=""
 			></BaseHeader>
 
 			<div className="w-full flex flex-col mt-[70px] px-[30px]">
 				<div className="flex flex-col gap-2 mb-10">
-					<p className="text-2xl text-sb-black-100 font-semibold">본인확인을 위해</p>
-					<p className="text-2xl text-sb-black-100 font-semibold">인증을 진행해 주세요</p>
+					<p className="text-2xl text-sb-black-100 font-semibold">
+						본인확인을 위해
+					</p>
+					<p className="text-2xl text-sb-black-100 font-semibold">
+						인증을 진행해 주세요
+					</p>
 				</div>
 			</div>
 
@@ -59,7 +65,10 @@ export default function IdentityVerificationPage() {
 				></VerificationCard>
 			</div>
 
-			<ButtonFooter button_title="다음" button_props={{ type: "button" }}></ButtonFooter>
+			<ButtonFooter
+				button_title="다음"
+				button_props={{ type: "button" }}
+			></ButtonFooter>
 		</main>
 	)
 }

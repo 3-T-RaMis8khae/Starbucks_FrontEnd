@@ -6,7 +6,10 @@ interface BtFooterIf {
 	button_title?: string
 }
 
-export default function ButtonFooter({ button_props, button_title }: BtFooterIf) {
+export default function ButtonFooter({
+	button_props,
+	button_title
+}: BtFooterIf) {
 	return (
 		<footer
 			className="
