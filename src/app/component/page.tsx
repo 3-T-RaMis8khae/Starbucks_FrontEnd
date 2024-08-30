@@ -37,19 +37,19 @@ export default function ComponentPage() {
 				<LabelInput label_name="error test" />
 			</div>
 
-			<h2 className="mt-5">Identity Verification card</h2>
-			<div className="flex flex-col gap-2.5">
-				<VerificationCard
-					image={{ url: TossURI, alt: "phone.png" }}
-					title="토스로 인증하기"
-					sub_title="5초만에 간편하게 인증할 수 있어요."
-				></VerificationCard>
-				<VerificationCard
-					image={{ url: PhoneURI, alt: "phone.png" }}
-					title="휴대폰 본인 인증하기"
-					sub_title="본인 명의 휴대폰으로 인증할 수 있어요."
-				></VerificationCard>
-			</div>
+			{/*<h2 className="mt-5">Identity Verification card</h2>*/}
+			{/*<div className="flex flex-col gap-2.5">*/}
+			{/*	<VerificationCard*/}
+			{/*		image={{ url: TossURI, alt: "phone.png" }}*/}
+			{/*		title="토스로 인증하기"*/}
+			{/*		sub_title="5초만에 간편하게 인증할 수 있어요."*/}
+			{/*	></VerificationCard>*/}
+			{/*	<VerificationCard*/}
+			{/*		image={{ url: PhoneURI, alt: "phone.png" }}*/}
+			{/*		title="휴대폰 본인 인증하기"*/}
+			{/*		sub_title="본인 명의 휴대폰으로 인증할 수 있어요."*/}
+			{/*	></VerificationCard>*/}
+			{/*</div>*/}
 		</main>
 	)
 }
