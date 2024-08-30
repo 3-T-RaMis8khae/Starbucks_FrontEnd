@@ -5,12 +5,12 @@ import Image from "next/image"
 
 import BaseHeader from "@/components/atom/header/baseHeader"
 import ButtonFooter from "@/components/atom/footer/buttonFooter"
-import VerificationCard from "@/components/atom/card/verificationCard"
+import VerificationCard from "@/components/molecule/card/verificationCard"
 
 import CloseURL from "@/assets/svg/close.svg?url"
 import TossURI from "@/assets/image/tossImage.webp"
 import PhoneURI from "@/assets/image/mobilePhone.png"
-import { RadioType } from "@/components/atom/card/verificationCard"
+import { RadioType } from "@/components/molecule/card/verificationCard"
 
 // todo - 1) Need to refactor the partial codes into new component
 // todo - 2) Need to implement the feature to proceed to mobile toss verification.

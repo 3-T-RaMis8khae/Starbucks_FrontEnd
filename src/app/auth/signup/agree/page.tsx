@@ -4,8 +4,8 @@ import Link from "next/link"
 import Image from "next/image"
 import CloseSvgURL from "@/assets/svg/close.svg?url"
 import StarbucksSvgUrl from "@/assets/icon/startbucks.svg?url"
-import CheckBox from "@/components/atom/checkBox/checkBox"
-import BaseCheckBox from "@/components/atom/checkBox/baseCheckBox"
+import CheckBox from "@/components/molecule/checkBox/checkBox"
+import BaseCheckBox from "@/components/molecule/checkBox/baseCheckBox"
 
 export default function AgreePage() {
 	return (

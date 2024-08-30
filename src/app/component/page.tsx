@@ -2,13 +2,10 @@ import { Button } from "@/components/ui/button"
 import { CloseIcon } from "next/dist/client/components/react-dev-overlay/internal/icons/CloseIcon"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
-import LabelInput from "@/components/atom/Input/LabelInput"
-import VerificationCard from "@/components/atom/card/verificationCard"
+import LabelInput from "@/components/molecule/input/LabelInput"
 import CloseSvg from "@/assets/svg/close.svg"
 import CloseSvgURI from "@/assets/svg/close.svg?url"
-import TossURI from "@/assets/image/tossImage.webp"
-import PhoneURI from "@/assets/image/mobilePhone.png"
-import CheckBox from "@/components/atom/checkBox/checkBox"
+import CheckBox from "@/components/molecule/checkBox/checkBox"
 
 export default function ComponentPage() {
 	return (
