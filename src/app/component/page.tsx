@@ -8,6 +8,7 @@ import CloseSvg from "@/assets/svg/close.svg"
 import CloseSvgURI from "@/assets/svg/close.svg?url"
 import TossURI from "@/assets/image/tossImage.webp"
 import PhoneURI from "@/assets/image/mobilePhone.png"
+import CheckBox from "@/components/atom/checkBox/checkBox"
 
 export default function ComponentPage() {
 	return (
@@ -50,6 +51,16 @@ export default function ComponentPage() {
 			{/*		sub_title="본인 명의 휴대폰으로 인증할 수 있어요."*/}
 			{/*	></VerificationCard>*/}
 			{/*</div>*/}
+
+			<h2 className="mt-5">CheckBox</h2>
+			<div className="flex flex-col items-center gap-2.5">
+				<CheckBox id="use-agreement" ct_label="[필수] 이용약관 동의"></CheckBox>
+				<CheckBox
+					id="info-agreement"
+					ct_label="[필수] 개인정보 수집 및 이용동의"
+					ct_showIcon={true}
+				></CheckBox>
+			</div>
 		</main>
 	)
 }
