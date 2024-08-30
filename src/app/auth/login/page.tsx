@@ -5,6 +5,7 @@ import StarbucksSvgUrl from "@/assets/icon/startbucks.svg?url"
 import Link from "next/link"
 import Image from "next/image"
 
+// todo - 1) Need to implement the feature for Authentication.
 export default function LoginPage() {
 	return (
 		<main className="w-screen h-full flex flex-col">
