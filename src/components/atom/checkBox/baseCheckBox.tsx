@@ -2,15 +2,15 @@ import React from "react"
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
 import { Checkbox } from "@/components/ui/checkbox"
 
-interface BaseCheckBoxProps {
+interface BaseCheckBoxProps
+	extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {
 	ct_label?: string
 	ct_container_props?: React.HTMLAttributes<HTMLInputElement>
 }
 
 const BaseCheckBox = React.forwardRef<
 	React.ElementRef<typeof CheckboxPrimitive.Root>,
-	React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> &
-		BaseCheckBoxProps
+	BaseCheckBoxProps
 >(({ ct_label = "", ct_container_props = {}, ...props }, ref) => {
 	return (
 		<div

@@ -7,7 +7,8 @@ import caretRightURL from "@/assets/svg/caret-right.svg?url"
 import Link from "next/link"
 
 // ct => custom
-type CheckBoxProps = {
+interface CheckBoxProps
+	extends React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> {
 	ct_showIcon?: boolean
 	ct_icon?: string | StaticImport
 	ct_icon_alt?: string
@@ -18,7 +19,7 @@ type CheckBoxProps = {
 
 const CheckBox = React.forwardRef<
 	React.ElementRef<typeof CheckboxPrimitive.Root>,
-	React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> & CheckBoxProps
+	CheckBoxProps
 >(
 	(
 		{
@@ -70,18 +71,3 @@ const CheckBox = React.forwardRef<
 CheckBox.displayName = "CheckBox"
 
 export default CheckBox
-
-/*
-function CheckBox(props: CheckBoxProps) {
-	const { showIcon, icon, id } = props
-	return (
-		<div className="w-full h-7 bg-white flex items-center justify-between">
-			<Checkbox id={}></Checkbox>
-			<div className="grid pl-1">
-				<label htmlFor=""></label>
-			</div>
-		</div>
-	)
-}
-export default CheckBox
-*/
