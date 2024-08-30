@@ -37,6 +37,7 @@ const verificationCardInit: VerificationCardProps = {
 	curCheck: "--"
 }
 
+// todo - Need to modify radio button style
 function VerificationCard(props = verificationCardInit) {
 	const { title, sub_title, image, radio_props, curCheck, onRadioChange } =
 		props
