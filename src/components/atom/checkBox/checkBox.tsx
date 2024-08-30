@@ -4,8 +4,6 @@ import { StaticImport } from "next/dist/shared/lib/get-img-props"
 import { Checkbox } from "@/components/ui/checkbox"
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
 import caretRightURL from "@/assets/svg/caret-right.svg?url"
-import { cn } from "@/lib/utils"
-import { Check } from "lucide-react"
 import Link from "next/link"
 
 // ct => custom
@@ -64,6 +62,7 @@ const CheckBox = React.forwardRef<
 		)
 	}
 )
+CheckBox.displayName = "CheckBox"
 
 export default CheckBox
 
