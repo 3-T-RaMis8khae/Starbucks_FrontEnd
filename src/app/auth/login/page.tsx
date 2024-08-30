@@ -31,7 +31,7 @@ export default function LoginPage() {
 				<form>
 					<div className="flex flex-col items-center gap-2.5">
 						<LabelInput label_name={"아이디"}></LabelInput>
-						<LabelInput label_name={"비밀번호"}></LabelInput>
+						<LabelInput label_name={"비밀번호"} type={"password"}></LabelInput>
 					</div>
 					<ButtonFooter
 						button_title="로그인하기"
