@@ -74,7 +74,7 @@ function VerificationCard(props = verificationCardInit) {
 				</div>
 			</div>
 			<input
-				className="w-5 h-5 indeterminate::bg-sb-green-150"
+				className="w-5 h-5"
 				type="radio"
 				checked={curCheck == radio_props.value}
 				onChange={(event) => {
