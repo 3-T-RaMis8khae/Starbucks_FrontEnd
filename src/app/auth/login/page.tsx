@@ -1,6 +1,6 @@
 import BaseHeader from "@/components/atom/header/baseHeader"
 import ButtonFooter from "@/components/atom/footer/buttonFooter"
-import LabelInput from "@/components/molecule/input/LabelInput"
+import LabelInput from "@/components/molecule/input/labelInput"
 import StarbucksSvgUrl from "@/assets/icon/startbucks.svg?url"
 import Link from "next/link"
 import Image from "next/image"
