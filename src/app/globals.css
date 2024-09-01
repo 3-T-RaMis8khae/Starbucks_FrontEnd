@@ -91,13 +91,12 @@
 	}
 
 	ul.input-desc {
-		@apply mt-4 gap-2
+		@apply mt-4 gap-2;
 	}
 	ul.input-desc li::before {
-		@apply left-0 mb-2 absolute content-['*']
+		@apply left-0 mb-2 absolute content-['*'];
 	}
 	ul.input-desc li {
-		@apply relative text-[12px] text-sb-gray-100 pl-3 text-pretty
+		@apply relative text-[12px] text-sb-gray-100 pl-3 text-pretty;
 	}
-
 }
