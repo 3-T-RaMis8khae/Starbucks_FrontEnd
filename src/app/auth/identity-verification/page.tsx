@@ -35,7 +35,6 @@ export default function IdentityVerificationPage() {
 				leftComponent={
 					<Image width={20} height={20} src={CloseURL} alt="close.svg"></Image>
 				}
-				title=""
 			></BaseHeader>
 
 			<div className="w-full flex flex-col mt-[70px] px-[30px]">

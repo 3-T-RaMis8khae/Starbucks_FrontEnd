@@ -25,7 +25,7 @@ const BaseCheckBox = React.forwardRef<
 				></Checkbox>
 				<label
 					htmlFor={`${props.id}`}
-					className="text-sm pl-2 select-none font-normal text-sb-black-100 cursor-pointer"
+					className="text-xs pl-2 select-none font-normal text-sb-black-100 cursor-pointer"
 				>
 					{ct_label}
 				</label>

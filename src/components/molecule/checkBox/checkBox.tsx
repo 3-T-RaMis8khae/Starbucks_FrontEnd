@@ -42,7 +42,7 @@ const CheckBox = React.forwardRef<
 					<Checkbox
 						ref={ref}
 						{...props}
-						className={`w-5 h-5 border-sb-green-100 data-[state=checked]:bg-sb-green-100 ${props.className}`}
+						className={`w-5 h-5 border-sb-green-100 data-[state=checked]:bg-sb-green-100 ${props.className ?? ""}`}
 					></Checkbox>
 					<label
 						htmlFor={`${props.id}`}

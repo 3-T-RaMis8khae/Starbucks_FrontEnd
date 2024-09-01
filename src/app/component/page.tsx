@@ -2,11 +2,21 @@ import { Button } from "@/components/ui/button"
 import { CloseIcon } from "next/dist/client/components/react-dev-overlay/internal/icons/CloseIcon"
 import { Input } from "@/components/ui/input"
 import Image from "next/image"
-import LabelInput from "@/components/molecule/input/LabelInput"
+import LabelInput from "@/components/molecule/input/labelInput"
 import CloseSvg from "@/assets/svg/close.svg"
 import CloseSvgURI from "@/assets/svg/close.svg?url"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
 import { BaseInput } from "@/components/atom/input/baseInput"
+
+import {
+	Select,
+	SelectContent,
+	SelectGroup,
+	SelectItem,
+	SelectLabel,
+	SelectTrigger,
+	SelectValue
+} from "@/components/ui/select"
 
 export default function ComponentPage() {
 	return (
@@ -30,6 +40,7 @@ export default function ComponentPage() {
 			<h2 className="mt-5">Inputs</h2>
 			<div className="flex flex-col gap-2.5">
 				<Input />
+				<select></select>
 			</div>
 			<div className="mt-2 flex flex-col gap-2.5">
 				<LabelInput label_name="label" />

@@ -9,7 +9,7 @@ import Image from "next/image"
 export default function LoginPage() {
 	return (
 		<main className="w-screen h-full flex flex-col">
-			<BaseHeader title={"로그인"}></BaseHeader>
+			<BaseHeader middleComponent={"로그인"}></BaseHeader>
 
 			<div className="w-full flex flex-col mt-[60px] px-[30px]">
 				<Image

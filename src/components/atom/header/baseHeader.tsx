@@ -4,30 +4,28 @@ interface BaseHeaderProps {
 	leftComponent?: React.ReactNode
 	rightComponent?: React.ReactNode
 	middleComponent?: React.ReactNode
-	title?: string
 }
 
 function BaseHeader(
 	props: BaseHeaderProps = {
 		leftComponent: <></>,
 		rightComponent: <></>,
-		middleComponent: undefined,
-		title: ""
+		middleComponent: undefined
 	}
 ) {
 	return (
 		<header className="w-full h-[50px] py-[10px] px-[24px] fixed flex items-center justify-between bg-white">
 			{props.leftComponent}
-			{props.middleComponent ?? (
-				<h1
+			{props.middleComponent && (
+				<div
 					className="
 					absolute select-none m-0
 					top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]
 					font-semibold text-sb-black-100
 				"
 				>
-					{props.title}
-				</h1>
+					{props.middleComponent}
+				</div>
 			)}
 
 			{props.rightComponent}
