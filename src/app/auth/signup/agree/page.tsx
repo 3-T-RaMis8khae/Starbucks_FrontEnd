@@ -9,7 +9,7 @@ import BaseCheckBox from "@/components/molecule/checkBox/baseCheckBox"
 
 export default function AgreePage() {
 	return (
-		<main className="w-screen h-full flex flex-col">
+		<main className="w-screen h-screen flex flex-col hidden-scroll">
 			<BaseHeader
 				leftComponent={
 					<Link href={"/"}>
@@ -18,7 +18,7 @@ export default function AgreePage() {
 				}
 			></BaseHeader>
 
-			<div className="w-full flex flex-col mt-[60px] px-[30px]">
+			<div className="w-full h-full flex flex-col mt-[60px] mb-[90px] px-[30px]">
 				<Image
 					className="mb-6 mt-12"
 					src={StarbucksSvgUrl}
