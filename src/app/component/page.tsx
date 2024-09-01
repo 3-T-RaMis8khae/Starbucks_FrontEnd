@@ -6,6 +6,7 @@ import LabelInput from "@/components/molecule/input/LabelInput"
 import CloseSvg from "@/assets/svg/close.svg"
 import CloseSvgURI from "@/assets/svg/close.svg?url"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
+import { BaseInput } from "@/components/atom/input/baseInput"
 
 export default function ComponentPage() {
 	return (
@@ -33,6 +34,32 @@ export default function ComponentPage() {
 			<div className="mt-2 flex flex-col gap-2.5">
 				<LabelInput label_name="label" />
 				<LabelInput label_name="error test" />
+			</div>
+
+			<h2 className="mt-2">Base Inputs</h2>
+			<div className="mt-2 flex flex-col gap-2.5">
+				<BaseInput placeholder="아이디 (4-13자리 이내)"></BaseInput>
+				<BaseInput
+					placeholder="아이디 (4-13자리 이내)"
+					ct_check_visible={true}
+				></BaseInput>
+				<BaseInput
+					placeholder="아이디 (4-13자리 이내)"
+					ct_type={"text"}
+				></BaseInput>
+				<BaseInput
+					placeholder="아이디 (4-13자리 이내)"
+					ct_type={"color"}
+				></BaseInput>
+				<BaseInput
+					placeholder="아이디 (4-13자리 이내)"
+					ct_type={"email"}
+				></BaseInput>
+				<h2>hidden input</h2>
+				<BaseInput
+					placeholder="아이디 (4-13자리 이내)"
+					ct_type={"hidden"}
+				></BaseInput>
 			</div>
 
 			{/*<h2 className="mt-5">Identity Verification card</h2>*/}
