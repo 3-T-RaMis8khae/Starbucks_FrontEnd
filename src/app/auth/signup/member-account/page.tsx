@@ -29,7 +29,7 @@ export default function Member_accountPage() {
 				<div className="flex flex-col gap-2.5">
 					<BaseInput
 						placeholder="아이디 (4-13자리 이내)"
-						ct_type={"text"}
+						ct_type={"email"}
 					></BaseInput>
 					<BaseInput placeholder="비밀번호 (10~20자리 이내)"></BaseInput>
 					<BaseInput placeholder="비밀번호 확인"></BaseInput>
