@@ -81,6 +81,12 @@
 }
 
 @layer components {
-	.green-radio {
+	.hidden-scroll {
+		overflow: auto; /* Allows scrolling */
+		-ms-overflow-style: none; /* Hides scrollbar for IE and Edge */
+		scrollbar-width: none; /* Hides scrollbar for Firefox */
+	}
+	.hidden-scroll::-webkit-scrollbar {
+		display: none; /* Hide the scrollbar */
 	}
 }
