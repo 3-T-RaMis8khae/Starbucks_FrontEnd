@@ -7,6 +7,7 @@ import StarbucksSvgUrl from "@/assets/icon/startbucks.svg?url"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
 import BaseCheckBox from "@/components/molecule/checkBox/baseCheckBox"
 
+// todo : need to fix scroll style in small device
 export default function AgreePage() {
 	return (
 		<main className="w-screen h-screen flex flex-col hidden-scroll">
@@ -18,9 +19,9 @@ export default function AgreePage() {
 				}
 			></BaseHeader>
 
-			<div className="w-full h-full flex flex-col mt-[60px] mb-[90px] px-[30px]">
+			<div className="w-full h-full flex flex-col mt-[50px] mb-[90px] px-[30px] pb-8 hidden-scroll">
 				<Image
-					className="mb-6 mt-12"
+					className="mb-6 mt-14"
 					src={StarbucksSvgUrl}
 					alt="startbuck.svg"
 					width={60}

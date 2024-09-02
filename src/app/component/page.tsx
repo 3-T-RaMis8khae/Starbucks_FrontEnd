@@ -8,16 +8,6 @@ import CloseSvgURI from "@/assets/svg/close.svg?url"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
 import { BaseInput } from "@/components/atom/input/baseInput"
 
-import {
-	Select,
-	SelectContent,
-	SelectGroup,
-	SelectItem,
-	SelectLabel,
-	SelectTrigger,
-	SelectValue
-} from "@/components/ui/select"
-
 export default function ComponentPage() {
 	return (
 		<main className="flex flex-col gap-4 p-2.5">
