@@ -29,7 +29,7 @@ export default function AgreePage() {
 				></Image>
 
 				<div className="flex flex-col gap-2 mb-10">
-					<p className="text-2xl text-sb-black-100 font-semibold">고객님.</p>
+					<p className="text-2xl text-sb-black-100 font-semibold">고객님,</p>
 					<p className="text-2xl text-sb-black-100 font-semibold">
 						환영합니다!
 					</p>
