@@ -11,7 +11,7 @@ function RrnInput(props: RrnInputProps) {
 	const secondInputRef = useRef<HTMLInputElement>(null)
 
 	return (
-		<fieldset className="w-full flex items-center justify-between relative">
+		<fieldset className="w-full flex items-center justify-between relative border-b border-b-sb-gray-0">
 			<BaseInput
 				ct_type="tel"
 				placeholder="생년월일 6자리"
@@ -29,8 +29,10 @@ function RrnInput(props: RrnInputProps) {
 					dir="rtl"
 				></BaseInput>
 				<div className="absolute flex items-center gap-[2px] top-1/2 right-1 translate-y-[-50%] z-0">
-					{_.times(6, () => (
-						<span className="text-sb-black-100">•</span>
+					{_.times(6, (num) => (
+						<span className="text-sb-black-100" key={num}>
+							•
+						</span>
 					))}
 				</div>
 			</div>
