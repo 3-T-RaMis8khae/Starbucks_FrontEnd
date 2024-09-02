@@ -23,14 +23,14 @@ function RrnInput(props: RrnInputProps) {
 				<BaseInput
 					ref={secondInputRef}
 					ct_type="tel"
-					placeholder="●"
+					placeholder="•"
 					maxLength={1}
-					className="border-none w-[100px] pr-[78px] bg-transparent z-[1]"
+					className="border-none w-[100px] pr-[70px] bg-transparent z-[1]"
 					dir="rtl"
 				></BaseInput>
 				<div className="absolute flex items-center gap-[2px] top-1/2 right-1 translate-y-[-50%] z-0">
 					{_.times(6, () => (
-						<span className="text-sb-black-100">●</span>
+						<span className="text-sb-black-100">•</span>
 					))}
 				</div>
 			</div>
