@@ -16,27 +16,25 @@ import {
 	SelectValue
 } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
-import { useForm, SubmitHandler } from "react-hook-form"
+import { useForm, SubmitHandler, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { handleNumberKeyPress } from "@/lib/inputUtils"
 
 export const mobileCarrier = {
-	skt: "SKT",
-	kt: "KT",
-	lgu: "LGU+",
-	sktEc: "SKT-Economical",
-	ktEc: "KT-Economical",
-	lguEc: "LGU+-Economical"
+	skt: { name: "SKT", value: "SKT" },
+	kt: { name: "KT", value: "KT" },
+	lgu: { name: "LGU+", value: "LGU+" },
+	sktEc: { name: "SKT 알뜰폰", value: "SKT-Economical" },
+	ktEc: { name: "KT 알뜰폰", value: "KT-Economical" },
+	lguEc: { name: "LGU+ 알뜰폰", value: "LGU+-Economical" }
 }
-export type MobileCarrierValueType = ValueOf<typeof mobileCarrier>
 
 export interface PhoneVerificationType {
 	terms: boolean // 약관 전체 동의
 	name: string // 유저 이름
 	birthDate: string // 6자리 (생년월일)
 	firstRrn: string // 주민번호 뒷자리 첫번째 문자
-	mobileCarrier: string // 통신사
 	phoneNumber: string // 휴대전화번호
 }
 
@@ -66,7 +64,7 @@ const schema = z.object({
 	name: z.string().min(2),
 	birthDate: z.string().length(6),
 	firstRrn: z.string().length(1),
-	// mobileCarrier: z.string(),
+	// mobileCarrier: z.string().min(1),
 	phoneNumber: z.string().min(10).max(11)
 })
 
@@ -74,8 +72,13 @@ function PhoneVerification(props: PhoneVerificationProps) {
 	// react hooks
 	const [isTermChecked, setIsTermChecked] = useState<boolean>(!!props.terms)
 
-	// const [isPhoneVerified, setIsPhoneVerified] = useState<boolean>(false)
-	// const [isBtClicked, setIsBtClicked] = useState<boolean>(false)
+	const [isPhoneVerified, setIsPhoneVerified] = useState<boolean>(false)
+	const [phoneVerification, setPhoneVerification] = useState<string>("")
+	const [isBtClicked, setIsBtClicked] = useState<boolean>(false)
+
+	const [phoneCarrier, setPhoneCarrier] = useState<string>(
+		mobileCarrier.skt.value
+	)
 
 	const {
 		register,
@@ -84,7 +87,6 @@ function PhoneVerification(props: PhoneVerificationProps) {
 	} = useForm({
 		resolver: zodResolver(schema)
 	})
-	const rrnInputRef = useRef<HTMLInputElement>(null)
 
 	return (
 		<>
@@ -130,10 +132,10 @@ function PhoneVerification(props: PhoneVerificationProps) {
 				className="flex flex-col gap-2 mt-2"
 				onSubmit={handleSubmit(
 					(data, event) => {
-						console.log("on valid submit : ", data, event)
+						console.log("on valid submit : ", data, phoneCarrier, event)
 					},
 					(data, event) => {
-						console.log("on invalid submit : ", data, event)
+						console.log("on invalid submit : ", data, phoneCarrier, event)
 					}
 				)}
 			>
@@ -150,10 +152,7 @@ function PhoneVerification(props: PhoneVerificationProps) {
 						{...register("birthDate")}
 					></BaseInput>
 					<span className="w-3 h-[1px] border-[1px] border-t-sb-gray-100 absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"></span>
-					<div
-						className="relative"
-						onClickCapture={() => rrnInputRef.current?.focus()}
-					>
+					<div className="relative" onClickCapture={() => {}}>
 						<BaseInput
 							ct_type="text"
 							placeholder="•"
@@ -176,25 +175,26 @@ function PhoneVerification(props: PhoneVerificationProps) {
 				{/* Phone Number Input */}
 				<div className="flex items-center justify-between border-b border-b-sb-gray-0">
 					<div className="flex items-center">
-						<Select>
+						<Select
+							defaultValue={mobileCarrier.skt.value}
+							onValueChange={(value) => {
+								setPhoneCarrier(value)
+							}}
+						>
 							<SelectTrigger className="w-[120px] border-none text-base text-sb-gray-100 focus:border-none px-1">
-								<SelectValue
-									placeholder="통신사 선택"
-									defaultValue={mobileCarrier.skt}
-								></SelectValue>
+								<SelectValue placeholder="통신사 선택"></SelectValue>
 							</SelectTrigger>
 							<SelectContent>
 								<SelectGroup className="*:text-base *:text-sb-gray-100 h-[100px]">
-									<SelectItem value={mobileCarrier.skt}>SKT</SelectItem>
-									<SelectItem value={mobileCarrier.kt}>KT</SelectItem>
-									<SelectItem value={mobileCarrier.lgu}>LGU+</SelectItem>
-									<SelectItem value={mobileCarrier.sktEc}>
-										SKT 알뜰폰
-									</SelectItem>
-									<SelectItem value={mobileCarrier.ktEc}>KT 알뜰폰</SelectItem>
-									<SelectItem value={mobileCarrier.lguEc}>
-										LGU+ 알뜰폰
-									</SelectItem>
+									{_.keys(mobileCarrier).map((v) => {
+										const key: keyof typeof mobileCarrier =
+											v as keyof typeof mobileCarrier
+										return (
+											<SelectItem key={v} value={mobileCarrier[key].value}>
+												{mobileCarrier[key].name}
+											</SelectItem>
+										)
+									})}
 								</SelectGroup>
 							</SelectContent>
 						</Select>
@@ -214,10 +214,26 @@ function PhoneVerification(props: PhoneVerificationProps) {
 						className="text-sm font-medium select-none"
 						type={"button"}
 						disabled={!isValid}
+						onClick={() => {
+							setIsBtClicked(true)
+						}}
 					>
 						인증요청
 					</Button>
 				</div>
+
+				{isBtClicked && (
+					<BaseInput
+						value={phoneVerification}
+						onChange={(event) => {
+							setPhoneVerification(event.target.value)
+						}}
+						ct_type="text"
+						placeholder="인증번호"
+						maxLength={6}
+						onKeyDown={handleNumberKeyPress}
+					></BaseInput>
+				)}
 
 				<ul className="input-desc !mt-0">
 					<li>
@@ -228,7 +244,10 @@ function PhoneVerification(props: PhoneVerificationProps) {
 
 				<ButtonFooter
 					button_title="다음"
-					button_props={{ type: "submit" }}
+					button_props={{
+						type: "submit",
+						disabled: !(isTermChecked && isValid && isPhoneVerified)
+					}}
 				></ButtonFooter>
 			</form>
 		</>
