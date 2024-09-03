@@ -23,7 +23,7 @@ export default function ButtonFooter({
 				variant="sbGreen"
 				size="sbFooter"
 				className="text-white w-full mt-5"
-				{...{ props: button_props }}
+				{...button_props}
 			>
 				{button_title}
 			</Button>
