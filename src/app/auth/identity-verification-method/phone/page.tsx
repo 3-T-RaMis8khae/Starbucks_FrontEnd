@@ -1,14 +1,20 @@
+"use client"
+
 import Image from "next/image"
 
 import BaseHeader from "@/components/atom/header/baseHeader"
-import ButtonFooter from "@/components/atom/footer/buttonFooter"
 import CloseURL from "@/assets/svg/close.svg?url"
-import CheckBox from "@/components/molecule/checkBox/checkBox"
-import TermsItem from "@/components/atom/termsItem"
-import { BaseInput } from "@/components/atom/input/baseInput"
 import React from "react"
-import PhoneNumberInput from "@/components/molecule/input/phoneNumberInput"
-import RrnInput from "@/components/molecule/input/rrnInput"
+import PhoneVerification from "@/components/organism/auth/phoneVerification"
+
+export interface IdentityVerificationType {
+	terms: boolean // 약관 전체 동의
+	name: string // 유저 이름
+	birthDate: string // 6자리 (생년월일)
+	firstOfRrn: string // 주민번호 뒷자리 첫번째 문자
+	mobileCarrier: string // 통신사
+	phoneNumber: string // 휴대전화번호
+}
 
 export default function IdentityVerificationPage() {
 	return (
@@ -29,57 +35,8 @@ export default function IdentityVerificationPage() {
 					</p>
 				</div>
 
-				<div className="flex flex-col gap-2.5 relative">
-					<div className="flex flex-col justify-center ">
-						<CheckBox
-							id="agree-all"
-							ct_label="[필수] 본인 인증 서비스 약관 전체 동의"
-							ct_container_props={{
-								className: "mb-3.5"
-							}}
-						></CheckBox>
-
-						<div className="flex flex-col gap-2 pb-3.5">
-							<TermsItem
-								ct_terms="휴대폰 본인인증 서비스 이용약관 동의"
-								ct_showIcon={true}
-							></TermsItem>
-							<TermsItem
-								ct_terms="휴대폰 통신사 이용약관 동의"
-								ct_showIcon={true}
-							></TermsItem>
-							<TermsItem
-								ct_terms="개인정보 제공 및 이용 동의"
-								ct_showIcon={true}
-							></TermsItem>
-							<TermsItem
-								ct_terms="고유식별정보 처리"
-								ct_showIcon={true}
-							></TermsItem>
-
-							<div className="absolute left-[-30px] bottom-0 w-screen h-[1px] border-b-sb-gray-0 border-b-[1px] "></div>
-						</div>
-					</div>
-				</div>
-
-				<div className="flex flex-col gap-2 mt-2">
-					<BaseInput ct_type="text" placeholder="이름" />
-					<RrnInput></RrnInput>
-					<PhoneNumberInput></PhoneNumberInput>
-
-					<ul className="input-desc !mt-0">
-						<li>
-							타인의 개인정보를 도용하여 가입한 경우, 서비스 이용 제한 및 법적
-							제재를 받으실 수 있습니다.
-						</li>
-					</ul>
-				</div>
+				<PhoneVerification></PhoneVerification>
 			</div>
-
-			<ButtonFooter
-				button_title="다음"
-				button_props={{ type: "button" }}
-			></ButtonFooter>
 		</main>
 	)
 }
