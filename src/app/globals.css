@@ -91,7 +91,7 @@
 	}
 
 	ul.input-desc {
-		@apply mt-4 gap-2;
+		@apply flex flex-col gap-2;
 	}
 	ul.input-desc li::before {
 		@apply left-0 mb-2 absolute content-['*'];

@@ -27,7 +27,7 @@ export default function EmailPage() {
 
 				<div className="flex flex-col">
 					<BaseInput ct_type="email" placeholder="이메일을 입력해주세요" />
-					<ul className="input-desc">
+					<ul className="input-desc mt-4">
 						<li>
 							스타벅스 코리아의 새로운 서비스와 최신 이벤트 정보를 이메일로
 							보내드려요.
