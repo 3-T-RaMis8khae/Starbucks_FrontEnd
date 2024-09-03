@@ -24,7 +24,7 @@ export default function TermsItem(props: CheckBoxProps) {
 			className={`w-full h-7 bg-white flex items-center justify-between ${props.ct_container_props?.className}`}
 		>
 			<div className="flex items-center">
-				<span className="text-sm pl-2 select-none font-normal text-sb-black-100 cursor-pointer">
+				<span className="text-sm select-none font-normal text-sb-black-100 cursor-pointer">
 					{props.ct_terms}
 				</span>
 			</div>
