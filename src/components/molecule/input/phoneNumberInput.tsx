@@ -29,7 +29,7 @@ function PhoneNumberInput(props: PhoneNumberInputProps) {
 	return (
 		<fieldset className="flex items-center justify-between border-b border-b-sb-gray-0">
 			<div className="flex items-center">
-				<Select>
+				<Select name="mobile-carrier">
 					<SelectTrigger className="w-[120px] border-none text-base text-sb-gray-100 focus:border-none px-1">
 						<SelectValue
 							placeholder="통신사 선택"

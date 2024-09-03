@@ -13,16 +13,19 @@ function RrnInput(props: RrnInputProps) {
 	return (
 		<fieldset className="w-full flex items-center justify-between relative border-b border-b-sb-gray-0">
 			<BaseInput
-				ct_type="tel"
+				ct_type="number"
 				placeholder="생년월일 6자리"
 				maxLength={6}
 				className="border-none w-[160px]"
 			></BaseInput>
 			<span className="w-3 h-[1px] border-[1px] border-t-sb-gray-100 absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"></span>
-			<div className="relative" onClick={() => secondInputRef.current?.focus()}>
+			<div
+				className="relative"
+				onClickCapture={() => secondInputRef.current?.focus()}
+			>
 				<BaseInput
 					ref={secondInputRef}
-					ct_type="tel"
+					ct_type="number"
 					placeholder="•"
 					maxLength={1}
 					className="border-none w-[100px] pr-[70px] bg-transparent z-[1]"
