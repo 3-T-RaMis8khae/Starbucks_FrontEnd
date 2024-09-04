@@ -1,12 +1,11 @@
 "use client"
 
-import React, { useRef, useState } from "react"
+import React, { useState } from "react"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
 import TermsItem from "@/components/atom/termsItem"
 import { BaseInput } from "@/components/atom/input/baseInput"
 import ButtonFooter from "@/components/atom/footer/buttonFooter"
 import _ from "lodash"
-import { ValueOf } from "@/lib/types"
 import {
 	Select,
 	SelectContent,
@@ -16,9 +15,10 @@ import {
 	SelectValue
 } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
-import { useForm, SubmitHandler, Controller } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
+import { authSchema } from "@/schema/authSchema"
 import { handleNumberKeyPress } from "@/lib/inputUtils"
 
 export const mobileCarrier = {
@@ -64,18 +64,15 @@ const schema = z.object({
 	name: z.string().min(2),
 	birthDate: z.string().length(6),
 	firstRrn: z.string().length(1),
-	// mobileCarrier: z.string().min(1),
 	phoneNumber: z.string().min(10).max(11)
 })
 
 function PhoneVerification(props: PhoneVerificationProps) {
 	// react hooks
 	const [isTermChecked, setIsTermChecked] = useState<boolean>(!!props.terms)
-
 	const [isPhoneVerified, setIsPhoneVerified] = useState<boolean>(false)
 	const [phoneVerification, setPhoneVerification] = useState<string>("")
 	const [isBtClicked, setIsBtClicked] = useState<boolean>(false)
-
 	const [phoneCarrier, setPhoneCarrier] = useState<string>(
 		mobileCarrier.skt.value
 	)
@@ -245,8 +242,8 @@ function PhoneVerification(props: PhoneVerificationProps) {
 				<ButtonFooter
 					button_title="다음"
 					button_props={{
-						type: "submit",
-						disabled: !(isTermChecked && isValid && isPhoneVerified)
+						type: "submit"
+						// disabled: !(isTermChecked && isValid && isPhoneVerified)
 					}}
 				></ButtonFooter>
 			</form>
