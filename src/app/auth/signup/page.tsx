@@ -1,28 +1,23 @@
 import SignupAgreement from "@/components/page/auth/SignupAgreement"
-import PhoneVerification from "@/components/organism/auth/phoneVerification"
 import MemberAccountPage from "@/components/page/auth/memberAccountPage"
 import EmailPage from "@/components/page/auth/emailPage"
 import NicknamePage from "@/components/page/auth/nicknamePage"
+import IdentityVerificationByPhone from "@/components/page/auth/identityVerificationByPhone"
 
 export default function SignupPage({
 	searchParams
 }: {
 	searchParams: { [key: string]: string }
 }) {
-	// console.log("Page searchParams : ", searchParams)
 	return (
 		<main>
 			{searchParams["step"] == "1" && <SignupAgreement />}
-			{searchParams["step"] == "2" && <PhoneVerification />}
+			{searchParams["step"] == "2" && (
+				<IdentityVerificationByPhone isSignUp={true} />
+			)}
 			{searchParams["step"] == "3" && <MemberAccountPage />}
 			{searchParams["step"] == "4" && <EmailPage />}
 			{searchParams["step"] == "5" && <NicknamePage />}
 		</main>
 	)
 }
-
-/*
-주소창을 활용 
-1. 회원가입 경로에서 쿼리 파라미터를 변경함으로써 화면을 전환시킨다.
-
- */
