@@ -1,13 +1,20 @@
-export default function SignupPage() {
-	const serchParam
+import SignupAgreement from "@/components/organism/auth/SignupAgreement"
+import PhoneVerification from "@/components/organism/auth/phoneVerification"
+import MemberAccountPage from "@/components/page/auth/memberAccountPage"
+
+export default function SignupPage({
+	searchParams
+}: {
+	searchParams: { [key: string]: string }
+}) {
+	// console.log("Page searchParams : ", searchParams)
 	return (
 		<main>
-			<form action="">
-				{/*<agreeComp></agreeComp>*/}
-				{/*<agreeEmail></agreeEmail>*/}
-				{/*<agreeMemberAccount></agreeMemberAccount>*/}
-				{/*<agreeNickName></agreeNickName>*/}
-			</form>
+			{searchParams["step"] == "1" && <SignupAgreement />}
+			{searchParams["step"] == "2" && <PhoneVerification />}
+			{searchParams["step"] == "3" && <MemberAccountPage />}
+			{searchParams["step"] == "4" && <SignupAgreement />}
+			{searchParams["step"] == "5" && <SignupAgreement />}
 		</main>
 	)
 }
