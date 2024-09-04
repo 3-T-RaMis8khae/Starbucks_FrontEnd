@@ -1,7 +1,8 @@
-import SignupAgreement from "@/components/organism/auth/SignupAgreement"
+import SignupAgreement from "@/components/page/auth/SignupAgreement"
 import PhoneVerification from "@/components/organism/auth/phoneVerification"
 import MemberAccountPage from "@/components/page/auth/memberAccountPage"
 import EmailPage from "@/components/page/auth/emailPage"
+import NicknamePage from "@/components/page/auth/nicknamePage"
 
 export default function SignupPage({
 	searchParams
@@ -15,7 +16,7 @@ export default function SignupPage({
 			{searchParams["step"] == "2" && <PhoneVerification />}
 			{searchParams["step"] == "3" && <MemberAccountPage />}
 			{searchParams["step"] == "4" && <EmailPage />}
-			{searchParams["step"] == "5" && <SignupAgreement />}
+			{searchParams["step"] == "5" && <NicknamePage />}
 		</main>
 	)
 }
