@@ -1,3 +1,5 @@
+"use client"
+
 import { FormEventHandler, useState } from "react"
 import { useImmerReducer } from "use-immer"
 import _ from "lodash"
@@ -11,6 +13,8 @@ import StarbucksSvgUrl from "@/assets/icon/startbucks.svg?url"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
 import BaseCheckBox from "@/components/molecule/checkBox/baseCheckBox"
 import { WritableDraft } from "immer"
+import { useRouter } from "next/navigation"
+import { createQueryParamString } from "@/lib/queryParamUtils"
 
 interface SignupAgreementProps {
 	agreementState?: AgreementState
@@ -35,8 +39,9 @@ const agreementStateInit: AgreementState = {
 	agreeMarketingInfoSms: false,
 	agreeMarketingInfoEmail: false
 }
+// export const agreementSearchParams = _.keys(agreementStateInit)
 
-export type AgreementTypes =
+type AgreementTypes =
 	| "agreeAll"
 	| "agreeUsage"
 	| "agreeCollectUserInfo"
@@ -45,7 +50,7 @@ export type AgreementTypes =
 	| "agreeMarketingInfoSms"
 	| "agreeMarketingInfoEmail"
 
-export type AgreementAction = { type: AgreementTypes }
+type AgreementAction = { type: AgreementTypes }
 
 const isEssentialAgreementChecked = (agreement: AgreementState) =>
 	agreement.agreeUsage &&
@@ -107,12 +112,6 @@ const agreementReducer = (
 	checkAgreeAll(checkBox)
 }
 
-const onCheckBoxSubmitHandler:
-	| FormEventHandler<HTMLFormElement>
-	| undefined = () => {
-	return undefined
-}
-
 function SignupAgreement({
 	agreementState = agreementStateInit
 }: SignupAgreementProps) {
@@ -124,6 +123,11 @@ function SignupAgreement({
 	const [isBtAvailable, setIsBtAvailable] = useState<boolean>(
 		isEssentialAgreementChecked(checkboxes)
 	)
+
+	const router = useRouter()
+	const routerHandler = () => {
+		router.push(`/auth/signup?step=${3}&${createQueryParamString(checkboxes)}`)
+	}
 
 	return (
 		<main className="w-screen h-screen flex flex-col hidden-scroll">
@@ -154,7 +158,6 @@ function SignupAgreement({
 				</div>
 
 				<form
-					onSubmit={onCheckBoxSubmitHandler}
 					onChange={() => {
 						setIsBtAvailable(isEssentialAgreementChecked(checkboxes))
 					}}
@@ -245,7 +248,11 @@ function SignupAgreement({
 
 			<ButtonFooter
 				button_title="다음"
-				button_props={{ type: "submit", disabled: !isBtAvailable }}
+				button_props={{
+					disabled: !isBtAvailable,
+					onClick: routerHandler,
+					type: "button"
+				}}
 			></ButtonFooter>
 		</main>
 	)
