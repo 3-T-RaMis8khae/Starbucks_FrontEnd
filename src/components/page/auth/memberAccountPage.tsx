@@ -18,7 +18,7 @@ export default function MemberAccountPage() {
 	const {
 		register,
 		handleSubmit,
-		formState: { isValid, errors }
+		formState: { errors }
 	} = useForm({
 		resolver: zodResolver(userAccountSchema)
 	})
@@ -57,35 +57,45 @@ export default function MemberAccountPage() {
 					})}
 					className="flex flex-col gap-2.5"
 				>
-					<BaseInput
-						placeholder="아이디 (4-13자리 이내)"
-						ct_type={"text"}
-						ct_is_error={!!errors.loginId}
-						{...register("loginId")}
-					></BaseInput>
-					{errors.loginId && (
-						<p className="error-text">{errors.loginId.message as string}</p>
-					)}
+					<div>
+						<BaseInput
+							placeholder="아이디 (4-13자리 이내)"
+							ct_type={"text"}
+							ct_is_error={!!errors.loginId}
+							{...register("loginId")}
+						></BaseInput>
+						{errors.loginId && (
+							<p className="error-text mt-1">
+								{errors.loginId.message as string}
+							</p>
+						)}
+					</div>
 
-					<BaseInput
-						placeholder="비밀번호 (10~20자리 이내)"
-						ct_is_error={!!errors.password}
-						{...register("password")}
-					></BaseInput>
-					{errors.password && (
-						<p className="error-text">{errors.password.message as string}</p>
-					)}
+					<div>
+						<BaseInput
+							placeholder="비밀번호 (10~20자리 이내)"
+							ct_is_error={!!errors.password}
+							{...register("password")}
+						></BaseInput>
+						{errors.password && (
+							<p className="error-text mt-1">
+								{errors.password.message as string}
+							</p>
+						)}
+					</div>
 
-					<BaseInput
-						placeholder="비밀번호 확인"
-						ct_is_error={!!errors.passwordValidate}
-						{...register("passwordValidate")}
-					></BaseInput>
-					{errors.passwordValidate && (
-						<p className="error-text">
-							{errors.passwordValidate.message as string}
-						</p>
-					)}
+					<div>
+						<BaseInput
+							placeholder="비밀번호 확인"
+							ct_is_error={!!errors.passwordValidate}
+							{...register("passwordValidate")}
+						></BaseInput>
+						{errors.passwordValidate && (
+							<p className="error-text mt-1">
+								{errors.passwordValidate.message as string}
+							</p>
+						)}
+					</div>
 
 					<ButtonFooter
 						button_title="다음"

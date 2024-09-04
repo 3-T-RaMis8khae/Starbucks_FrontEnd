@@ -62,7 +62,7 @@ export default function EmailPage() {
 						{...register("email")}
 					/>
 					{errors.email && (
-						<p className="error-text">{errors.email.message as string}</p>
+						<p className="error-text mt-1">{errors.email.message as string}</p>
 					)}
 
 					<ul className="input-desc mt-4">
