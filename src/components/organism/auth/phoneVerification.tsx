@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
 import TermsItem from "@/components/atom/termsItem"
 import { BaseInput } from "@/components/atom/input/baseInput"
@@ -18,17 +18,8 @@ import { Button } from "@/components/ui/button"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { authSchema, phoneVerifySchema } from "@/schema/authSchema"
+import { mobileCarrier, phoneVerifySchema } from "@/schema/authSchema"
 import { handleNumberKeyPress } from "@/lib/inputUtils"
-
-export const mobileCarrier = {
-	skt: { name: "SKT", value: "SKT" },
-	kt: { name: "KT", value: "KT" },
-	lgu: { name: "LGU+", value: "LGU+" },
-	sktEc: { name: "SKT 알뜰폰", value: "SKT-Economical" },
-	ktEc: { name: "KT 알뜰폰", value: "KT-Economical" },
-	lguEc: { name: "LGU+ 알뜰폰", value: "LGU+-Economical" }
-}
 
 export interface PhoneVerificationType {
 	terms: boolean // 약관 전체 동의
@@ -39,25 +30,6 @@ export interface PhoneVerificationType {
 }
 
 export type PhoneVerificationProps = Partial<PhoneVerificationType>
-// const PhoneVerificationInit: PhoneVerificationProps = {
-// 	terms: false,
-// 	name: "",
-// 	birthDate: "",
-// 	firstRrn: "",
-// 	mobileCarrier: "",
-// 	phoneNumber: ""
-// }
-//
-// const isNextBtAvailable = (props: PhoneVerificationProps) => {
-// 	return true
-// }
-//
-// const onFormChangeHandler:
-// 	| React.FormEventHandler<HTMLFormElement>
-// 	| undefined = (event: React.FormEvent<HTMLFormElement>) => {
-// 	// const formData: FormData = new FormData(event.currentTarget)
-// 	return undefined
-// }
 
 function PhoneVerification(props: PhoneVerificationProps) {
 	// react hooks
@@ -72,10 +44,14 @@ function PhoneVerification(props: PhoneVerificationProps) {
 	const {
 		register,
 		handleSubmit,
+		setValue,
 		formState: { isValid }
 	} = useForm({
 		resolver: zodResolver(phoneVerifySchema)
 	})
+	useEffect(() => {
+		setValue("mobileCarrier", mobileCarrier.skt.value)
+	}, [])
 
 	return (
 		<>
@@ -121,10 +97,10 @@ function PhoneVerification(props: PhoneVerificationProps) {
 				className="flex flex-col gap-2 mt-2"
 				onSubmit={handleSubmit(
 					(data, event) => {
-						console.log("on valid submit : ", data, phoneCarrier, event)
+						console.log("on valid submit : ", data, event)
 					},
 					(data, event) => {
-						console.log("on invalid submit : ", data, phoneCarrier, event)
+						console.log("on invalid submit : ", data, event)
 					}
 				)}
 			>
@@ -167,7 +143,9 @@ function PhoneVerification(props: PhoneVerificationProps) {
 						<Select
 							defaultValue={mobileCarrier.skt.value}
 							onValueChange={(value) => {
-								setPhoneCarrier(value)
+								// setPhoneCarrier(value)
+								console.log("on select change: ", value)
+								setValue("mobileCarrier", value)
 							}}
 						>
 							<SelectTrigger className="w-[120px] border-none text-base text-sb-gray-100 focus:border-none px-1">
