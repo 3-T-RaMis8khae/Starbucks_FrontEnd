@@ -126,7 +126,7 @@ function SignupAgreement({
 
 	const router = useRouter()
 	const routerHandler = () => {
-		router.push(`/auth/signup?step=${3}&${createQueryParamString(checkboxes)}`)
+		router.push(`/auth/signup?step=${2}&${createQueryParamString(checkboxes)}`)
 	}
 
 	return (
