@@ -33,6 +33,12 @@ export const emailSchema = z.object({
 	})
 })
 
+export const nicknameSchema = z.object({
+	nickname: z
+		.string()
+		.regex(/^[가-힣]{2,6}$/, { message: "닉네임 형식에 맞지 않습니다." })
+})
+
 export const authSchema = z.object({
 	name: z.string().regex(/^[가-힣]{2,}$/, {
 		message: "최소 2글자 이상의 한글을 입력하셔야 합니다."
