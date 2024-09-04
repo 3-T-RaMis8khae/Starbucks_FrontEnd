@@ -49,7 +49,7 @@ const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             rounded-none border-0 border-b-[1.5px] border-b-sb-gray-0 
             focus:border-b-sb-green-100 
             placeholder:text-base placeholder:text-sb-gray-100
-            ${ct_is_error && `border-b-sb-red-100`}
+            ${ct_is_error && `border-b-sb-red-100 focus:!border-b-sb-red-100`}
             ${props.className}
           `}
 				></Input>
