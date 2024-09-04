@@ -52,3 +52,14 @@ export const authSchema = z.object({
 		.string()
 		.regex(/^[가-힣]{1,6}$/, { message: "닉네임 형식에 맞지 않습니다." })
 })
+
+export const phoneVerifySchema = z.object({
+	name: z.string().regex(/^[가-힣]{2,}$/, {
+		message: "최소 2글자 이상의 한글을 입력하셔야 합니다."
+	}),
+	birthDate: z
+		.string()
+		.regex(/^\d{6}$/, { message: "생년월일 6자리를 입력해주세요." }),
+	firstRrn: z.string().regex(/^\d$/),
+	phoneNumber: z.string().regex(/^\d{10,11}$/)
+})

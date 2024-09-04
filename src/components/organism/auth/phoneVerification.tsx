@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { authSchema } from "@/schema/authSchema"
+import { authSchema, phoneVerifySchema } from "@/schema/authSchema"
 import { handleNumberKeyPress } from "@/lib/inputUtils"
 
 export const mobileCarrier = {
@@ -59,14 +59,6 @@ export type PhoneVerificationProps = Partial<PhoneVerificationType>
 // 	return undefined
 // }
 
-// zod
-const schema = z.object({
-	name: z.string().min(2),
-	birthDate: z.string().length(6),
-	firstRrn: z.string().length(1),
-	phoneNumber: z.string().min(10).max(11)
-})
-
 function PhoneVerification(props: PhoneVerificationProps) {
 	// react hooks
 	const [isTermChecked, setIsTermChecked] = useState<boolean>(!!props.terms)
@@ -82,7 +74,7 @@ function PhoneVerification(props: PhoneVerificationProps) {
 		handleSubmit,
 		formState: { isValid }
 	} = useForm({
-		resolver: zodResolver(schema)
+		resolver: zodResolver(phoneVerifySchema)
 	})
 
 	return (
