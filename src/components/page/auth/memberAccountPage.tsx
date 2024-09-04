@@ -13,6 +13,8 @@ import { userAccountSchema } from "@/schema/authSchema"
 import { useRouter, useSearchParams } from "next/navigation"
 import { createQueryParamString } from "@/lib/queryParamUtils"
 import _ from "lodash"
+import StepIndicator from "@/components/atom/stepIndicator"
+import React from "react"
 
 export default function MemberAccountPage() {
 	const {
@@ -38,6 +40,9 @@ export default function MemberAccountPage() {
 					<Link href={"/auth/login"}>
 						<Image src={CloseSvgURL} alt="close.svg"></Image>
 					</Link>
+				}
+				middleComponent={
+					<StepIndicator stepNumber={4} activeStep={2}></StepIndicator>
 				}
 			></BaseHeader>
 

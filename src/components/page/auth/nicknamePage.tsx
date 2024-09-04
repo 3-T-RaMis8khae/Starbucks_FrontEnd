@@ -1,22 +1,47 @@
+"use client"
+
 import BaseHeader from "@/components/atom/header/baseHeader"
-import Link from "next/link"
 import Image from "next/image"
-import CloseSvgURL from "@/assets/svg/close.svg?url"
+import LeftCaretURL from "@/assets/svg/caret-left.svg?url"
 import { BaseInput } from "@/components/atom/input/baseInput"
 import { Button } from "@/components/ui/button"
 import ButtonFooter from "@/components/atom/footer/buttonFooter"
-import React from "react"
+import React, { useState } from "react"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
 import StepIndicator from "@/components/atom/stepIndicator"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { nicknameSchema } from "@/schema/authSchema"
+import { useRouter } from "next/navigation"
 
 export default function NicknamePage() {
+	const {
+		register,
+		handleSubmit,
+		formState: { isValid, errors }
+	} = useForm({
+		resolver: zodResolver(nicknameSchema)
+	})
+	const [isTermCheck, setIsTermCheck] = useState<boolean>(false)
+	const router = useRouter()
+	// const searchParams = useSearchParams()
+	// const routerHandler = (queryParams: string) => {
+	// 	router.push(
+	// 		`/auth/signup?${_.replace(`${searchParams}`, "step=4", "step=5")}&${queryParams}`
+	// 	)
+	// }
+
 	return (
 		<main className="w-screen h-full flex flex-col">
 			<BaseHeader
 				leftComponent={
-					<Link href={"/auth/login"}>
-						<Image src={CloseSvgURL} alt="close.svg"></Image>
-					</Link>
+					<Image
+						onClick={() => {
+							router.back()
+						}}
+						src={LeftCaretURL}
+						alt="close.svg"
+					></Image>
 				}
 				middleComponent={
 					<StepIndicator stepNumber={4} activeStep={4}></StepIndicator>
@@ -31,22 +56,46 @@ export default function NicknamePage() {
 					</p>
 				</div>
 
-				<div className="flex flex-col">
+				<form
+					onSubmit={handleSubmit((data, event) => {})}
+					className="flex flex-col"
+				>
 					<CheckBox
 						id="agree-usage-starbucks-card"
 						className="rounded-[10px]"
 						ct_label="선택적 개인정보 수집동의 및 이용약관"
 						ct_showIcon={true}
 						ct_container_props={{ className: "my-[8px]" }}
+						checked={isTermCheck}
+						onClick={() => {
+							setIsTermCheck(!isTermCheck)
+						}}
 					></CheckBox>
-					<BaseInput ct_type="text" placeholder="닉네임 (한글 6자리 이내)" />
-					<ul className="input-desc">
+					<BaseInput
+						ct_type="text"
+						placeholder="닉네임 (한글 6자리 이내)"
+						ct_is_error={!!errors.nickname}
+						{...register("nickname")}
+					/>
+					{errors.nickname && (
+						<p className="error-text mt-1">
+							{errors.nickname.message as string}
+						</p>
+					)}
+					<ul className="input-desc mt-2">
 						<li>
 							매장에서 주문한 음료를 찾으실 때, 등록한 닉네임으로 불러 드립니다.
 						</li>
 					</ul>
-				</div>
 
+					<ButtonFooter
+						button_title="다음"
+						button_props={{
+							type: "submit",
+							disabled: !isTermCheck || !isValid
+						}}
+					></ButtonFooter>
+				</form>
 				<Button
 					variant="sbGreenGhost"
 					className="absolute text-sm font-medium right-0 bottom-[90px]"
@@ -54,11 +103,6 @@ export default function NicknamePage() {
 					건너뛰기
 				</Button>
 			</div>
-
-			<ButtonFooter
-				button_title="다음"
-				button_props={{ type: "submit" }}
-			></ButtonFooter>
 		</main>
 	)
 }
