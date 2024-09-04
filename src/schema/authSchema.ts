@@ -1,25 +1,36 @@
 import { z } from "zod"
 
-export const userAccountSchema = z.object({
-	loginId: z.string().regex(/^(?=.*[a-zA-Z])[a-zA-Z0-9]{4,13}$/, {
-		message: "아이디 형식이 일치하지 않습니다."
-	}),
-	password: z
-		.string()
-		.regex(
-			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,20}$/,
-			{
-				message: "비밀번호 형식이 일치하지 않습니다.."
-			}
-		),
-	passwordValidate: z
-		.string()
-		.regex(
-			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,20}$/,
-			{
-				message: "비밀번호 형식이 일치하지 않습니다.."
-			}
-		)
+export const userAccountSchema = z
+	.object({
+		loginId: z.string().regex(/^(?=.*[a-zA-Z])[a-zA-Z0-9]{4,13}$/, {
+			message: "아이디 형식이 일치하지 않습니다."
+		}),
+		password: z
+			.string()
+			.regex(
+				/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{10,20}$/,
+				{
+					message: "비밀번호 형식이 일치하지 않습니다."
+				}
+			),
+		passwordValidate: z
+			.string()
+			.regex(
+				/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{10,20}$/,
+				{
+					message: "비밀번호 형식이 일치하지 않습니다."
+				}
+			)
+	})
+	.refine((data) => data.password === data.passwordValidate, {
+		path: ["passwordValidate"],
+		message: "비밀번호가 일치하지 않습니다."
+	})
+
+export const emailSchema = z.object({
+	email: z.string().regex(/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/, {
+		message: "이메일 형식이 일치하지 않습니다."
+	})
 })
 
 export const authSchema = z.object({
