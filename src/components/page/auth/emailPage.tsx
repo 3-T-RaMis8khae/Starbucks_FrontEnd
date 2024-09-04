@@ -40,6 +40,7 @@ export default function EmailPage() {
 						onClick={() => {
 							router.back()
 						}}
+						className="cursor-pointer"
 						src={LeftCaretURL}
 						alt="close.svg"
 					></Image>

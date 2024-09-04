@@ -38,7 +38,11 @@ export default function MemberAccountPage() {
 			<BaseHeader
 				leftComponent={
 					<Link href={"/auth/login"}>
-						<Image src={CloseSvgURL} alt="close.svg"></Image>
+						<Image
+							src={CloseSvgURL}
+							alt="close.svg"
+							className="cursor-pointer"
+						></Image>
 					</Link>
 				}
 				middleComponent={

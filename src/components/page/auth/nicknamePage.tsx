@@ -36,6 +36,7 @@ export default function NicknamePage() {
 			<BaseHeader
 				leftComponent={
 					<Image
+						className="cursor-pointer"
 						onClick={() => {
 							router.back()
 						}}
