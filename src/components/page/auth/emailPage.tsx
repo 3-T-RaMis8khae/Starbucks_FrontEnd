@@ -1,9 +1,8 @@
 "use client"
 
 import BaseHeader from "@/components/atom/header/baseHeader"
-import Link from "next/link"
 import Image from "next/image"
-import CloseSvgURL from "@/assets/svg/close.svg?url"
+import LeftCaretURL from "@/assets/svg/caret-left.svg?url"
 import { BaseInput } from "@/components/atom/input/baseInput"
 import ButtonFooter from "@/components/atom/footer/buttonFooter"
 import React from "react"
@@ -14,6 +13,7 @@ import { emailSchema } from "@/schema/authSchema"
 import { useRouter, useSearchParams } from "next/navigation"
 import { createQueryParamString } from "@/lib/queryParamUtils"
 import _ from "lodash"
+import StepIndicator from "@/components/atom/stepIndicator"
 
 export default function EmailPage() {
 	const {
@@ -36,14 +36,21 @@ export default function EmailPage() {
 		<main className="w-screen h-full flex flex-col">
 			<BaseHeader
 				leftComponent={
-					<Link href={"/auth/login"}>
-						<Image src={CloseSvgURL} alt="close.svg"></Image>
-					</Link>
+					<Image
+						onClick={() => {
+							router.back()
+						}}
+						src={LeftCaretURL}
+						alt="close.svg"
+					></Image>
+				}
+				middleComponent={
+					<StepIndicator stepNumber={4} activeStep={3}></StepIndicator>
 				}
 			></BaseHeader>
 
 			<form
-				onSubmit={handleSubmit((data, event) => {
+				onSubmit={handleSubmit((data) => {
 					routerHandler(createQueryParamString(data))
 				})}
 				className="w-full flex flex-col mt-[60px] px-[30px]"
@@ -80,7 +87,7 @@ export default function EmailPage() {
 
 				<ButtonFooter
 					button_title="다음"
-					button_props={{ type: "submit" }}
+					button_props={{ type: "submit", disabled: !isValid }}
 				></ButtonFooter>
 			</form>
 		</main>
