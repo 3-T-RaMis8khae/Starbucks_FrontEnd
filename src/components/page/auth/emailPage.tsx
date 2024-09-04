@@ -57,7 +57,8 @@ export default function EmailPage() {
 
 				<div className="flex flex-col">
 					<BaseInput
-						ct_type="email"
+						ct_type="text"
+						ct_is_error={!!errors["email"]}
 						placeholder="이메일을 입력해주세요"
 						{...register("email")}
 					/>
