@@ -99,4 +99,8 @@
 	ul.input-desc li {
 		@apply relative text-[12px] text-sb-gray-100 pl-3 text-pretty;
 	}
+
+	.error-text {
+		@apply text-sb-red-100 text-xs pl-[4px];
+	}
 }
