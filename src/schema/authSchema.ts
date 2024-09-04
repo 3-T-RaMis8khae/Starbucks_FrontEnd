@@ -39,20 +39,6 @@ export const nicknameSchema = z.object({
 		.regex(/^[가-힣]{2,6}$/, { message: "닉네임 형식에 맞지 않습니다." })
 })
 
-export const authSchema = z.object({
-	name: z.string().regex(/^[가-힣]{2,}$/, {
-		message: "최소 2글자 이상의 한글을 입력하셔야 합니다."
-	}),
-	birthDate: z
-		.string()
-		.regex(/^\d{6}$/, { message: "생년월일 6자리를 입력해주세요." }),
-	firstRrn: z.string().length(1),
-	phoneNumber: z.string().min(10).max(11),
-	nickName: z
-		.string()
-		.regex(/^[가-힣]{1,6}$/, { message: "닉네임 형식에 맞지 않습니다." })
-})
-
 export const phoneVerifySchema = z.object({
 	name: z.string().regex(/^[가-힣]{2,}$/, {
 		message: "최소 2글자 이상의 한글을 입력하셔야 합니다."
@@ -61,5 +47,15 @@ export const phoneVerifySchema = z.object({
 		.string()
 		.regex(/^\d{6}$/, { message: "생년월일 6자리를 입력해주세요." }),
 	firstRrn: z.string().regex(/^\d$/),
-	phoneNumber: z.string().regex(/^\d{10,11}$/)
+	phoneNumber: z.string().regex(/^\d{10,11}$/),
+	mobileCarrier: z.string()
 })
+
+export const mobileCarrier = {
+	skt: { name: "SKT", value: "SKT" },
+	kt: { name: "KT", value: "KT" },
+	lgu: { name: "LGU+", value: "LGU+" },
+	sktEc: { name: "SKT 알뜰폰", value: "SKT-Economical" },
+	ktEc: { name: "KT 알뜰폰", value: "KT-Economical" },
+	lguEc: { name: "LGU+ 알뜰폰", value: "LGU+-Economical" }
+}
