@@ -11,6 +11,7 @@ import CheckBoldURL from "@/assets/svg/check-bold-green.svg?url"
 export interface BaseInputProps
 	extends React.InputHTMLAttributes<HTMLInputElement> {
 	ct_container_props?: React.HTMLAttributes<HTMLInputElement>
+	ct_is_error?: boolean
 	ct_check_visible?: boolean
 	ct_type?: HTMLInputTypeAttribute | undefined
 }
@@ -19,6 +20,7 @@ const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
 	(
 		{
 			ct_container_props,
+			ct_is_error = false,
 			ct_check_visible = false,
 			ct_type = undefined,
 			...props
@@ -47,6 +49,7 @@ const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
             rounded-none border-0 border-b-[1.5px] border-b-sb-gray-0 
             focus:border-b-sb-green-100 
             placeholder:text-base placeholder:text-sb-gray-100
+            ${ct_is_error && `border-b-sb-red-100`}
             ${props.className}
           `}
 				></Input>
