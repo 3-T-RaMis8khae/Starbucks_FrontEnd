@@ -35,7 +35,7 @@ export default function IdentityVerificationPage() {
 					</p>
 				</div>
 
-				<PhoneVerification></PhoneVerification>
+				{/*<PhoneVerification></PhoneVerification>*/}
 			</div>
 		</main>
 	)

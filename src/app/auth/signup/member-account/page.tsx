@@ -4,7 +4,6 @@ import CloseSvgURL from "@/assets/svg/close.svg?url"
 import BaseHeader from "@/components/atom/header/baseHeader"
 import ButtonFooter from "@/components/atom/footer/buttonFooter"
 import { BaseInput } from "@/components/atom/input/baseInput"
-import { Button } from "@/components/ui/button"
 
 export default function Member_accountPage() {
 	return (

@@ -11,7 +11,7 @@ export default function EmailPage() {
 		<main className="w-screen h-full flex flex-col">
 			<BaseHeader
 				leftComponent={
-					<Link href={"/"}>
+					<Link href={"/auth/login"}>
 						<Image src={CloseSvgURL} alt="close.svg"></Image>
 					</Link>
 				}
