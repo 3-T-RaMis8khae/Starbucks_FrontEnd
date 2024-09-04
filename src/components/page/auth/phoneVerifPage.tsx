@@ -4,13 +4,16 @@ import BaseHeader from "@/components/atom/header/baseHeader"
 import CloseURL from "@/assets/svg/close.svg?url"
 import React from "react"
 import PhoneVerification from "@/components/organism/auth/phoneVerification"
+import Link from "next/link"
 
 export default function phoneVerifPage() {
 	return (
 		<main className="w-screen h-screen flex flex-col hidden-scroll">
 			<BaseHeader
 				leftComponent={
-					<Image width={20} height={20} src={CloseURL} alt="close.svg"></Image>
+					<Link href={"/auth/login"}>
+						<Image src={CloseURL} alt="close.svg"></Image>
+					</Link>
 				}
 			></BaseHeader>
 
