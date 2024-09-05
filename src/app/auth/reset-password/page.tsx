@@ -1,10 +1,9 @@
 import BaseHeader from "@/components/atom/header/baseHeader"
-import ButtonFooter from "@/components/atom/footer/buttonFooter"
 import Link from "next/link"
 import Image from "next/image"
 import CloseSvgURL from "@/assets/svg/close.svg?url"
-import { BaseInput } from "@/components/atom/input/baseInput"
 import React from "react"
+import ResetPasswordForm from "@/components/molecule/form/resetPasswordForm"
 
 export default function ResetPasswordPage() {
 	return (
@@ -26,10 +25,7 @@ export default function ResetPasswordPage() {
 						비밀번호를 변경합니다.
 					</p>
 
-					<div className="flex flex-col gap-2">
-						<BaseInput placeholder="새 비밀번호 (10~20자리 이내)"></BaseInput>
-						<BaseInput placeholder="새 비밀번호 확인"></BaseInput>
-					</div>
+					<ResetPasswordForm></ResetPasswordForm>
 				</div>
 
 				<div className="w-full px-[30px] py-[20px] bg-sb-gray-0 flex flex-col">
@@ -50,11 +46,6 @@ export default function ResetPasswordPage() {
 					</ul>
 				</div>
 			</div>
-
-			<ButtonFooter
-				button_title="확인"
-				button_props={{ type: "submit" }}
-			></ButtonFooter>
 		</main>
 	)
 }
