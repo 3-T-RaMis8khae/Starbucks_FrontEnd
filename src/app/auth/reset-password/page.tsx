@@ -10,7 +10,7 @@ export default function ResetPasswordPage() {
 		<main className="w-screen h-screen flex flex-col hidden-scroll">
 			<BaseHeader
 				leftComponent={
-					<Link href={"/"}>
+					<Link href={"/auth/login"}>
 						<Image src={CloseSvgURL} alt="close.svg"></Image>
 					</Link>
 				}
