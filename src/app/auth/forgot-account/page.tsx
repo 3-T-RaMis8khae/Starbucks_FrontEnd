@@ -9,7 +9,7 @@ import React from "react"
 
 export default function ForgotAccountPage() {
 	return (
-		<main className="w-screen h-full flex flex-col">
+		<section className="w-screen h-full flex flex-col">
 			<BaseHeader
 				leftComponent={
 					<Link href={"/auth/login"}>
@@ -40,6 +40,6 @@ export default function ForgotAccountPage() {
 				button_title="로그인하기"
 				button_props={{ type: "submit" }}
 			></ButtonFooter>
-		</main>
+		</section>
 	)
 }

@@ -10,7 +10,7 @@ export default function SignupPage({
 	searchParams: { [key: string]: string }
 }) {
 	return (
-		<main>
+		<main className="w-screen h-screen flex flex-col hidden-scroll">
 			{searchParams["step"] == "1" && <SignupAgreement />}
 			{searchParams["step"] == "2" && (
 				<IdentityVerificationByPhone isSignUp={true} />

@@ -34,7 +34,7 @@ export default function MemberAccountPage() {
 	}
 
 	return (
-		<main className="w-screen h-full flex flex-col">
+		<section>
 			<BaseHeader
 				leftComponent={
 					<Link href={"/auth/login"}>
@@ -112,6 +112,6 @@ export default function MemberAccountPage() {
 					></ButtonFooter>
 				</form>
 			</div>
-		</main>
+		</section>
 	)
 }

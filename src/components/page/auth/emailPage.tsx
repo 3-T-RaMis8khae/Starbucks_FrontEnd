@@ -33,7 +33,7 @@ export default function EmailPage() {
 	}
 
 	return (
-		<main className="w-screen h-full flex flex-col">
+		<section>
 			<BaseHeader
 				leftComponent={
 					<Image
@@ -63,34 +63,32 @@ export default function EmailPage() {
 					</p>
 				</div>
 
-				<div className="flex flex-col">
-					<BaseInput
-						ct_type="text"
-						ct_is_error={!!errors["email"]}
-						placeholder="이메일을 입력해주세요"
-						{...register("email")}
-					/>
-					{errors.email && (
-						<p className="error-text mt-1">{errors.email.message as string}</p>
-					)}
+				<BaseInput
+					ct_type="text"
+					ct_is_error={!!errors["email"]}
+					placeholder="이메일을 입력해주세요"
+					{...register("email")}
+				/>
+				{errors.email && (
+					<p className="error-text mt-1">{errors.email.message as string}</p>
+				)}
 
-					<ul className="input-desc mt-4">
-						<li>
-							스타벅스 코리아의 새로운 서비스와 최신 이벤트 정보를 이메일로
-							보내드려요.
-						</li>
-						<li>
-							주요 공지사항 및 이벤트 당첨안내 등 일부 소식은 수신동의 여부에
-							관계없이 발송됩니다.
-						</li>
-					</ul>
-				</div>
+				<ul className="input-desc mt-4">
+					<li>
+						스타벅스 코리아의 새로운 서비스와 최신 이벤트 정보를 이메일로
+						보내드려요.
+					</li>
+					<li>
+						주요 공지사항 및 이벤트 당첨안내 등 일부 소식은 수신동의 여부에
+						관계없이 발송됩니다.
+					</li>
+				</ul>
 
 				<ButtonFooter
 					button_title="다음"
 					button_props={{ type: "submit", disabled: !isValid }}
 				></ButtonFooter>
 			</form>
-		</main>
+		</section>
 	)
 }

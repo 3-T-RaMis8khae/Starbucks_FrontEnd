@@ -32,7 +32,7 @@ export default function NicknamePage() {
 	// }
 
 	return (
-		<main className="w-screen h-full flex flex-col">
+		<section>
 			<BaseHeader
 				leftComponent={
 					<Image
@@ -104,6 +104,6 @@ export default function NicknamePage() {
 					건너뛰기
 				</Button>
 			</div>
-		</main>
+		</section>
 	)
 }

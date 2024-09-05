@@ -14,7 +14,7 @@ export default function IdentityVerificationByPhone({
 	isSignUp?: boolean
 }) {
 	return (
-		<main className="w-screen h-screen flex flex-col hidden-scroll">
+		<section>
 			<BaseHeader
 				leftComponent={
 					<Link href={"/auth/login"}>
@@ -45,6 +45,6 @@ export default function IdentityVerificationByPhone({
 
 				<PhoneVerification></PhoneVerification>
 			</div>
-		</main>
+		</section>
 	)
 }

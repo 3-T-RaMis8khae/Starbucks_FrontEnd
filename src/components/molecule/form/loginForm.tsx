@@ -28,34 +28,29 @@ function LoginForm() {
 					console.log("on invalid submit : ", data, event)
 				}
 			)}
+			className="flex flex-col items-center gap-2.5"
 		>
-			<div className="flex flex-col items-center gap-2.5">
-				<div className="w-full">
-					<LabelInput
-						label_name={"아이디"}
-						is_error={!!errors["loginId"]}
-						{...register("loginId")}
-					></LabelInput>
-					{errors.loginId && (
-						<p className="error-text mt-1">
-							{errors.loginId.message as string}
-						</p>
-					)}
-				</div>
+			<div className="w-full">
+				<LabelInput
+					label_name={"아이디"}
+					is_error={!!errors["loginId"]}
+					{...register("loginId")}
+				/>
+				{errors.loginId && (
+					<p className="error-text mt-1">{errors.loginId.message as string}</p>
+				)}
+			</div>
 
-				<div className="w-full">
-					<LabelInput
-						label_name={"비밀번호"}
-						type={"password"}
-						is_error={!!errors["password"]}
-						{...register("password")}
-					></LabelInput>
-					{errors.password && (
-						<p className="error-text mt-1">
-							{errors.password.message as string}
-						</p>
-					)}
-				</div>
+			<div className="w-full">
+				<LabelInput
+					label_name={"비밀번호"}
+					type={"password"}
+					is_error={!!errors["password"]}
+					{...register("password")}
+				/>
+				{errors.password && (
+					<p className="error-text mt-1">{errors.password.message as string}</p>
+				)}
 			</div>
 
 			<ButtonFooter

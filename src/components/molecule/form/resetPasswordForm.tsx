@@ -28,34 +28,27 @@ function ResetPasswordForm() {
 					console.log("on invalid submit : ", data, event)
 				}
 			)}
-			className="flex flex-col gap-2"
 		>
-			<div>
-				<BaseInput
-					placeholder="새 비밀번호 (10~20자리 이내)"
-					{...register("password")}
-				></BaseInput>
-				{errors.password && (
-					<p className="error-text mt-1">{errors.password.message as string}</p>
-				)}
-			</div>
+			<BaseInput
+				placeholder="새 비밀번호 (10~20자리 이내)"
+				{...register("password")}
+			/>
+			{errors.password && (
+				<p className="error-text mt-1">{errors.password.message as string}</p>
+			)}
+			<div className="my-2"></div>
+			{/* make divider component */}
+			<BaseInput
+				placeholder="새 비밀번호 확인"
+				{...register("passwordValidate")}
+			/>
+			{errors.passwordValidate && (
+				<p className="error-text mt-1">
+					{errors.passwordValidate.message as string}
+				</p>
+			)}
 
-			<div>
-				<BaseInput
-					placeholder="새 비밀번호 확인"
-					{...register("passwordValidate")}
-				></BaseInput>
-				{errors.passwordValidate && (
-					<p className="error-text mt-1">
-						{errors.passwordValidate.message as string}
-					</p>
-				)}
-			</div>
-
-			<ButtonFooter
-				button_title="확인"
-				button_props={{ type: "submit" }}
-			></ButtonFooter>
+			<ButtonFooter button_title="확인" button_props={{ type: "submit" }} />
 		</form>
 	)
 }

@@ -130,7 +130,7 @@ function SignupAgreement({
 	}
 
 	return (
-		<main className="w-screen h-screen flex flex-col hidden-scroll">
+		<section>
 			<BaseHeader
 				leftComponent={
 					<Link href={"/auth/login"}>
@@ -254,7 +254,7 @@ function SignupAgreement({
 					type: "button"
 				}}
 			></ButtonFooter>
-		</main>
+		</section>
 	)
 }
 
