@@ -1,6 +1,5 @@
 import BaseHeader from "@/components/atom/header/baseHeader"
 import StarbucksSvgUrl from "@/assets/icon/startbucks.svg?url"
-import Link from "next/link"
 import Image from "next/image"
 import LoginForm from "@/components/molecule/form/loginForm"
 import LoginLink from "@/components/molecule/link/loginLink"
