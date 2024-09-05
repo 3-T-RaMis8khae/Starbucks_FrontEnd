@@ -64,3 +64,17 @@ export const loginSchema = z.object({
 		message: "비밀번호 형식이 일치하지 않습니다."
 	})
 })
+
+export const resetPasswordSchema = z
+	.object({
+		password: z.string().regex(passwordRegex, {
+			message: "비밀번호 형식이 일치하지 않습니다."
+		}),
+		passwordValidate: z.string().regex(passwordRegex, {
+			message: "비밀번호 형식이 일치하지 않습니다."
+		})
+	})
+	.refine((data) => data.password === data.passwordValidate, {
+		path: ["passwordValidate"],
+		message: "비밀번호가 일치하지 않습니다."
+	})
