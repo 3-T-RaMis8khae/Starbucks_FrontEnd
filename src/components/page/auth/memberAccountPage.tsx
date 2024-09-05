@@ -15,6 +15,7 @@ import { createQueryParamString } from "@/lib/queryParamUtils"
 import _ from "lodash"
 import StepIndicator from "@/components/atom/stepIndicator"
 import React from "react"
+import LogoLink from "@/components/atom/link/logoLink"
 
 export default function MemberAccountPage() {
 	const {
@@ -37,13 +38,14 @@ export default function MemberAccountPage() {
 		<section>
 			<BaseHeader
 				leftComponent={
-					<Link href={"/auth/login"}>
-						<Image
-							src={CloseSvgURL}
-							alt="close.svg"
-							className="cursor-pointer"
-						/>
-					</Link>
+					<LogoLink
+						linkProps={{ href: "/auth/login" }}
+						imageProps={{
+							src: CloseSvgURL,
+							alt: "close.svg",
+							className: "cursor-pointer"
+						}}
+					/>
 				}
 				middleComponent={
 					<StepIndicator stepNumber={4} activeStep={2}></StepIndicator>

@@ -14,6 +14,7 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { createQueryParamString } from "@/lib/queryParamUtils"
 import _ from "lodash"
 import StepIndicator from "@/components/atom/stepIndicator"
+import Logo from "@/components/atom/logo"
 
 export default function EmailPage() {
 	const {
@@ -36,13 +37,15 @@ export default function EmailPage() {
 		<section>
 			<BaseHeader
 				leftComponent={
-					<Image
-						onClick={() => {
-							router.back()
+					<Logo
+						imageProps={{
+							src: LeftCaretURL,
+							alt: "left-caret.svg"
 						}}
-						className="cursor-pointer"
-						src={LeftCaretURL}
-						alt="close.svg"
+						wrapperProps={{
+							className: "cursor-pointer w-[20px] h-[20px]",
+							onClick: () => router.back()
+						}}
 					/>
 				}
 				middleComponent={

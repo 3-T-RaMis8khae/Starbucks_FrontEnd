@@ -15,6 +15,8 @@ import BaseCheckBox from "@/components/molecule/checkBox/baseCheckBox"
 import { WritableDraft } from "immer"
 import { useRouter } from "next/navigation"
 import { createQueryParamString } from "@/lib/queryParamUtils"
+import Logo from "@/components/atom/logo"
+import LogoLink from "@/components/atom/link/logoLink"
 
 interface SignupAgreementProps {
 	agreementState?: AgreementState
@@ -133,21 +135,23 @@ function SignupAgreement({
 		<section>
 			<BaseHeader
 				leftComponent={
-					<Link href={"/auth/login"}>
-						<Image src={CloseSvgURL} alt="close.svg" />
-					</Link>
+					<LogoLink
+						linkProps={{ href: "/auth/login" }}
+						imageProps={{
+							src: CloseSvgURL,
+							alt: "close.svg"
+						}}
+					/>
 				}
 			></BaseHeader>
 
 			<div className="w-full h-full flex flex-col mt-[50px] mb-[90px] px-[30px] pb-8 hidden-scroll">
-				<Image
-					className="mb-6 mt-14"
-					src={StarbucksSvgUrl}
-					alt="startbuck.svg"
-					quality={75}
-					priority={true}
-					width={60}
-					height={60}
+				<Logo
+					imageProps={{
+						src: StarbucksSvgUrl,
+						alt: "starbucks.svg"
+					}}
+					wrapperProps={{ className: "mb-6 mt-14" }}
 				/>
 
 				<div className="flex flex-col gap-2 mb-10">

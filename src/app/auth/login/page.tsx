@@ -3,6 +3,8 @@ import StarbucksSvgUrl from "@/assets/icon/startbucks.svg?url"
 import Image from "next/image"
 import LoginForm from "@/components/molecule/form/loginForm"
 import LoginLink from "@/components/molecule/link/loginLink"
+import Logo from "@/components/atom/logo"
+import { className } from "postcss-selector-parser"
 
 // todo - 1) Need to implement the feature for Authentication.
 export default function LoginPage() {
@@ -10,16 +12,13 @@ export default function LoginPage() {
 		<>
 			<BaseHeader middleComponent={"로그인"}></BaseHeader>
 			<main className="w-screen h-full flex flex-col mt-[60px] px-[30px]">
-				{/* Starbucks Logo wrap image //feedback*/}
-				<div className="w-[100px] h-[100px] mb-6 mt-8 object-cover">
-					<Image
-						src={StarbucksSvgUrl}
-						priority
-						alt="startbuck.svg"
-						width={400}
-						height={400}
-					/>
-				</div>
+				<Logo
+					imageProps={{
+						src: StarbucksSvgUrl,
+						alt: "starbucks.svg"
+					}}
+					wrapperProps={{ className: "mb-6 mt-8" }}
+				/>
 
 				<div className="flex flex-col gap-2 mb-10">
 					<p className="text-2xl text-sb-black-100 font-bold">안녕하세요.</p>
