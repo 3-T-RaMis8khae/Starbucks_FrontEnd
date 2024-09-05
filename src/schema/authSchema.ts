@@ -1,26 +1,22 @@
 import { z } from "zod"
 
+export const loginIdRegex = /^(?=.*[a-zA-Z])[a-zA-Z0-9]{4,13}$/
+export const passwordRegex =
+	/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{10,20}$/
+export const emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/
+export const nicknameRegex = /^[가-힣]{2,6}$/
+
 export const userAccountSchema = z
 	.object({
-		loginId: z.string().regex(/^(?=.*[a-zA-Z])[a-zA-Z0-9]{4,13}$/, {
+		loginId: z.string().regex(loginIdRegex, {
 			message: "아이디 형식이 일치하지 않습니다."
 		}),
-		password: z
-			.string()
-			.regex(
-				/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{10,20}$/,
-				{
-					message: "비밀번호 형식이 일치하지 않습니다."
-				}
-			),
-		passwordValidate: z
-			.string()
-			.regex(
-				/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{10,20}$/,
-				{
-					message: "비밀번호 형식이 일치하지 않습니다."
-				}
-			)
+		password: z.string().regex(passwordRegex, {
+			message: "비밀번호 형식이 일치하지 않습니다."
+		}),
+		passwordValidate: z.string().regex(passwordRegex, {
+			message: "비밀번호 형식이 일치하지 않습니다."
+		})
 	})
 	.refine((data) => data.password === data.passwordValidate, {
 		path: ["passwordValidate"],
@@ -28,7 +24,7 @@ export const userAccountSchema = z
 	})
 
 export const emailSchema = z.object({
-	email: z.string().regex(/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/, {
+	email: z.string().regex(emailRegex, {
 		message: "이메일 형식이 일치하지 않습니다."
 	})
 })
@@ -36,7 +32,7 @@ export const emailSchema = z.object({
 export const nicknameSchema = z.object({
 	nickname: z
 		.string()
-		.regex(/^[가-힣]{2,6}$/, { message: "닉네임 형식에 맞지 않습니다." })
+		.regex(nicknameRegex, { message: "닉네임 형식에 맞지 않습니다." })
 })
 
 export const phoneVerifySchema = z.object({
@@ -59,3 +55,12 @@ export const mobileCarrier = {
 	ktEc: { name: "KT 알뜰폰", value: "KT-Economical" },
 	lguEc: { name: "LGU+ 알뜰폰", value: "LGU+-Economical" }
 }
+
+export const loginSchema = z.object({
+	loginId: z.string().regex(loginIdRegex, {
+		message: "아이디 형식이 일치하지 않습니다."
+	}),
+	password: z.string().regex(passwordRegex, {
+		message: "비밀번호 형식이 일치하지 않습니다."
+	})
+})
