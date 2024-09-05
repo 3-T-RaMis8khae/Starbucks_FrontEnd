@@ -7,7 +7,7 @@ import React from "react"
 import PhoneVerification from "@/components/organism/auth/phoneVerification"
 import StepIndicator from "@/components/atom/stepIndicator"
 import Link from "next/link"
-
+// todo : Implement the functionality for its component.
 export default function IdentityVerificationByPhone({
 	isSignUp = false
 }: {
