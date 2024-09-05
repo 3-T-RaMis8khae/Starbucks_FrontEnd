@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect } from "react"
+import React from "react"
 import ButtonFooter from "@/components/atom/footer/buttonFooter"
 import LabelInput from "@/components/molecule/input/labelInput"
 import { useForm } from "react-hook-form"
@@ -57,6 +57,7 @@ function LoginForm() {
 					)}
 				</div>
 			</div>
+
 			<ButtonFooter
 				button_title="로그인하기"
 				button_props={{ type: "submit" }}
