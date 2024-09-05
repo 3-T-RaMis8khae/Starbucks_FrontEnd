@@ -61,7 +61,7 @@ const CheckBox = React.forwardRef<
 							alt={ct_icon_alt}
 							width={18}
 							height={18}
-						></Image>
+						/>
 					</Link>
 				)}
 			</div>

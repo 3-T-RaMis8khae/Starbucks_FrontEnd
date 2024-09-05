@@ -134,7 +134,7 @@ function SignupAgreement({
 			<BaseHeader
 				leftComponent={
 					<Link href={"/auth/login"}>
-						<Image src={CloseSvgURL} alt="close.svg"></Image>
+						<Image src={CloseSvgURL} alt="close.svg" />
 					</Link>
 				}
 			></BaseHeader>
@@ -148,7 +148,7 @@ function SignupAgreement({
 					priority={true}
 					width={60}
 					height={60}
-				></Image>
+				/>
 
 				<div className="flex flex-col gap-2 mb-10">
 					<p className="text-2xl text-sb-black-100 font-semibold">고객님,</p>

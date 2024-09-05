@@ -42,7 +42,7 @@ export default function NicknamePage() {
 						}}
 						src={LeftCaretURL}
 						alt="close.svg"
-					></Image>
+					/>
 				}
 				middleComponent={
 					<StepIndicator stepNumber={4} activeStep={4}></StepIndicator>

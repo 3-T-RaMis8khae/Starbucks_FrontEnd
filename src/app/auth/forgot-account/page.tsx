@@ -13,7 +13,7 @@ export default function ForgotAccountPage() {
 			<BaseHeader
 				leftComponent={
 					<Link href={"/auth/login"}>
-						<Image src={CloseSvgURL} alt="close.svg"></Image>
+						<Image src={CloseSvgURL} alt="close.svg" />
 					</Link>
 				}
 			></BaseHeader>
@@ -25,7 +25,7 @@ export default function ForgotAccountPage() {
 					width={140}
 					height={140}
 					alt="findUserId.png"
-				></Image>
+				/>
 				<div className="flex flex-col items-center">
 					<p className="text-sb-gray-100 font-medium text-base">
 						고객님의 아이디는

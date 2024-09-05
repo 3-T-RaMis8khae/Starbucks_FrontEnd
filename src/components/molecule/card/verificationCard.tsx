@@ -60,12 +60,7 @@ function VerificationCard(props = verificationCardInit) {
 			<div className="flex items-center select-none">
 				{image?.url && (
 					<div className="pr-3 select-none">
-						<Image
-							width="25"
-							height="25"
-							src={image.url}
-							alt={image.alt}
-						></Image>
+						<Image width="25" height="25" src={image.url} alt={image.alt} />
 					</div>
 				)}
 				<div className="flex flex-col gap-1.5">

@@ -38,7 +38,7 @@ export default function TermsItem(props: CheckBoxProps) {
 						alt={ct_icon_alt ?? "caret-right.svg"}
 						width={18}
 						height={18}
-					></Image>
+					/>
 				</Link>
 			)}
 		</div>

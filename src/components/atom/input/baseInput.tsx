@@ -64,7 +64,7 @@ const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
 									height={34}
 									className="cursor-pointer"
 									onClick={() => setVisible(false)}
-								></Image>
+								/>
 							) : (
 								<Image
 									src={PasswordInvisibleURL}
@@ -73,7 +73,7 @@ const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
 									height={34}
 									className="cursor-pointer"
 									onClick={() => setVisible(true)}
-								></Image>
+								/>
 							)}
 						</>
 					)}
@@ -86,7 +86,7 @@ const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
 							height={24}
 							color="#01A862"
 							className="text-sb-green-100"
-						></Image>
+						/>
 					)}
 				</div>
 			</div>

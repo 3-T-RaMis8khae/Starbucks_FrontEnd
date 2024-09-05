@@ -33,7 +33,7 @@ export default function IdentityVerificationPage() {
 		<main className="w-screen h-full flex flex-col">
 			<BaseHeader
 				leftComponent={
-					<Image width={20} height={20} src={CloseURL} alt="close.svg"></Image>
+					<Image width={20} height={20} src={CloseURL} alt="close.svg" />
 				}
 			></BaseHeader>
 

@@ -42,7 +42,7 @@ export default function MemberAccountPage() {
 							src={CloseSvgURL}
 							alt="close.svg"
 							className="cursor-pointer"
-						></Image>
+						/>
 					</Link>
 				}
 				middleComponent={

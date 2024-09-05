@@ -11,7 +11,7 @@ export default function ResetPasswordPage() {
 			<BaseHeader
 				leftComponent={
 					<Link href={"/auth/login"}>
-						<Image src={CloseSvgURL} alt="close.svg"></Image>
+						<Image src={CloseSvgURL} alt="close.svg" />
 					</Link>
 				}
 			></BaseHeader>

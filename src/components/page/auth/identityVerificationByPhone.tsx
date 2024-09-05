@@ -18,12 +18,7 @@ export default function IdentityVerificationByPhone({
 			<BaseHeader
 				leftComponent={
 					<Link href={"/auth/login"}>
-						<Image
-							width={20}
-							height={20}
-							src={CloseURL}
-							alt="close.svg"
-						></Image>
+						<Image width={20} height={20} src={CloseURL} alt="close.svg" />
 					</Link>
 				}
 				middleComponent={

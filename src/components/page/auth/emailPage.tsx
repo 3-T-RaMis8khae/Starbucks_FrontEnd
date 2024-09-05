@@ -43,7 +43,7 @@ export default function EmailPage() {
 						className="cursor-pointer"
 						src={LeftCaretURL}
 						alt="close.svg"
-					></Image>
+					/>
 				}
 				middleComponent={
 					<StepIndicator stepNumber={4} activeStep={3}></StepIndicator>

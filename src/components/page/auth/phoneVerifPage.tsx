@@ -12,7 +12,7 @@ export default function phoneVerifPage() {
 			<BaseHeader
 				leftComponent={
 					<Link href={"/auth/login"}>
-						<Image src={CloseURL} alt="close.svg"></Image>
+						<Image src={CloseURL} alt="close.svg" />
 					</Link>
 				}
 			></BaseHeader>
