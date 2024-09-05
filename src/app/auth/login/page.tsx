@@ -1,9 +1,9 @@
 import BaseHeader from "@/components/atom/header/baseHeader"
-import ButtonFooter from "@/components/atom/footer/buttonFooter"
-import LabelInput from "@/components/molecule/input/labelInput"
 import StarbucksSvgUrl from "@/assets/icon/startbucks.svg?url"
 import Link from "next/link"
 import Image from "next/image"
+import LoginForm from "@/components/molecule/form/loginForm"
+import LoginLink from "@/components/molecule/link/loginLink"
 
 // todo - 1) Need to implement the feature for Authentication.
 export default function LoginPage() {
@@ -28,30 +28,9 @@ export default function LoginPage() {
 					<p className="text-base">회원 서비스 이용을 위해 로그인 해주세요.</p>
 				</div>
 
-				<form>
-					<div className="flex flex-col items-center gap-2.5">
-						<LabelInput label_name={"아이디"}></LabelInput>
-						<LabelInput label_name={"비밀번호"} type={"password"}></LabelInput>
-					</div>
-					<ButtonFooter
-						button_title="로그인하기"
-						button_props={{ type: "submit" }}
-					></ButtonFooter>
-				</form>
+				<LoginForm></LoginForm>
 
-				<div className="flex items-center justify-center mt-8">
-					<Link href={`/auth/forgot-account`} className="text-base">
-						아이디 찾기
-					</Link>
-					<span className="text-gray-500 px-3">|</span>
-					<Link href={`/auth/reset-password`} className="text-base">
-						비밀번호 찾기
-					</Link>
-					<span className="text-gray-500 px-3">|</span>
-					<Link href={`/auth/signup`} className="text-base">
-						회원가입
-					</Link>
-				</div>
+				<LoginLink></LoginLink>
 			</div>
 		</main>
 	)
