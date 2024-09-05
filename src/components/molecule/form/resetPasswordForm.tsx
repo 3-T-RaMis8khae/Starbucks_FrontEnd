@@ -48,7 +48,10 @@ function ResetPasswordForm() {
 				</p>
 			)}
 
-			<FixedBottomButton button_title="확인" button_props={{ type: "submit" }} />
+			<FixedBottomButton
+				button_title="확인"
+				button_props={{ type: "submit" }}
+			/>
 		</form>
 	)
 }
