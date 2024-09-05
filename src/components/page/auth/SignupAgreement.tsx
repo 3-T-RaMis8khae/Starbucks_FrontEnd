@@ -5,7 +5,7 @@ import { useImmerReducer } from "use-immer"
 import _ from "lodash"
 
 import BaseHeader from "@/components/atom/header/baseHeader"
-import ButtonFooter from "@/components/atom/footer/buttonFooter"
+import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import Link from "next/link"
 import Image from "next/image"
 import CloseSvgURL from "@/assets/svg/close.svg?url"
@@ -246,14 +246,14 @@ function SignupAgreement({
 				</form>
 			</div>
 
-			<ButtonFooter
+			<FixedBottomButton
 				button_title="다음"
 				button_props={{
 					disabled: !isBtAvailable,
 					onClick: routerHandler,
 					type: "button"
 				}}
-			></ButtonFooter>
+			></FixedBottomButton>
 		</section>
 	)
 }

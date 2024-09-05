@@ -5,7 +5,7 @@ import Image from "next/image"
 import LeftCaretURL from "@/assets/svg/caret-left.svg?url"
 import { BaseInput } from "@/components/atom/input/baseInput"
 import { Button } from "@/components/ui/button"
-import ButtonFooter from "@/components/atom/footer/buttonFooter"
+import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import React, { useState } from "react"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
 import StepIndicator from "@/components/atom/stepIndicator"
@@ -89,13 +89,13 @@ export default function NicknamePage() {
 						</li>
 					</ul>
 
-					<ButtonFooter
+					<FixedBottomButton
 						button_title="다음"
 						button_props={{
 							type: "submit",
 							disabled: !isTermCheck || !isValid
 						}}
-					></ButtonFooter>
+					></FixedBottomButton>
 				</form>
 				<Button
 					variant="sbGreenGhost"

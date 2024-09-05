@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import CloseSvgURL from "@/assets/svg/close.svg?url"
 import BaseHeader from "@/components/atom/header/baseHeader"
-import ButtonFooter from "@/components/atom/footer/buttonFooter"
+import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import { BaseInput } from "@/components/atom/input/baseInput"
 
 import { useForm } from "react-hook-form"
@@ -106,10 +106,10 @@ export default function MemberAccountPage() {
 						)}
 					</div>
 
-					<ButtonFooter
+					<FixedBottomButton
 						button_title="다음"
 						button_props={{ type: "submit" }}
-					></ButtonFooter>
+					></FixedBottomButton>
 				</form>
 			</div>
 		</section>

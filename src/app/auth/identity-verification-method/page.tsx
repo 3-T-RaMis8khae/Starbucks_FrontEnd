@@ -4,7 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 
 import BaseHeader from "@/components/atom/header/baseHeader"
-import ButtonFooter from "@/components/atom/footer/buttonFooter"
+import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import VerificationCard from "@/components/molecule/card/verificationCard"
 
 import CloseURL from "@/assets/svg/close.svg?url"
@@ -67,10 +67,10 @@ export default function IdentityVerificationPage() {
 				></VerificationCard>
 			</div>
 
-			<ButtonFooter
+			<FixedBottomButton
 				button_title="다음"
 				button_props={{ type: "button" }}
-			></ButtonFooter>
+			></FixedBottomButton>
 		</main>
 	)
 }

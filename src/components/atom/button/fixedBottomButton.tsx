@@ -6,7 +6,7 @@ interface BtFooterIf {
 	button_title?: string
 }
 
-export default function ButtonFooter({
+export default function FixedBottomButton({
 	button_props,
 	button_title
 }: BtFooterIf) {

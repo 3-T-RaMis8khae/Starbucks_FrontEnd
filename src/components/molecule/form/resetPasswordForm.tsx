@@ -2,7 +2,7 @@
 
 import React from "react"
 import { BaseInput } from "@/components/atom/input/baseInput"
-import ButtonFooter from "@/components/atom/footer/buttonFooter"
+import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { resetPasswordSchema } from "@/schema/authSchema"
@@ -48,7 +48,7 @@ function ResetPasswordForm() {
 				</p>
 			)}
 
-			<ButtonFooter button_title="확인" button_props={{ type: "submit" }} />
+			<FixedBottomButton button_title="확인" button_props={{ type: "submit" }} />
 		</form>
 	)
 }

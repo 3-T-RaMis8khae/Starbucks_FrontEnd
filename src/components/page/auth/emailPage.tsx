@@ -4,7 +4,7 @@ import BaseHeader from "@/components/atom/header/baseHeader"
 import Image from "next/image"
 import LeftCaretURL from "@/assets/svg/caret-left.svg?url"
 import { BaseInput } from "@/components/atom/input/baseInput"
-import ButtonFooter from "@/components/atom/footer/buttonFooter"
+import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import React from "react"
 
 import { useForm } from "react-hook-form"
@@ -84,10 +84,10 @@ export default function EmailPage() {
 					</li>
 				</ul>
 
-				<ButtonFooter
+				<FixedBottomButton
 					button_title="다음"
 					button_props={{ type: "submit", disabled: !isValid }}
-				></ButtonFooter>
+				></FixedBottomButton>
 			</form>
 		</section>
 	)

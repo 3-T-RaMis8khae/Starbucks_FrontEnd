@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
 import TermsItem from "@/components/atom/termsItem"
 import { BaseInput } from "@/components/atom/input/baseInput"
-import ButtonFooter from "@/components/atom/footer/buttonFooter"
+import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import _ from "lodash"
 import {
 	Select,
@@ -208,13 +208,13 @@ function PhoneVerification(props: PhoneVerificationProps) {
 					</li>
 				</ul>
 
-				<ButtonFooter
+				<FixedBottomButton
 					button_title="다음"
 					button_props={{
 						type: "submit"
 						// disabled: !(isTermChecked && isValid && isPhoneVerified)
 					}}
-				></ButtonFooter>
+				></FixedBottomButton>
 			</form>
 		</>
 	)

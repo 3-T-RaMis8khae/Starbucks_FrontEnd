@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import ButtonFooter from "@/components/atom/footer/buttonFooter"
+import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import LabelInput from "@/components/molecule/input/labelInput"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -53,10 +53,10 @@ function LoginForm() {
 				)}
 			</div>
 
-			<ButtonFooter
+			<FixedBottomButton
 				button_title="로그인하기"
 				button_props={{ type: "submit" }}
-			></ButtonFooter>
+			></FixedBottomButton>
 		</form>
 	)
 }

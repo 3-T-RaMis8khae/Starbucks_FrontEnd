@@ -4,7 +4,7 @@ import Image from "next/image"
 import CloseSvgURL from "@/assets/svg/close.svg?url"
 import FindUserIdImage from "@/assets/image/findUserId.png"
 
-import ButtonFooter from "@/components/atom/footer/buttonFooter"
+import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import React from "react"
 
 export default function ForgotAccountPage() {
@@ -36,10 +36,10 @@ export default function ForgotAccountPage() {
 				</div>
 			</div>
 
-			<ButtonFooter
+			<FixedBottomButton
 				button_title="로그인하기"
 				button_props={{ type: "submit" }}
-			></ButtonFooter>
+			></FixedBottomButton>
 		</section>
 	)
 }
