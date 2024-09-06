@@ -1,20 +1,19 @@
 "use client"
 
 import BaseHeader from "@/components/atom/header/baseHeader"
-import Image from "next/image"
 import LeftCaretURL from "@/assets/svg/caret-left.svg?url"
 import { BaseInput } from "@/components/atom/input/baseInput"
 import { Button } from "@/components/ui/button"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import React, { useState } from "react"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
-import StepIndicator from "@/components/atom/stepIndicator"
+import StepIndicator from "@/components/atom/indicator/stepIndicator"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { nicknameSchema } from "@/schema/authSchema"
 import { useRouter } from "next/navigation"
-import Logo from "@/components/atom/logo"
 import IconButton from "@/components/atom/icon/iconButton"
+import AuthTitle from "@/components/atom/title/authTitle"
 
 export default function NicknamePage() {
 	const {
@@ -32,6 +31,8 @@ export default function NicknamePage() {
 	// 		`/auth/signup?${_.replace(`${searchParams}`, "step=4", "step=5")}&${queryParams}`
 	// 	)
 	// }
+
+	const titles = ["닉네임을", "입력해 주세요."]
 
 	return (
 		<section>
@@ -54,12 +55,11 @@ export default function NicknamePage() {
 			></BaseHeader>
 
 			<div className="w-full flex flex-col mt-[60px] px-[30px]">
-				<div className="flex flex-col gap-2 mb-6">
-					<p className="text-2xl text-sb-black-100 font-semibold">닉네임을</p>
-					<p className="text-2xl text-sb-black-100 font-semibold">
-						입력해 주세요.
-					</p>
-				</div>
+				<AuthTitle
+					titles={titles}
+					wrapperProps={{ className: "mb-6" }}
+					titleProps={{ className: "font-semibold" }}
+				/>
 
 				<form
 					onSubmit={handleSubmit((data, event) => {})}
@@ -97,7 +97,7 @@ export default function NicknamePage() {
 						button_title="다음"
 						button_props={{
 							type: "submit",
-							disabled: !isTermCheck || !isValid
+							disabled: !isTermCheck
 						}}
 					></FixedBottomButton>
 				</form>

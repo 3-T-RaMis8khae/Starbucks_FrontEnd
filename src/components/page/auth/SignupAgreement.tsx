@@ -15,8 +15,9 @@ import BaseCheckBox from "@/components/molecule/checkBox/baseCheckBox"
 import { WritableDraft } from "immer"
 import { useRouter } from "next/navigation"
 import { createQueryParamString } from "@/lib/queryParamUtils"
-import Logo from "@/components/atom/logo"
+import Logo from "@/components/atom/logo/logo"
 import IconLink from "@/components/atom/icon/iconLink"
+import AuthTitle from "@/components/atom/title/authTitle"
 
 interface SignupAgreementProps {
 	agreementState?: AgreementState
@@ -131,6 +132,8 @@ function SignupAgreement({
 		router.push(`/auth/signup?step=${2}&${createQueryParamString(checkboxes)}`)
 	}
 
+	const titles = ["고객님,", "환영합니다!"]
+
 	return (
 		<section>
 			<BaseHeader
@@ -151,15 +154,14 @@ function SignupAgreement({
 						src: StarbucksSvgUrl,
 						alt: "starbucks.svg"
 					}}
-					wrapperProps={{ className: "mb-6 mt-14" }}
+					wrapperProps={{ className: "mb-6 mt-10" }}
 				/>
 
-				<div className="flex flex-col gap-2 mb-10">
-					<p className="text-2xl text-sb-black-100 font-semibold">고객님,</p>
-					<p className="text-2xl text-sb-black-100 font-semibold">
-						환영합니다!
-					</p>
-				</div>
+				<AuthTitle
+					titles={titles}
+					wrapperProps={{ className: "mb-10" }}
+					titleProps={{ className: "font-semibold" }}
+				/>
 
 				<form
 					onChange={() => {

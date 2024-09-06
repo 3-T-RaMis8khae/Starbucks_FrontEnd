@@ -1,7 +1,5 @@
 "use client"
 
-import Link from "next/link"
-import Image from "next/image"
 import CloseSvgURL from "@/assets/svg/close.svg?url"
 import BaseHeader from "@/components/atom/header/baseHeader"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
@@ -13,15 +11,16 @@ import { userAccountSchema } from "@/schema/authSchema"
 import { useRouter, useSearchParams } from "next/navigation"
 import { createQueryParamString } from "@/lib/queryParamUtils"
 import _ from "lodash"
-import StepIndicator from "@/components/atom/stepIndicator"
+import StepIndicator from "@/components/atom/indicator/stepIndicator"
 import React from "react"
 import IconLink from "@/components/atom/icon/iconLink"
+import AuthTitle from "@/components/atom/title/authTitle"
 
 export default function MemberAccountPage() {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors }
+		formState: { errors, isValid }
 	} = useForm({
 		resolver: zodResolver(userAccountSchema)
 	})
@@ -33,6 +32,8 @@ export default function MemberAccountPage() {
 			`/auth/signup?${_.replace(`${searchParams}`, "step=3", "step=4")}&${queryParams}`
 		)
 	}
+
+	const titles = ["아이디와 비밀번호를", "입력해 주세요."]
 
 	return (
 		<>
@@ -53,14 +54,11 @@ export default function MemberAccountPage() {
 			></BaseHeader>
 			<section>
 				<div className="w-full flex flex-col mt-[60px] px-[30px]">
-					<div className="flex flex-col gap-2 mb-6">
-						<p className="text-2xl text-sb-black-100 font-semibold">
-							아이디와 비밀번호를.
-						</p>
-						<p className="text-2xl text-sb-black-100 font-semibold">
-							입력해 주세요.
-						</p>
-					</div>
+					<AuthTitle
+						titles={titles}
+						wrapperProps={{ className: "mb-6" }}
+						titleProps={{ className: "font-semibold" }}
+					/>
 
 					<form
 						onSubmit={handleSubmit((data, event) => {

@@ -12,9 +12,9 @@ import { emailSchema } from "@/schema/authSchema"
 import { useRouter, useSearchParams } from "next/navigation"
 import { createQueryParamString } from "@/lib/queryParamUtils"
 import _ from "lodash"
-import StepIndicator from "@/components/atom/stepIndicator"
-import Logo from "@/components/atom/logo"
+import StepIndicator from "@/components/atom/indicator/stepIndicator"
 import IconButton from "@/components/atom/icon/iconButton"
+import AuthTitle from "@/components/atom/title/authTitle"
 
 export default function EmailPage() {
 	const {
@@ -32,6 +32,8 @@ export default function EmailPage() {
 			`/auth/signup?${_.replace(`${searchParams}`, "step=4", "step=5")}&${queryParams}`
 		)
 	}
+
+	const titles = ["이메일을", "입력해 주세요."]
 
 	return (
 		<section>
@@ -59,12 +61,11 @@ export default function EmailPage() {
 				})}
 				className="w-full flex flex-col mt-[60px] px-[30px]"
 			>
-				<div className="flex flex-col gap-2 mb-6">
-					<p className="text-2xl text-sb-black-100 font-semibold">이메일을</p>
-					<p className="text-2xl text-sb-black-100 font-semibold">
-						입력해 주세요.
-					</p>
-				</div>
+				<AuthTitle
+					titles={titles}
+					wrapperProps={{ className: "mb-6" }}
+					titleProps={{ className: "font-semibold" }}
+				/>
 
 				<BaseInput
 					ct_type="text"
@@ -89,7 +90,7 @@ export default function EmailPage() {
 
 				<FixedBottomButton
 					button_title="다음"
-					button_props={{ type: "submit", disabled: !isValid }}
+					button_props={{ type: "submit" }}
 				></FixedBottomButton>
 			</form>
 		</section>

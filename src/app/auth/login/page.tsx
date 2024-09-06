@@ -1,13 +1,16 @@
 import BaseHeader from "@/components/atom/header/baseHeader"
 import StarbucksSvgUrl from "@/assets/icon/startbucks.svg?url"
-import Image from "next/image"
 import LoginForm from "@/components/molecule/form/loginForm"
 import LoginLink from "@/components/molecule/link/loginLink"
-import Logo from "@/components/atom/logo"
-import { className } from "postcss-selector-parser"
+import Logo from "@/components/atom/logo/logo"
+import AuthTitle from "@/components/atom/title/authTitle"
+import AuthSubTitle from "@/components/atom/title/authSubTitle"
 
 // todo - 1) Need to implement the feature for Authentication.
 export default function LoginPage() {
+	const titles = ["안녕하세요.", "스타벅스입니다."]
+	const subTitle = ["회원 서비스 이용을 위해 로그인 해주세요."]
+
 	return (
 		<>
 			<BaseHeader middleComponent={"로그인"}></BaseHeader>
@@ -20,13 +23,11 @@ export default function LoginPage() {
 					wrapperProps={{ className: "mb-6 mt-8" }}
 				/>
 
-				<div className="flex flex-col gap-2 mb-10">
-					<p className="text-2xl text-sb-black-100 font-bold">안녕하세요.</p>
-					<p className="text-2xl text-sb-black-100 font-bold">
-						스타벅스입니다.
-					</p>
-					<p className="text-base">회원 서비스 이용을 위해 로그인 해주세요.</p>
-				</div>
+				<AuthTitle titles={titles} titleProps={{ className: "font-bold" }} />
+				<AuthSubTitle
+					titles={subTitle}
+					wrapperProps={{ className: "mb-10 mt-3" }}
+				/>
 
 				<LoginForm />
 

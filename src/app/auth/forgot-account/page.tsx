@@ -6,40 +6,46 @@ import FindUserIdImage from "@/assets/image/findUserId.png"
 
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import React from "react"
+import IconLink from "@/components/atom/icon/iconLink"
 
 export default function ForgotAccountPage() {
 	return (
-		<section className="w-screen h-full flex flex-col">
+		<>
 			<BaseHeader
 				leftComponent={
-					<Link href={"/auth/login"}>
-						<Image src={CloseSvgURL} alt="close.svg" />
-					</Link>
+					<IconLink
+						linkProps={{ href: "/auth/login", scroll: true }}
+						imageProps={{
+							src: CloseSvgURL,
+							alt: "close.svg"
+						}}
+					/>
 				}
-			></BaseHeader>
-
-			<div className="w-full flex flex-col items-center mt-[60px] px-[30px]">
-				<Image
-					className="mt-16 mb-8 bg-white"
-					src={FindUserIdImage}
-					width={140}
-					height={140}
-					alt="findUserId.png"
-				/>
-				<div className="flex flex-col items-center">
-					<p className="text-sb-gray-100 font-medium text-base">
-						고객님의 아이디는
-					</p>
-					<p className="text-sb-gray-100 font-medium text-base">
-						<span className="text-sb-green-100 ">User_ID</span> 입니다.
-					</p>
+			/>
+			<section className="w-screen h-full flex flex-col">
+				<div className="w-full flex flex-col items-center mt-[60px] px-[30px]">
+					<Image
+						className="mt-16 mb-8 bg-white"
+						src={FindUserIdImage}
+						width={140}
+						height={140}
+						alt="findUserId.png"
+					/>
+					<div className="flex flex-col items-center">
+						<p className="text-sb-gray-100 font-medium text-base">
+							고객님의 아이디는
+						</p>
+						<p className="text-sb-gray-100 font-medium text-base">
+							<span className="text-sb-green-100 ">User_ID</span> 입니다.
+						</p>
+					</div>
 				</div>
-			</div>
 
-			<FixedBottomButton
-				button_title="로그인하기"
-				button_props={{ type: "submit" }}
-			></FixedBottomButton>
-		</section>
+				<FixedBottomButton
+					button_title="로그인하기"
+					button_props={{ type: "submit" }}
+				></FixedBottomButton>
+			</section>
+		</>
 	)
 }
