@@ -5,7 +5,7 @@ import CloseSvgURL from "@/assets/svg/close.svg?url"
 import React from "react"
 import ResetPasswordForm from "@/components/molecule/form/resetPasswordForm"
 import AuthTitle from "@/components/atom/title/authTitle"
-import NicknameDescBox from "@/components/atom/descbox/nicknameDescBox"
+import NicknameTextBox from "@/components/atom/textbox/nicknameTextBox"
 
 export default function ResetPasswordPage() {
 	const titles = [
@@ -43,7 +43,7 @@ export default function ResetPasswordPage() {
 					<ResetPasswordForm></ResetPasswordForm>
 				</div>
 
-				<NicknameDescBox
+				<NicknameTextBox
 					title={descBox.title}
 					descriptions={descBox.descriptions}
 				/>

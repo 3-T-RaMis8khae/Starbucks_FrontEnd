@@ -6,7 +6,7 @@ interface NicknameDescBoxProps {
 	wrapperProps?: React.HTMLProps<HTMLDivElement>
 }
 
-function NicknameDescBox({
+function NicknameTextBox({
 	title,
 	descriptions,
 	wrapperProps
@@ -26,4 +26,4 @@ function NicknameDescBox({
 	)
 }
 
-export default NicknameDescBox
+export default NicknameTextBox
