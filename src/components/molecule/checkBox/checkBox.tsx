@@ -17,6 +17,13 @@ interface CheckBoxProps
 	ct_container_props?: React.HTMLAttributes<HTMLInputElement>
 }
 
+/*
+ *  React.forwardRef<T,P>
+ *  T: the type of the ref that is passed to the component.
+ *     The ref is a reference to a DOM element or a React component instance.
+ *
+ *  P: the type of the props object that is passed to the component.
+ * */
 const CheckBox = React.forwardRef<
 	React.ElementRef<typeof CheckboxPrimitive.Root>,
 	CheckBoxProps

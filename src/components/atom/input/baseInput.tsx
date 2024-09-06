@@ -16,6 +16,13 @@ export interface BaseInputProps
 	ct_type?: HTMLInputTypeAttribute | undefined
 }
 
+/*
+ *  React.forwardRef<T,P>
+ *  T: the type of the ref that is passed to the component.
+ *     The ref is a reference to a DOM element or a React component instance.
+ *
+ *  P: the type of the props object that is passed to the component.
+ * */
 const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
 	(
 		{
