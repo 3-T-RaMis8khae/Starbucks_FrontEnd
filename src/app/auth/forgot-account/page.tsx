@@ -7,6 +7,7 @@ import FindUserIdImage from "@/assets/image/findUserId.png"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import React from "react"
 import IconLink from "@/components/atom/icon/iconLink"
+import Logo from "@/components/atom/logo/logo"
 
 export default function ForgotAccountPage() {
 	return (
@@ -24,12 +25,14 @@ export default function ForgotAccountPage() {
 			/>
 			<section className="w-screen h-full flex flex-col">
 				<div className="w-full flex flex-col items-center mt-[60px] px-[30px]">
-					<Image
-						className="mt-16 mb-8 bg-white"
-						src={FindUserIdImage}
-						width={140}
-						height={140}
-						alt="findUserId.png"
+					<Logo
+						imageProps={{
+							src: FindUserIdImage,
+							alt: "findUserId.png",
+							width: 140,
+							height: 140
+						}}
+						wrapperProps={{ className: "mt-16 mb-8 w-[140px] h-[140px]" }}
 					/>
 					<div className="flex flex-col items-center">
 						<p className="text-sb-gray-100 font-medium text-base">
