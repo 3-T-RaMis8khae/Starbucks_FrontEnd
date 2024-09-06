@@ -6,6 +6,9 @@ interface BaseHeaderProps {
 	middleComponent?: React.ReactNode
 }
 
+// note : There is a warning message about
+//  "Skipping auto-scroll behavior due to `position: sticky` or `position: fixed` on element: "
+//  when using Link and useRouter method.
 function BaseHeader(
 	props: BaseHeaderProps = {
 		leftComponent: <></>,
@@ -14,7 +17,7 @@ function BaseHeader(
 	}
 ) {
 	return (
-		<header className="w-full h-[50px] py-[10px] px-[24px] fixed left-0 top-0 flex items-center justify-between bg-white">
+		<header className="z-50 fixed left-0 top-0 w-full h-[50px] py-[10px] px-[24px] flex items-center justify-between bg-white">
 			{props.leftComponent}
 			{props.middleComponent && (
 				<div
