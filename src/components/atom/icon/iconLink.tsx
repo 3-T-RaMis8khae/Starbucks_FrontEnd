@@ -4,14 +4,14 @@ import Link from "next/link"
 import { LinkProps } from "next/dist/client/link"
 import Image, { ImageProps } from "next/image"
 
-interface LogoLinkProps {
+interface IconLinkProps {
 	linkProps?: LinkProps
 	imageProps?: ImageProps
 }
 
-function LogoLink({ linkProps, imageProps }: LogoLinkProps) {
+function IconLink({ linkProps, imageProps }: IconLinkProps) {
 	return (
-		<Link href={"/"} {...linkProps}>
+		<Link href={"/public"} {...linkProps} className={`object-cover`}>
 			<Image
 				width={20}
 				height={20}
@@ -23,4 +23,4 @@ function LogoLink({ linkProps, imageProps }: LogoLinkProps) {
 	)
 }
 
-export default LogoLink
+export default IconLink
