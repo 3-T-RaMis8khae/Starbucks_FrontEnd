@@ -14,6 +14,7 @@ import { nicknameSchema } from "@/schema/authSchema"
 import { useRouter } from "next/navigation"
 import IconButton from "@/components/atom/icon/iconButton"
 import AuthTitle from "@/components/atom/title/authTitle"
+import ErrorText from "@/components/atom/text/errorText"
 
 export default function NicknamePage() {
 	const {
@@ -82,11 +83,9 @@ export default function NicknamePage() {
 						ct_is_error={!!errors.nickname}
 						{...register("nickname")}
 					/>
-					{errors.nickname && (
-						<p className="error-text mt-1">
-							{errors.nickname.message as string}
-						</p>
-					)}
+					<ErrorText text={errors?.nickname?.message as string} />
+
+					{/* todo : make component */}
 					<ul className="input-desc mt-2">
 						<li>
 							매장에서 주문한 음료를 찾으실 때, 등록한 닉네임으로 불러 드립니다.

@@ -15,6 +15,7 @@ import _ from "lodash"
 import StepIndicator from "@/components/atom/indicator/stepIndicator"
 import IconButton from "@/components/atom/icon/iconButton"
 import AuthTitle from "@/components/atom/title/authTitle"
+import ErrorText from "@/components/atom/text/errorText"
 
 export default function EmailPage() {
 	const {
@@ -73,9 +74,7 @@ export default function EmailPage() {
 					placeholder="이메일을 입력해주세요"
 					{...register("email")}
 				/>
-				{errors.email && (
-					<p className="error-text mt-1">{errors.email.message as string}</p>
-				)}
+				<ErrorText text={errors?.email?.message as string} />
 
 				<ul className="input-desc mt-4">
 					<li>

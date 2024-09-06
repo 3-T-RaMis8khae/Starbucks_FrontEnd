@@ -15,6 +15,7 @@ import StepIndicator from "@/components/atom/indicator/stepIndicator"
 import React from "react"
 import IconLink from "@/components/atom/icon/iconLink"
 import AuthTitle from "@/components/atom/title/authTitle"
+import ErrorText from "@/components/atom/text/errorText"
 
 export default function MemberAccountPage() {
 	const {
@@ -73,11 +74,7 @@ export default function MemberAccountPage() {
 								ct_is_error={!!errors.loginId}
 								{...register("loginId")}
 							/>
-							{errors.loginId && (
-								<p className="error-text mt-1">
-									{errors.loginId.message as string}
-								</p>
-							)}
+							<ErrorText text={errors?.loginId?.message as string} />
 						</div>
 
 						<div>
@@ -86,11 +83,7 @@ export default function MemberAccountPage() {
 								ct_is_error={!!errors.password}
 								{...register("password")}
 							/>
-							{errors.password && (
-								<p className="error-text mt-1">
-									{errors.password.message as string}
-								</p>
-							)}
+							<ErrorText text={errors?.password?.message as string} />
 						</div>
 
 						<div>
@@ -99,11 +92,7 @@ export default function MemberAccountPage() {
 								ct_is_error={!!errors.passwordValidate}
 								{...register("passwordValidate")}
 							/>
-							{errors.passwordValidate && (
-								<p className="error-text mt-1">
-									{errors.passwordValidate.message as string}
-								</p>
-							)}
+							<ErrorText text={errors?.passwordValidate?.message as string} />
 						</div>
 
 						<FixedBottomButton

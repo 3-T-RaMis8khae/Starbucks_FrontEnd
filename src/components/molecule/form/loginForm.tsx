@@ -6,6 +6,7 @@ import LabelInput from "@/components/molecule/input/labelInput"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { loginSchema } from "@/schema/authSchema"
+import ErrorText from "@/components/atom/text/errorText"
 
 // interface LoginFormProps {}
 
@@ -36,9 +37,7 @@ function LoginForm() {
 					is_error={!!errors["loginId"]}
 					{...register("loginId")}
 				/>
-				{errors.loginId && (
-					<p className="error-text mt-1">{errors.loginId.message as string}</p>
-				)}
+				<ErrorText text={errors?.loginId?.message as string} />
 			</div>
 
 			<div className="w-full">
@@ -48,9 +47,7 @@ function LoginForm() {
 					is_error={!!errors["password"]}
 					{...register("password")}
 				/>
-				{errors.password && (
-					<p className="error-text mt-1">{errors.password.message as string}</p>
-				)}
+				<ErrorText text={errors?.password?.message as string} />
 			</div>
 
 			<FixedBottomButton

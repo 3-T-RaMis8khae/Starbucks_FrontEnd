@@ -6,6 +6,7 @@ import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { resetPasswordSchema } from "@/schema/authSchema"
+import ErrorText from "@/components/atom/text/errorText"
 
 // interface ResetPasswordFormProps {}
 
@@ -31,22 +32,20 @@ function ResetPasswordForm() {
 		>
 			<BaseInput
 				placeholder="새 비밀번호 (10~20자리 이내)"
+				ct_is_error={!!errors.password}
 				{...register("password")}
 			/>
-			{errors.password && (
-				<p className="error-text mt-1">{errors.password.message as string}</p>
-			)}
+			<ErrorText text={errors?.password?.message as string} />
+
+			{/* todo: make divider component */}
 			<div className="my-2"></div>
-			{/* make divider component */}
+
 			<BaseInput
 				placeholder="새 비밀번호 확인"
+				ct_is_error={!!errors.passwordValidate}
 				{...register("passwordValidate")}
 			/>
-			{errors.passwordValidate && (
-				<p className="error-text mt-1">
-					{errors.passwordValidate.message as string}
-				</p>
-			)}
+			<ErrorText text={errors?.passwordValidate?.message as string} />
 
 			<FixedBottomButton
 				button_title="확인"
