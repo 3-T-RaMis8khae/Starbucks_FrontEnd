@@ -14,7 +14,7 @@ export default function LoginPage() {
 	return (
 		<>
 			<BaseHeader middleComponent={"로그인"}></BaseHeader>
-			<main className="w-screen h-full flex flex-col mt-[60px] px-[30px]">
+			<main className="w-screen h-full flex flex-col px-[30px] pt-[30px] pb-[100px]">
 				<Logo
 					imageProps={{
 						src: StarbucksSvgUrl,
