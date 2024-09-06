@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
-import TermsItem from "@/components/atom/termsItem"
+import TermsItem from "@/components/atom/terms/termsItem"
 import { BaseInput } from "@/components/atom/input/baseInput"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import _ from "lodash"
