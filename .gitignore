@@ -39,5 +39,3 @@ next-env.d.ts
 #public
 /public
 
-#package-lock.json
-/package-lock.json
