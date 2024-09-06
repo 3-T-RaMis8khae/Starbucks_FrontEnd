@@ -5,7 +5,7 @@ import CloseURL from "@/assets/svg/close.svg?url"
 import React from "react"
 import PhoneVerification from "@/components/organism/auth/phoneVerification"
 import StepIndicator from "@/components/atom/stepIndicator"
-import LogoLink from "@/components/atom/link/logoLink"
+import IconLink from "@/components/atom/icon/iconLink"
 
 // todo : Implement the functionality for its component.
 export default function IdentityVerificationByPhone({
@@ -17,7 +17,7 @@ export default function IdentityVerificationByPhone({
 		<section>
 			<BaseHeader
 				leftComponent={
-					<LogoLink
+					<IconLink
 						linkProps={{ href: "/auth/login" }}
 						imageProps={{
 							src: CloseURL,

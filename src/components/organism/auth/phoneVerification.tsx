@@ -66,7 +66,7 @@ function PhoneVerification(props: PhoneVerificationProps) {
 						onClick={() => {
 							setIsTermChecked(!isTermChecked)
 						}}
-					></CheckBox>
+					/>
 
 					{!isTermChecked && (
 						<div className="flex flex-col gap-2 pb-3.5">
@@ -114,7 +114,7 @@ function PhoneVerification(props: PhoneVerificationProps) {
 						className="border-none w-[160px]"
 						onKeyDown={handleNumberKeyPress}
 						{...register("birthDate")}
-					></BaseInput>
+					/>
 					<span className="w-3 h-[1px] border-[1px] border-t-sb-gray-100 absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]"></span>
 					<div className="relative" onClickCapture={() => {}}>
 						<BaseInput
@@ -125,7 +125,7 @@ function PhoneVerification(props: PhoneVerificationProps) {
 							dir="rtl"
 							onKeyDown={handleNumberKeyPress}
 							{...register("firstRrn")}
-						></BaseInput>
+						/>
 						<div className="absolute flex items-center gap-[2px] top-1/2 right-1 translate-y-[-50%] z-0">
 							{_.times(6, (num) => (
 								<span className="text-sb-black-100" key={num}>
@@ -172,7 +172,7 @@ function PhoneVerification(props: PhoneVerificationProps) {
 							maxLength={11}
 							className="border-none ml-1"
 							onKeyDown={handleNumberKeyPress}
-						></BaseInput>
+						/>
 					</div>
 
 					<Button
@@ -198,7 +198,7 @@ function PhoneVerification(props: PhoneVerificationProps) {
 						placeholder="인증번호"
 						maxLength={6}
 						onKeyDown={handleNumberKeyPress}
-					></BaseInput>
+					/>
 				)}
 
 				<ul className="input-desc !mt-0">

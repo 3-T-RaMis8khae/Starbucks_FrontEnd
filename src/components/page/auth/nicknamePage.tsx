@@ -13,6 +13,8 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { nicknameSchema } from "@/schema/authSchema"
 import { useRouter } from "next/navigation"
+import Logo from "@/components/atom/logo"
+import IconButton from "@/components/atom/icon/iconButton"
 
 export default function NicknamePage() {
 	const {
@@ -35,13 +37,15 @@ export default function NicknamePage() {
 		<section>
 			<BaseHeader
 				leftComponent={
-					<Image
-						className="cursor-pointer"
-						onClick={() => {
-							router.back()
+					<IconButton
+						imageProps={{
+							src: LeftCaretURL,
+							alt: "left-caret.svg"
 						}}
-						src={LeftCaretURL}
-						alt="close.svg"
+						buttonProps={{
+							className: "cursor-pointer",
+							onClick: () => router.back()
+						}}
 					/>
 				}
 				middleComponent={
@@ -71,7 +75,7 @@ export default function NicknamePage() {
 						onClick={() => {
 							setIsTermCheck(!isTermCheck)
 						}}
-					></CheckBox>
+					/>
 					<BaseInput
 						ct_type="text"
 						placeholder="닉네임 (한글 6자리 이내)"

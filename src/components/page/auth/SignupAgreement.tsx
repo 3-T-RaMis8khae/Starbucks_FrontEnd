@@ -16,7 +16,7 @@ import { WritableDraft } from "immer"
 import { useRouter } from "next/navigation"
 import { createQueryParamString } from "@/lib/queryParamUtils"
 import Logo from "@/components/atom/logo"
-import LogoLink from "@/components/atom/link/logoLink"
+import IconLink from "@/components/atom/icon/iconLink"
 
 interface SignupAgreementProps {
 	agreementState?: AgreementState
@@ -135,7 +135,7 @@ function SignupAgreement({
 		<section>
 			<BaseHeader
 				leftComponent={
-					<LogoLink
+					<IconLink
 						linkProps={{ href: "/auth/login" }}
 						imageProps={{
 							src: CloseSvgURL,
@@ -143,7 +143,7 @@ function SignupAgreement({
 						}}
 					/>
 				}
-			></BaseHeader>
+			/>
 
 			<div className="w-full h-full flex flex-col mt-[50px] mb-[90px] px-[30px] pb-8 hidden-scroll">
 				<Logo
@@ -178,7 +178,7 @@ function SignupAgreement({
 						onClick={() => {
 							dispatch({ type: "agreeAll" })
 						}}
-					></CheckBox>
+					/>
 					<div className="w-full h-[1px] border-t-[1px] border-b-sb-gray-0"></div>
 					<CheckBox
 						id="agree-usage"
@@ -190,7 +190,7 @@ function SignupAgreement({
 						onClick={() => {
 							dispatch({ type: "agreeUsage" })
 						}}
-					></CheckBox>
+					/>
 					<CheckBox
 						id="agree-collect-user-info"
 						name="agree-collect-user-info"
@@ -201,7 +201,7 @@ function SignupAgreement({
 						onClick={() => {
 							dispatch({ type: "agreeCollectUserInfo" })
 						}}
-					></CheckBox>
+					/>
 					<CheckBox
 						id="agree-usage-starbucks-card"
 						ct_label="[필수] 스타벅스 카드 이용약관"
@@ -211,7 +211,7 @@ function SignupAgreement({
 						onClick={() => {
 							dispatch({ type: "agreeUsageStarbucksCard" })
 						}}
-					></CheckBox>
+					/>
 					<div className="flex flex-col">
 						<CheckBox
 							id="agree-marketing-info"
@@ -222,7 +222,7 @@ function SignupAgreement({
 							onClick={() => {
 								dispatch({ type: "agreeMarketingInfoAll" })
 							}}
-						></CheckBox>
+						/>
 						<div className="pl-[28px]">
 							<span className="font-normal text-xs text-sb-black-100">
 								광고성 정보 수신 방법
@@ -235,7 +235,7 @@ function SignupAgreement({
 									onClick={() => {
 										dispatch({ type: "agreeMarketingInfoEmail" })
 									}}
-								></BaseCheckBox>
+								/>
 								<BaseCheckBox
 									id="sms"
 									ct_label="SMS"
@@ -243,7 +243,7 @@ function SignupAgreement({
 									onClick={() => {
 										dispatch({ type: "agreeMarketingInfoSms" })
 									}}
-								></BaseCheckBox>
+								/>
 							</div>
 						</div>
 					</div>
@@ -257,7 +257,7 @@ function SignupAgreement({
 					onClick: routerHandler,
 					type: "button"
 				}}
-			></FixedBottomButton>
+			/>
 		</section>
 	)
 }

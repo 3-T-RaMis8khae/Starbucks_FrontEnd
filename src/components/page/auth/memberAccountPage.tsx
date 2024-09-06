@@ -15,7 +15,7 @@ import { createQueryParamString } from "@/lib/queryParamUtils"
 import _ from "lodash"
 import StepIndicator from "@/components/atom/stepIndicator"
 import React from "react"
-import LogoLink from "@/components/atom/link/logoLink"
+import IconLink from "@/components/atom/icon/iconLink"
 
 export default function MemberAccountPage() {
 	const {
@@ -35,10 +35,10 @@ export default function MemberAccountPage() {
 	}
 
 	return (
-		<section>
+		<>
 			<BaseHeader
 				leftComponent={
-					<LogoLink
+					<IconLink
 						linkProps={{ href: "/auth/login" }}
 						imageProps={{
 							src: CloseSvgURL,
@@ -51,69 +51,70 @@ export default function MemberAccountPage() {
 					<StepIndicator stepNumber={4} activeStep={2}></StepIndicator>
 				}
 			></BaseHeader>
+			<section>
+				<div className="w-full flex flex-col mt-[60px] px-[30px]">
+					<div className="flex flex-col gap-2 mb-6">
+						<p className="text-2xl text-sb-black-100 font-semibold">
+							아이디와 비밀번호를.
+						</p>
+						<p className="text-2xl text-sb-black-100 font-semibold">
+							입력해 주세요.
+						</p>
+					</div>
 
-			<div className="w-full flex flex-col mt-[60px] px-[30px]">
-				<div className="flex flex-col gap-2 mb-6">
-					<p className="text-2xl text-sb-black-100 font-semibold">
-						아이디와 비밀번호를.
-					</p>
-					<p className="text-2xl text-sb-black-100 font-semibold">
-						입력해 주세요.
-					</p>
+					<form
+						onSubmit={handleSubmit((data, event) => {
+							routerHandler(createQueryParamString(data))
+						})}
+						className="flex flex-col gap-2.5"
+					>
+						<div>
+							<BaseInput
+								placeholder="아이디 (4-13자리 이내)"
+								ct_type={"text"}
+								ct_is_error={!!errors.loginId}
+								{...register("loginId")}
+							/>
+							{errors.loginId && (
+								<p className="error-text mt-1">
+									{errors.loginId.message as string}
+								</p>
+							)}
+						</div>
+
+						<div>
+							<BaseInput
+								placeholder="비밀번호 (10~20자리 이내)"
+								ct_is_error={!!errors.password}
+								{...register("password")}
+							/>
+							{errors.password && (
+								<p className="error-text mt-1">
+									{errors.password.message as string}
+								</p>
+							)}
+						</div>
+
+						<div>
+							<BaseInput
+								placeholder="비밀번호 확인"
+								ct_is_error={!!errors.passwordValidate}
+								{...register("passwordValidate")}
+							/>
+							{errors.passwordValidate && (
+								<p className="error-text mt-1">
+									{errors.passwordValidate.message as string}
+								</p>
+							)}
+						</div>
+
+						<FixedBottomButton
+							button_title="다음"
+							button_props={{ type: "submit" }}
+						></FixedBottomButton>
+					</form>
 				</div>
-
-				<form
-					onSubmit={handleSubmit((data, event) => {
-						routerHandler(createQueryParamString(data))
-					})}
-					className="flex flex-col gap-2.5"
-				>
-					<div>
-						<BaseInput
-							placeholder="아이디 (4-13자리 이내)"
-							ct_type={"text"}
-							ct_is_error={!!errors.loginId}
-							{...register("loginId")}
-						></BaseInput>
-						{errors.loginId && (
-							<p className="error-text mt-1">
-								{errors.loginId.message as string}
-							</p>
-						)}
-					</div>
-
-					<div>
-						<BaseInput
-							placeholder="비밀번호 (10~20자리 이내)"
-							ct_is_error={!!errors.password}
-							{...register("password")}
-						></BaseInput>
-						{errors.password && (
-							<p className="error-text mt-1">
-								{errors.password.message as string}
-							</p>
-						)}
-					</div>
-
-					<div>
-						<BaseInput
-							placeholder="비밀번호 확인"
-							ct_is_error={!!errors.passwordValidate}
-							{...register("passwordValidate")}
-						></BaseInput>
-						{errors.passwordValidate && (
-							<p className="error-text mt-1">
-								{errors.passwordValidate.message as string}
-							</p>
-						)}
-					</div>
-
-					<FixedBottomButton
-						button_title="다음"
-						button_props={{ type: "submit" }}
-					></FixedBottomButton>
-				</form>
-			</div>
-		</section>
+			</section>
+		</>
 	)
 }

@@ -1,7 +1,6 @@
 "use client"
 
 import BaseHeader from "@/components/atom/header/baseHeader"
-import Image from "next/image"
 import LeftCaretURL from "@/assets/svg/caret-left.svg?url"
 import { BaseInput } from "@/components/atom/input/baseInput"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
@@ -15,6 +14,7 @@ import { createQueryParamString } from "@/lib/queryParamUtils"
 import _ from "lodash"
 import StepIndicator from "@/components/atom/stepIndicator"
 import Logo from "@/components/atom/logo"
+import IconButton from "@/components/atom/icon/iconButton"
 
 export default function EmailPage() {
 	const {
@@ -37,13 +37,13 @@ export default function EmailPage() {
 		<section>
 			<BaseHeader
 				leftComponent={
-					<Logo
+					<IconButton
 						imageProps={{
 							src: LeftCaretURL,
 							alt: "left-caret.svg"
 						}}
-						wrapperProps={{
-							className: "cursor-pointer w-[20px] h-[20px]",
+						buttonProps={{
+							className: "cursor-pointer",
 							onClick: () => router.back()
 						}}
 					/>
