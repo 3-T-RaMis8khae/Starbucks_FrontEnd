@@ -53,13 +53,13 @@ const BaseInput = React.forwardRef<HTMLInputElement, BaseInputProps>(
 					{...props}
 					className={`
 						h-[40px] w-full bg-transparent py-[6px] pl-[4px] pr-[20px]
-            rounded-none border-0 border-b-[1.5px] border-b-sb-gray-0 
-            focus:border-b-sb-green-100 
-            placeholder:text-base placeholder:text-sb-gray-100
-            ${ct_is_error && `border-b-sb-red-100 focus:!border-b-sb-red-100`}
-            ${props.className}
-          `}
-				></Input>
+            			rounded-none border-0 border-b-[1.5px] border-b-sb-gray-0 
+            			focus:border-b-sb-green-100 
+            			placeholder:text-base placeholder:text-sb-gray-100
+            			${ct_is_error && `border-b-sb-red-100 focus:!border-b-sb-red-100`}
+            			${props.className}
+          			`}
+				/>
 				<div className="flex items-center absolute right-0 top-[3px]">
 					{(!ct_type || ct_type == "password") && (
 						<>
