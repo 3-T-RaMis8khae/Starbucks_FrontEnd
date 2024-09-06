@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation"
 import IconButton from "@/components/atom/icon/iconButton"
 import AuthTitle from "@/components/atom/title/authTitle"
 import ErrorText from "@/components/atom/text/errorText"
+import InputDescText from "@/components/atom/text/inputDescText"
 
 export default function NicknamePage() {
 	const {
@@ -34,6 +35,9 @@ export default function NicknamePage() {
 	// }
 
 	const titles = ["닉네임을", "입력해 주세요."]
+	const descriptions = [
+		"매장에서 주문한 음료를 찾으실 때, 등록한 닉네임으로 불러 드립니다."
+	]
 
 	return (
 		<section>
@@ -85,12 +89,10 @@ export default function NicknamePage() {
 					/>
 					<ErrorText text={errors?.nickname?.message as string} />
 
-					{/* todo : make component */}
-					<ul className="input-desc mt-2">
-						<li>
-							매장에서 주문한 음료를 찾으실 때, 등록한 닉네임으로 불러 드립니다.
-						</li>
-					</ul>
+					<InputDescText
+						descriptions={descriptions}
+						wrapperProps={{ className: "mt-2" }}
+					/>
 
 					<FixedBottomButton
 						button_title="다음"

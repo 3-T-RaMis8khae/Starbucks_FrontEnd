@@ -16,6 +16,7 @@ import StepIndicator from "@/components/atom/indicator/stepIndicator"
 import IconButton from "@/components/atom/icon/iconButton"
 import AuthTitle from "@/components/atom/title/authTitle"
 import ErrorText from "@/components/atom/text/errorText"
+import InputDescText from "@/components/atom/text/inputDescText"
 
 export default function EmailPage() {
 	const {
@@ -35,6 +36,10 @@ export default function EmailPage() {
 	}
 
 	const titles = ["이메일을", "입력해 주세요."]
+	const descriptions = [
+		"스타벅스 코리아의 새로운 서비스와 최신 이벤트 정보를 이메일로 보내드려요.",
+		"주요 공지사항 및 이벤트 당첨안내 등 일부 소식은 수신동의 여부에 관계없이 발송됩니다."
+	]
 
 	return (
 		<section>
@@ -76,16 +81,10 @@ export default function EmailPage() {
 				/>
 				<ErrorText text={errors?.email?.message as string} />
 
-				<ul className="input-desc mt-4">
-					<li>
-						스타벅스 코리아의 새로운 서비스와 최신 이벤트 정보를 이메일로
-						보내드려요.
-					</li>
-					<li>
-						주요 공지사항 및 이벤트 당첨안내 등 일부 소식은 수신동의 여부에
-						관계없이 발송됩니다.
-					</li>
-				</ul>
+				<InputDescText
+					descriptions={descriptions}
+					wrapperProps={{ className: "mt-4" }}
+				/>
 
 				<FixedBottomButton
 					button_title="다음"
