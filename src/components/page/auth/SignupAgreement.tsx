@@ -6,8 +6,6 @@ import _ from "lodash"
 
 import BaseHeader from "@/components/atom/header/baseHeader"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
-import Link from "next/link"
-import Image from "next/image"
 import CloseSvgURL from "@/assets/svg/close.svg?url"
 import StarbucksSvgUrl from "@/assets/icon/startbucks.svg?url"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
