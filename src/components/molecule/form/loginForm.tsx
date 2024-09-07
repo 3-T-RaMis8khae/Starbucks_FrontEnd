@@ -1,16 +1,32 @@
 "use client"
 
-import React from "react"
+import React, { useEffect } from "react"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import LabelInput from "@/components/molecule/input/labelInput"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { loginSchema } from "@/schema/authSchema"
+import { loginSchema, loginSchemaType } from "@/schema/authSchema"
 import ErrorText from "@/components/atom/text/errorText"
+import { signIn, useSession } from "next-auth/react"
 
 // interface LoginFormProps {}
+const onLogIn = (data: loginSchemaType): void => {
+	console.log("on login : ", data, loginSchema.safeParse(data))
+	signIn("credentials", {
+		loginId: data.loginId,
+		password: data.password,
+		redirect: false
+	}).then((res) => {
+		console.log("res : ", res)
+	})
+}
 
 function LoginForm() {
+	const auth = useSession()
+	useEffect(() => {
+		console.log("login form auth : ", auth)
+	}, [auth])
+
 	const {
 		register,
 		handleSubmit,
@@ -24,6 +40,7 @@ function LoginForm() {
 			onSubmit={handleSubmit(
 				(data, event) => {
 					console.log("on valid submit : ", data, event)
+					onLogIn(data as loginSchemaType)
 				},
 				(data, event) => {
 					console.log("on invalid submit : ", data, event)

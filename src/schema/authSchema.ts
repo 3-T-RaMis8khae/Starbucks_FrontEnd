@@ -6,6 +6,7 @@ export const passwordRegex =
 export const emailRegex = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/
 export const nicknameRegex = /^[가-힣]{2,6}$/
 
+export type userAccountSchemaType = z.infer<typeof userAccountSchema>
 export const userAccountSchema = z
 	.object({
 		loginId: z.string().regex(loginIdRegex, {
@@ -23,18 +24,21 @@ export const userAccountSchema = z
 		message: "비밀번호가 일치하지 않습니다."
 	})
 
+export type emailSchemaType = z.infer<typeof emailSchema>
 export const emailSchema = z.object({
 	email: z.string().regex(emailRegex, {
 		message: "이메일 형식이 일치하지 않습니다."
 	})
 })
 
+export type nicknameSchemaType = z.infer<typeof nicknameSchema>
 export const nicknameSchema = z.object({
 	nickname: z
 		.string()
 		.regex(nicknameRegex, { message: "닉네임 형식에 맞지 않습니다." })
 })
 
+export type phoneVerifySchemaType = z.infer<typeof phoneVerifySchema>
 export const phoneVerifySchema = z.object({
 	name: z.string().regex(/^[가-힣]{2,}$/, {
 		message: "최소 2글자 이상의 한글을 입력하셔야 합니다."
@@ -56,6 +60,7 @@ export const mobileCarrier = {
 	lguEc: { name: "LGU+ 알뜰폰", value: "LGU+-Economical" }
 }
 
+export type loginSchemaType = z.infer<typeof loginSchema>
 export const loginSchema = z.object({
 	loginId: z.string().regex(loginIdRegex, {
 		message: "아이디 형식이 일치하지 않습니다."
@@ -65,6 +70,7 @@ export const loginSchema = z.object({
 	})
 })
 
+export type resetPasswordSchemaType = z.infer<typeof resetPasswordSchema>
 export const resetPasswordSchema = z
 	.object({
 		password: z.string().regex(passwordRegex, {
