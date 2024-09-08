@@ -11,7 +11,9 @@ export default function SignupPage({
 }) {
 	return (
 		<main className="w-screen h-screen flex flex-col hidden-scroll">
-			{searchParams["step"] == "1" && <SignupAgreement />}
+			{(searchParams["step"] == "1" || !searchParams["step"]) && (
+				<SignupAgreement />
+			)}
 			{searchParams["step"] == "2" && (
 				<IdentityVerificationByPhone isSignUp={true} />
 			)}
