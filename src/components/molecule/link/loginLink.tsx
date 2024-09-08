@@ -14,7 +14,7 @@ function LoginLink() {
 				비밀번호 찾기
 			</Link>
 			<span className="text-gray-500 px-3">|</span>
-			<Link href={`/auth/signup`} className="text-base">
+			<Link href={`/auth/signup?step=1`} className="text-base">
 				회원가입
 			</Link>
 		</div>
