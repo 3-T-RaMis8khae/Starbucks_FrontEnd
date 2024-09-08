@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server"
 import _ from "lodash"
 
+// will be removed
 const authSignupPath = "/auth/signup"
 
 export function signUpMiddleware(req: NextRequest) {
