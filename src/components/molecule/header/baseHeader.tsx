@@ -13,7 +13,7 @@ function BaseHeader(
 	props: BaseHeaderProps = {
 		leftComponent: <></>,
 		rightComponent: <></>,
-		middleComponent: undefined
+		middleComponent: <></>
 	}
 ) {
 	return (
