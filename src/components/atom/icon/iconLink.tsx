@@ -13,6 +13,7 @@ function IconLink({ linkProps, imageProps }: IconLinkProps) {
 	return (
 		<Link href={"/"} {...linkProps} className={`object-cover`}>
 			<Image
+				priority
 				width={20}
 				height={20}
 				src={CloseURL}
