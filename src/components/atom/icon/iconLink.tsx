@@ -11,7 +11,7 @@ interface IconLinkProps {
 
 function IconLink({ linkProps, imageProps }: IconLinkProps) {
 	return (
-		<Link href={"/public"} {...linkProps} className={`object-cover`}>
+		<Link href={"/"} {...linkProps} className={`object-cover`}>
 			<Image
 				width={20}
 				height={20}
