@@ -1,6 +1,7 @@
 import React from "react"
 
 interface BaseHeaderProps {
+	headerProps?: React.HTMLAttributes<HTMLElement>
 	leftComponent?: React.ReactNode
 	rightComponent?: React.ReactNode
 	middleComponent?: React.ReactNode
@@ -9,17 +10,19 @@ interface BaseHeaderProps {
 // note : There is a warning message about
 //  "Skipping auto-scroll behavior due to `position: sticky` or `position: fixed` on element: "
 //  when using Link and useRouter method.
-function BaseHeader(
-	props: BaseHeaderProps = {
-		leftComponent: <></>,
-		rightComponent: <></>,
-		middleComponent: <></>
-	}
-) {
+function BaseHeader({
+	headerProps = {},
+	leftComponent = <></>,
+	rightComponent = <></>,
+	middleComponent = <></>
+}: BaseHeaderProps) {
 	return (
-		<header className="z-50 fixed left-0 top-0 w-full h-[50px] py-[10px] px-[24px] flex items-center justify-between bg-white">
-			{props.leftComponent ?? <div></div>}
-			{props.middleComponent && (
+		<header
+			{...headerProps}
+			className={`z-50 fixed left-0 top-0 w-full h-[50px] py-[10px] px-[24px] flex items-center justify-between bg-white ${headerProps?.className}`}
+		>
+			{leftComponent ?? <div></div>}
+			{middleComponent && (
 				<div
 					className="
 					absolute select-none m-0
@@ -27,11 +30,11 @@ function BaseHeader(
 					font-bold text-sb-black-100
 				"
 				>
-					{props.middleComponent}
+					{middleComponent}
 				</div>
 			)}
 
-			{props.rightComponent ?? <div></div>}
+			{rightComponent ?? <div></div>}
 		</header>
 	)
 }
