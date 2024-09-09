@@ -1,4 +1,4 @@
-import BaseHeader from "@/components/atom/header/baseHeader"
+import BaseHeader from "@/components/molecule/header/baseHeader"
 import Link from "next/link"
 import Image from "next/image"
 import CloseSvgURL from "@/assets/svg/close.svg?url"

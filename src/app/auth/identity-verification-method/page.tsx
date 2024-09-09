@@ -3,7 +3,7 @@
 import React, { useState } from "react"
 import Image from "next/image"
 
-import BaseHeader from "@/components/atom/header/baseHeader"
+import BaseHeader from "@/components/molecule/header/baseHeader"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import VerificationCard from "@/components/molecule/card/verificationCard"
 
