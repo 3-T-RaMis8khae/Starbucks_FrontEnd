@@ -23,13 +23,14 @@ function ShopMainNav() {
 		{ name: "마이페이지", href: "/shop/my-page" }
 	]
 	return (
-		<nav className={`w-full flex`}>
+		<nav className={`w-full h-[30px] flex`}>
 			{navItems.map((navItem, index) => (
 				<Link
 					key={index}
 					href={navItem.href}
 					className={`
-						flex-1 text-center py-1 px-2 text-xs font-medium text-sb-gray-100
+						flex items-center justify-center
+						flex-1 py-1 px-2 text-xs font-medium text-sb-gray-100
 						${pathname === navItem.href ? "!text-sb-black-100 border-b-[2px] border-b-sb-green-100" : ""}
 					`}
 				>
