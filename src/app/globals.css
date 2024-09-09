@@ -90,6 +90,24 @@
 		display: none; /* Hide the scrollbar */
 	}
 
+	.hidden-x-scroll {
+		overflow-x: auto; /* Allows scrolling */
+		-ms-overflow-style: none; /* Hides scrollbar for IE and Edge */
+		scrollbar-width: none; /* Hides scrollbar for Firefox */
+	}
+	.hidden-x-scroll::-webkit-scrollbar {
+		display: none; /* Hide the scrollbar */
+	}
+
+	.hidden-y-scroll {
+		overflow-y: auto; /* Allows scrolling */
+		-ms-overflow-style: none; /* Hides scrollbar for IE and Edge */
+		scrollbar-width: none; /* Hides scrollbar for Firefox */
+	}
+	.hidden-y-scroll::-webkit-scrollbar {
+		display: none; /* Hide the scrollbar */
+	}
+
 	ul.input-desc {
 		@apply flex flex-col gap-2;
 	}
