@@ -1,3 +1,3 @@
 export default function ProductCategoryPage() {
-	return <main></main>
+	return <section></section>
 }

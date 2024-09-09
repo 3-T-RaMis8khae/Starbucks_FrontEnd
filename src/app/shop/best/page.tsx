@@ -1,3 +1,3 @@
 export default function BestPage() {
-	return <main></main>
+	return <section></section>
 }
