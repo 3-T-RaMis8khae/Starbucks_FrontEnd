@@ -19,6 +19,7 @@ function ShopHeader({
 }: ShopHeaderProps) {
 	return (
 		<BaseHeader
+			headerProps={{ className: "!relative" }}
 			leftComponent={
 				leftComponent ?? (
 					<IconButton
