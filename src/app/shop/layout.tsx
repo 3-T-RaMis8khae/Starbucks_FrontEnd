@@ -1,5 +1,5 @@
 import React from "react"
-import ShopHeader from "@/components/molecule/header/shopHeader"
+import ShopBaseHeader from "@/components/molecule/header/shopBaseHeader"
 
 export default function StoreLayout({
 	children
@@ -8,7 +8,7 @@ export default function StoreLayout({
 }) {
 	return (
 		<main>
-			<ShopHeader />
+			<ShopBaseHeader />
 			{children}
 		</main>
 	)

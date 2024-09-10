@@ -12,7 +12,7 @@ interface ShopHeaderProps {
 	middleComponent?: React.ReactNode
 }
 
-function ShopHeader({
+function ShopBaseHeader({
 	leftComponent,
 	middleComponent,
 	rightComponent
@@ -36,7 +36,8 @@ function ShopHeader({
 			rightComponent={
 				rightComponent ?? (
 					<div className="flex items-center gap-3">
-						<IconButton
+						<IconLink
+							linkProps={{ href: "/shop/search" }}
 							imageProps={{
 								src: SearchURL,
 								alt: "search.svg",
@@ -60,4 +61,4 @@ function ShopHeader({
 	)
 }
 
-export default ShopHeader
+export default ShopBaseHeader
