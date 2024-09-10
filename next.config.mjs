@@ -2,7 +2,9 @@
 const nextConfig = {
 	webpack(config) {
 		// Grab the existing rule that handles SVG imports
-		const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.(".svg"))
+		const fileLoaderRule = config.module.rules.find((rule) =>
+			rule.test?.test?.(".svg")
+		)
 
 		config.module.rules.push(
 			// Reapply the existing rule, but only for svg imports ending in ?url
@@ -24,6 +26,11 @@ const nextConfig = {
 		fileLoaderRule.exclude = /\.svg$/i
 
 		return config
+	},
+	images: {
+		// To resolve this error, you need to configure the next.config.js file to allow images from the specified hostname.
+		// Add the hostname sitem.ssgcdn.com to the images.domains array in your next.config.js file.
+		domains: ["sitem.ssgcdn.com"]
 	}
 }
 
