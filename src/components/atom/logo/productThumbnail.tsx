@@ -19,6 +19,7 @@ function ProductThumbnail({ wrapperProps, imageProps }: ProductThumbnailProps) {
 				{...imageProps}
 				alt={imageProps?.alt ?? "product-thumbnail.png"}
 				src={imageProps?.src ?? ""}
+				className={`rounded`}
 			/>
 		</div>
 	)
