@@ -59,8 +59,8 @@ function ProductListCategFilter() {
 	const getProductCategFilter = (
 		endIdx: number = testProductCategFilter.length,
 		isAlone: boolean = false
-	) => {
-		return testProductCategFilter.slice(0, endIdx).map((item) => {
+	) =>
+		testProductCategFilter.slice(0, endIdx).map((item) => {
 			return (
 				<div
 					key={item.filter.id}
@@ -86,7 +86,6 @@ function ProductListCategFilter() {
 				</div>
 			)
 		})
-	}
 
 	return (
 		<>
