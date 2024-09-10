@@ -1,6 +1,6 @@
 "use client"
 
-import BaseHeader from "@/components/molecule/header/baseHeader"
+import BaseHeader from "@/components/atom/header/baseHeader"
 import LeftCaretURL from "@/assets/svg/caret-left.svg?url"
 import { BaseInput } from "@/components/atom/input/baseInput"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"

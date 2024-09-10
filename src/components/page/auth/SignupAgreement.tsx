@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useImmerReducer } from "use-immer"
 import _ from "lodash"
 
-import BaseHeader from "@/components/molecule/header/baseHeader"
+import BaseHeader from "@/components/atom/header/baseHeader"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import CloseSvgURL from "@/assets/svg/close.svg?url"
 import StarbucksSvgUrl from "@/assets/icon/startbucks.svg?url"

@@ -1,4 +1,4 @@
-import BaseHeader from "@/components/molecule/header/baseHeader"
+import BaseHeader from "@/components/atom/header/baseHeader"
 import StarbucksSvgUrl from "@/assets/icon/startbucks.svg?url"
 import LoginForm from "@/components/molecule/form/loginForm"
 import LoginLink from "@/components/molecule/link/loginLink"

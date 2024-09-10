@@ -1,7 +1,7 @@
 "use client"
 
 import CloseSvgURL from "@/assets/svg/close.svg?url"
-import BaseHeader from "@/components/molecule/header/baseHeader"
+import BaseHeader from "@/components/atom/header/baseHeader"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import { BaseInput } from "@/components/atom/input/baseInput"
 

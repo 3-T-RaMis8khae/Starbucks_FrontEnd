@@ -1,5 +1,5 @@
 import React from "react"
-import BaseHeader from "@/components/molecule/header/baseHeader"
+import BaseHeader from "@/components/atom/header/baseHeader"
 import IconLink from "@/components/atom/icon/iconLink"
 import IconButton from "@/components/atom/icon/iconButton"
 import CartURL from "@/assets/svg/cart.svg?url"

@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-import BaseHeader from "@/components/molecule/header/baseHeader"
+import BaseHeader from "@/components/atom/header/baseHeader"
 import CloseURL from "@/assets/svg/close.svg?url"
 import React from "react"
 import PhoneVerification from "@/components/organism/auth/phoneVerification"
