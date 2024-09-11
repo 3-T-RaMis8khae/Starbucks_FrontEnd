@@ -48,7 +48,7 @@ function ShopBaseHeader({
 						/>
 						{/*todo : need to make component for checking cart count*/}
 						<IconLink
-							linkProps={{ href: "/my/cart" }}
+							linkProps={{ href: "/shop/cart" }}
 							imageProps={{
 								src: CartURL,
 								alt: "cart.svg",
