@@ -11,7 +11,6 @@ export interface NavItem {
 
 function ShopMainNav() {
 	const pathname = usePathname()
-	console.log(pathname)
 
 	const navItems: NavItem[] = [
 		{ name: "메인", href: "/shop/main" },

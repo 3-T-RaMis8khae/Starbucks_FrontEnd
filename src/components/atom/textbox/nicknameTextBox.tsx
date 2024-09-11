@@ -14,7 +14,7 @@ function NicknameTextBox({
 	return (
 		<div
 			{...wrapperProps}
-			className={`w-full px-[30px] py-[20px] bg-sb-gray-0 flex flex-col ${wrapperProps?.className}`}
+			className={`w-full px-[30px] py-[20px] bg-gray-100 flex flex-col ${wrapperProps?.className}`}
 		>
 			<p className="font-bold text-sm text-sb-gray-200">{title}</p>
 			<ul className="input-desc *:before:!content-['•'] *:!text-sb-gray-200 !mt-2">
