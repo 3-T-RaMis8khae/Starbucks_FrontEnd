@@ -25,6 +25,7 @@ function ShopHeader(props: ShopHeaderProps) {
 				<></>
 			) : pathname.startsWith("/shop/product-category") ? (
 				<BaseHeader
+					headerProps={{ className: "!sticky" }}
 					rightComponent={
 						<IconButton
 							buttonProps={{ onClick: onCloseHandler }}
