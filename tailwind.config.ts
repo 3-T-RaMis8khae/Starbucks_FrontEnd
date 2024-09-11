@@ -58,6 +58,7 @@ const config = {
 					200: "#036140"
 				},
 				"sb-gray": {
+					input: "#F5F5F5",
 					0: "#E0E0E0",
 					100: "#A5A5A5",
 					200: "#6F6F6F"
