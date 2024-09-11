@@ -13,13 +13,13 @@ function AuthTitle({ titles, titleProps, wrapperProps }: AuthTitleProps) {
 			className={`flex flex-col gap-2 ${wrapperProps?.className}`}
 		>
 			{titles.map((title, index) => (
-				<p
+				<h1
 					key={index}
 					{...titleProps}
 					className={`text-2xl text-sb-black-100 ${titleProps?.className}`}
 				>
 					{title}
-				</p>
+				</h1>
 			))}
 		</div>
 	)
