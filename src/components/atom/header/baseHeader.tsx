@@ -12,16 +12,16 @@ interface BaseHeaderProps {
 //  when using Link and useRouter method.
 function BaseHeader({
 	headerProps = {},
-	leftComponent = <></>,
-	rightComponent = <></>,
-	middleComponent = <></>
+	leftComponent = <div></div>,
+	rightComponent = <div></div>,
+	middleComponent
 }: BaseHeaderProps) {
 	return (
 		<header
 			{...headerProps}
 			className={`z-50 fixed left-0 top-0 w-full h-[56px] py-[10px] px-6 flex items-center justify-between bg-white ${headerProps?.className}`}
 		>
-			{leftComponent ?? <div></div>}
+			{leftComponent}
 			{middleComponent && (
 				<div
 					className="
@@ -34,7 +34,7 @@ function BaseHeader({
 				</div>
 			)}
 
-			{rightComponent ?? <div></div>}
+			{rightComponent}
 		</header>
 	)
 }
