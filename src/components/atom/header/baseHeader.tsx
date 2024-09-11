@@ -19,7 +19,7 @@ function BaseHeader({
 	return (
 		<header
 			{...headerProps}
-			className={`z-50 fixed left-0 top-0 w-full h-[50px] py-[10px] px-[24px] flex items-center justify-between bg-white ${headerProps?.className}`}
+			className={`z-50 fixed left-0 top-0 w-full h-[56px] py-[10px] px-[24px] flex items-center justify-between bg-white ${headerProps?.className}`}
 		>
 			{leftComponent ?? <div></div>}
 			{middleComponent && (
