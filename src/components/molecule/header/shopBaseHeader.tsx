@@ -22,7 +22,8 @@ function ShopBaseHeader({
 			headerProps={{ className: "!sticky" }}
 			leftComponent={
 				leftComponent ?? (
-					<IconButton
+					<IconLink
+						linkProps={{ href: "/shop/product-category" }}
 						imageProps={{
 							src: ListURL,
 							alt: "list.svg",
