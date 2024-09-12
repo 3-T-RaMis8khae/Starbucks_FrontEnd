@@ -1,3 +1,3 @@
 export default function ManageUserInfoPage() {
-	return <main></main>
+	return <main>manage user info page</main>
 }

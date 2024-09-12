@@ -1,3 +1,3 @@
 export default function AgreeDeliveryAddressInfoPage() {
-	return <main></main>
+	return <main> agree delivery address info page </main>
 }

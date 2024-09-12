@@ -1,3 +1,3 @@
 export default function ManageDeliveryAddressPage() {
-	return <main></main>
+	return <main>manage delivery address page</main>
 }
