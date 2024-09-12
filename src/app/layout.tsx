@@ -4,6 +4,10 @@ import "./globals.css"
 import AuthProvider from "@/provider/authProvider"
 import React from "react"
 
+import "swiper/css"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
+
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {

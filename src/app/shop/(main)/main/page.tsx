@@ -1,3 +1,9 @@
+import MainProductCarousel from "@/components/atom/carousel/mainProductCarousel"
+
 export default function MainPage() {
-	return <section></section>
+	return (
+		<section>
+			<MainProductCarousel />
+		</section>
+	)
 }
