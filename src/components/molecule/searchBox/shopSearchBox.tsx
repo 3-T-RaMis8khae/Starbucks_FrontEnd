@@ -35,8 +35,8 @@ function ShopSearchBox(props: ShopSearchHeaderProps) {
 					imageProps={{
 						src: SearchURL,
 						alt: "search.svg",
-						width: 23,
-						height: 23
+						width: 21,
+						height: 21
 					}}
 				/>
 			</div>
