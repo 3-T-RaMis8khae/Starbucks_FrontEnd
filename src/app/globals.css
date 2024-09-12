@@ -122,4 +122,14 @@
 	.error-text {
 		@apply text-sb-red-100 text-xs pl-[4px];
 	}
+
+	.abs-center-x {
+		@apply absolute left-1/2 translate-x-[-50%];
+	}
+	.abs-center-y {
+		@apply absolute top-1/2 translate-y-[-50%];
+	}
+	.abs-center {
+		@apply absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%];
+	}
 }
