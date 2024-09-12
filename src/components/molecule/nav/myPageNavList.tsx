@@ -58,10 +58,15 @@ interface MyPageNavListProps {}
 
 function MyPageNavList(props: MyPageNavListProps) {
 	return (
-		<nav className="w-full p-6 bg-gray-50 flex flex-col gap-8">
+		<nav
+			className="w-full h-full px-6 py-8 bg-gray-50 flex flex-col gap-8"
+			style={{ minHeight: "calc(100lvh - 276px)" }}
+		>
 			{navList.map((nav, index) => (
 				<div key={index} className="flex flex-col gap-6">
-					<span className="text-xl font-bold">{nav.category}</span>
+					<span className="text-xl font-bold text-sb-black-100">
+						{nav.category}
+					</span>
 					{nav.subCategory.map((subNav, index) => (
 						<Link
 							key={index}
