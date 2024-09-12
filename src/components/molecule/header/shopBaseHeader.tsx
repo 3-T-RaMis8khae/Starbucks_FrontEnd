@@ -1,7 +1,6 @@
 import React from "react"
 import BaseHeader from "@/components/atom/header/baseHeader"
 import IconLink from "@/components/atom/icon/iconLink"
-import IconButton from "@/components/atom/icon/iconButton"
 import CartURL from "@/assets/svg/cart.svg?url"
 import SearchURL from "@/assets/svg/search.svg?url"
 import ListURL from "@/assets/svg/list-bold.svg?url"
