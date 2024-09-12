@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  width="24px" height="24px"
+	 viewBox="0 0 48 64" enable-background="new 0 0 48 64" xml:space="preserve">
+<title>Clipboard</title>
+<desc>Created with Sketch.</desc>
+<g id="Page-1" sketch:type="MSPage">
+	<g id="Clipboard" transform="translate(1.000000, 1.000000)" sketch:type="MSLayerGroup">
+		<path id="Shape" sketch:type="MSShapeGroup" fill="none" stroke="#575555" stroke-width="2" d="M32,7h12c1.1,0,2,0.9,2,2v51
+			c0,1.1-0.9,2-2,2H2c-1.1,0-2-0.9-2-2V9c0-1.1,0.9-2,2-2h12"/>
+		<path id="Shape_2_" sketch:type="MSShapeGroup" fill="none" stroke="#575555" stroke-width="2" d="M32,11h6c1.1,0,2,0.9,2,2v41
+			c0,1.1-0.9,2-2,2H8c-1.1,0-2-0.9-2-2V13c0-1.1,0.9-2,2-2h6"/>
+		<path id="Shape_1_" sketch:type="MSShapeGroup" fill="none" stroke="#575555" stroke-width="2" stroke-linejoin="round" d="M30,5
+			l-3-1c0-2.2-1.8-4-4-4s-4,1.8-4,4l-3,1c-1.1,0-2,0.9-2,2v4c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V7C32,5.9,31.1,5,30,5L30,5z"/>
+		<path id="Shape_3_" sketch:type="MSShapeGroup" fill="none" stroke="#575555" stroke-width="2" d="M11,21h21"/>
+		<path id="Shape_4_" sketch:type="MSShapeGroup" fill="none" stroke="#575555" stroke-width="2" d="M11,27h12"/>
+		<path id="Shape_5_" sketch:type="MSShapeGroup" fill="none" stroke="#575555" stroke-width="2" d="M11,32h23"/>
+		<path id="Shape_6_" sketch:type="MSShapeGroup" fill="none" stroke="#575555" stroke-width="2" d="M11,38h12"/>
+		<path id="Shape_7_" sketch:type="MSShapeGroup" fill="none" stroke="#575555" stroke-width="2" d="M11,43h17"/>
+		<path id="Shape_8_" sketch:type="MSShapeGroup" fill="none" stroke="#575555" stroke-width="2" d="M24,50h10"/>
+	</g>
+</g>
+</svg>
