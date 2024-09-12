@@ -9,7 +9,7 @@ import Coffee from "@/assets/image/product-category/coffee.jpeg"
 import Lifestyle from "@/assets/image/product-category/lifestyle.jpeg"
 import Mug from "@/assets/image/product-category/mug.jpeg"
 import ProductCategoryLink from "@/components/atom/link/productCategoryLink"
-import ProductCategoryNavBox from "@/components/molecule/nav/productCategoryNavBox"
+import ProductCategoryNavList from "@/components/molecule/nav/productCategoryNavList"
 
 const productCategoryList = [
 	{
@@ -69,7 +69,7 @@ export default function ProductCategoryPage() {
 					))}
 				</div>
 			</div>
-			<ProductCategoryNavBox />
+			<ProductCategoryNavList />
 		</section>
 	)
 }

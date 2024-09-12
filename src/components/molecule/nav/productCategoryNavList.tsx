@@ -8,7 +8,7 @@ import BaseHr from "@/components/atom/divider/baseHr"
 interface ProductCategoryNavBoxProps {}
 
 // todo : might need to apply interceptor routing for it
-function ProductCategoryNavBox(props: ProductCategoryNavBoxProps) {
+function ProductCategoryNavList(props: ProductCategoryNavBoxProps) {
 	const categoryList: { title: string; subTitle: string; href: string }[] = [
 		{
 			title: "기획전",
@@ -52,4 +52,4 @@ function ProductCategoryNavBox(props: ProductCategoryNavBoxProps) {
 	)
 }
 
-export default ProductCategoryNavBox
+export default ProductCategoryNavList
