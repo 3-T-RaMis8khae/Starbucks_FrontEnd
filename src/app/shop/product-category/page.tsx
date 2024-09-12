@@ -8,7 +8,7 @@ import Tumbler from "@/assets/image/product-category/tumbler.jpeg"
 import Coffee from "@/assets/image/product-category/coffee.jpeg"
 import Lifestyle from "@/assets/image/product-category/lifestyle.jpeg"
 import Mug from "@/assets/image/product-category/mug.jpeg"
-import ProductCategoryLink from "@/components/atom/link/productCategoryLink"
+import ProductCategoryLink from "@/components/atom/product/productCategoryLink"
 import ProductCategoryNavList from "@/components/molecule/nav/productCategoryNavList"
 
 const productCategoryList = [
