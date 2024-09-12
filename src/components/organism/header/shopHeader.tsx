@@ -2,10 +2,10 @@
 
 import React from "react"
 import { usePathname, useRouter } from "next/navigation"
-import ShopSearchBox from "@/components/molecule/searchBox/shopSearchBox"
 import BaseHeader from "@/components/atom/header/baseHeader"
 
 import CloseURL from "@/assets/svg/close.svg?url"
+import CaretLeftURL from "@/assets/svg/caret-left.svg?url"
 import IconButton from "@/components/atom/icon/iconButton"
 import ShopBaseHeader from "@/components/molecule/header/shopBaseHeader"
 
@@ -37,6 +37,22 @@ function ShopHeader(props: ShopHeaderProps) {
 							}}
 						/>
 					}
+				/>
+			) : pathname.startsWith("/shop/cart") ? (
+				<BaseHeader
+					headerProps={{ className: "!sticky" }}
+					leftComponent={
+						<IconButton
+							buttonProps={{ onClick: onCloseHandler }}
+							imageProps={{
+								src: CaretLeftURL,
+								alt: "caret-left.svg",
+								width: 23,
+								height: 23
+							}}
+						/>
+					}
+					middleComponent={"장바구니"}
 				/>
 			) : (
 				<ShopBaseHeader />
