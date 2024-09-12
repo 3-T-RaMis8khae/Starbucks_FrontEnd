@@ -1,18 +1,18 @@
 import React from "react"
 import Link from "next/link"
-import { LinkProps } from "next/dist/client/link"
 
-interface OrderCountProps {
+export interface OrderCountProps {
 	count: number
+	orderType: string
 	orderTypeName: string
-	linkProps: LinkProps
+	href: string
 }
 
-function OrderCountLink({ count, orderTypeName, linkProps }: OrderCountProps) {
+function OrderCountLink({ href, count, orderTypeName }: OrderCountProps) {
 	return (
-		<Link {...linkProps} className={`flex flex-col gap-2`}>
-			<span className="text-2xl text-sb-gray-0 font-semibold">{count}</span>
-			<span className="text-sm font-normal text-sb-gray-100">
+		<Link href={href} className={`flex items-center flex-col gap-2 relative`}>
+			<span className="text-3xl text-sb-gray-0 font-semibold">{count}</span>
+			<span className="text-sm font-normal text-sb-black-100 absolute -bottom-6 abs-center-x whitespace-pre">
 				{orderTypeName}
 			</span>
 		</Link>
