@@ -25,6 +25,7 @@ const productItems: ProductItemType[] = [
 		uuid: "1",
 		name: "product1",
 		price: 10000,
+		discountRate: 10,
 		thumbnail:
 			"https://sitem.ssgcdn.com/93/30/82/item/1000608823093_i1_580.jpg",
 		quantity: 10,
@@ -35,6 +36,7 @@ const productItems: ProductItemType[] = [
 	{
 		uuid: "2",
 		name: "product2",
+		discountRate: 0.25,
 		price: 20000,
 		thumbnail:
 			"https://sitem.ssgcdn.com/93/30/82/item/1000608823093_i1_580.jpg",
@@ -46,6 +48,7 @@ const productItems: ProductItemType[] = [
 	{
 		uuid: "3",
 		name: "product3",
+		discountRate: 25,
 		price: 30000,
 		thumbnail:
 			"https://sitem.ssgcdn.com/93/30/82/item/1000608823093_i1_580.jpg",
