@@ -13,4 +13,9 @@ export interface ProductItemType {
 	isOpened: boolean
 }
 
+export interface ProductGroupType {
+	title: string
+	items: ProductItemType[]
+}
+
 export interface ProductDetailType {}
