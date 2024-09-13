@@ -5,6 +5,7 @@ import Image from "next/image"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, Pagination, Navigation } from "swiper/modules"
+import "./mainProductCarousel.css"
 
 const items: {
 	src: string
@@ -49,8 +50,14 @@ function MainProductCarousel(props: MainProductCarouselProps) {
 			spaceBetween={0}
 			slidesPerView={1}
 			centeredSlides={true}
-			pagination={{ clickable: true }}
-			navigation={true}
+			pagination={{
+				clickable: true,
+				renderBullet: function (index, className) {
+					return `<span class="${className} swiper-pagination-bullet-active swiper-pagination-bullet"></span>`
+				}
+			}}
+			autoplay={{ delay: 3000 }}
+			navigation={false}
 			className="w-full h-80"
 		>
 			{items.map((item, index) => (
