@@ -5,7 +5,7 @@ import { testProductCategs } from "@/dummy/product-category-data"
 
 function ProductListCateg() {
 	return (
-		<ul className="h-[45px] hidden-x-scroll flex items-center border-b-[1px] border-b-sb-gray-0 select-none">
+		<ul className="h-11 hidden-x-scroll flex items-center border-b-[1px] border-b-sb-gray-0 select-none">
 			{testProductCategs.map((item) => {
 				return (
 					<li key={item.id} className="whitespace-nowrap px-3">

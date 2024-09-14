@@ -22,7 +22,7 @@ function ShopMainNav() {
 		{ name: "마이페이지", href: "/shop/my-page" }
 	]
 	return (
-		<nav className={`w-full h-9 flex`}>
+		<nav className={`header-2`}>
 			{navItems.map((navItem, index) => (
 				<Link
 					key={index}

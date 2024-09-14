@@ -78,7 +78,7 @@ function ProductEventLinkList() {
 
 	return (
 		<ul
-			className={`h-[45px] hidden-x-scroll flex items-center border-b-[1px] border-b-sb-gray-0 select-none`}
+			className={`header-3 hidden-x-scroll items-center border-b-[1px] border-b-sb-gray-0 select-none`}
 			ref={UlRef}
 		>
 			{navItems.map((navItem, index) => (
