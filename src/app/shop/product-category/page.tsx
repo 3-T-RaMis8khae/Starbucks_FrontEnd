@@ -4,45 +4,17 @@ import Image from "next/image"
 import CaretRightURL from "@/assets/svg/caret-right.svg?url"
 import Link from "next/link"
 
-import Tumbler from "@/assets/image/product-category/tumbler.jpeg"
-import Coffee from "@/assets/image/product-category/coffee.jpeg"
-import Lifestyle from "@/assets/image/product-category/lifestyle.jpeg"
-import Mug from "@/assets/image/product-category/mug.jpeg"
 import ProductCategoryLink from "@/components/atom/product/productCategoryLink"
 import ProductCategoryNavList from "@/components/molecule/nav/productCategoryNavList"
 
-const productCategoryList = [
-	{
-		title: "텀블러/보온병",
-		imgURL: Tumbler,
-		alt: "tumbler.png",
-		href: "/shop/product-list"
-	},
-	{
-		title: "커피",
-		imgURL: Coffee,
-		alt: "coffee.jpeg",
-		href: "/shop/product-list"
-	},
-	{
-		title: "라이프 스타일",
-		imgURL: Lifestyle,
-		alt: "lifestyle.jpeg",
-		href: "/shop/product-list"
-	},
-	{
-		title: "머그/컵",
-		imgURL: Mug,
-		alt: "mug.png",
-		href: "/shop/product-list"
-	}
-]
+// dummy-data
+import { productCategoryList } from "@/dummy/product-catogory-nav"
 
 // note : might need to change h-lvh to another for ux
 export default function ProductCategoryPage() {
 	return (
 		<section className="h-lvh flex flex-col justify-between">
-			<div className="px-6">
+			<div className="app-px">
 				<ProductCategoryTitle />
 
 				<BaseHr className="my-6" />
