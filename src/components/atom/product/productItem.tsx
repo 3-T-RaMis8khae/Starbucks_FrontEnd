@@ -12,10 +12,13 @@ function ProductItem({ item }: ProductItemProps) {
 	return (
 		<Link
 			href={`/shop/product-detail/${item.uuid}`}
-			className="flex flex-col flex-1 gap-1"
+			className="flex flex-col flex-1 gap-1 w-48"
 		>
 			<ProductThumbnail
-				imageProps={{ src: item.thumbnail, alt: `${item.name}.png` }}
+				imageProps={{
+					src: item.thumbnail,
+					alt: `${item.name}.png`
+				}}
 			/>
 			<span className="text-sb-black-100 font-normal text-base break-words ">
 				{item.name}
