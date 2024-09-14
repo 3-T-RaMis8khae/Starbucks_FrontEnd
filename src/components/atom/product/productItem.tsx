@@ -3,7 +3,6 @@ import Link from "next/link"
 import { ProductItemType } from "@/type/shop/product"
 import ProductThumbnail from "@/components/atom/logo/productThumbnail"
 import { toDiscountPercent, toDiscountPrice, toPrice } from "@/lib/productUtils"
-import { LinkProps } from "next/dist/client/link"
 
 interface ProductItemProps {
 	item: ProductItemType
