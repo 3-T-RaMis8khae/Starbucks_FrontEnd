@@ -138,4 +138,14 @@
 	.app-px {
 		@apply px-6;
 	}
+
+	.header-1 {
+		@apply sticky w-full top-0 h-14 z-[90] bg-white flex;
+	}
+	.header-2 {
+		@apply sticky w-full top-14 h-9 z-[85] bg-white flex;
+	}
+	.header-3 {
+		@apply sticky w-full top-[92px] h-11 z-[80] bg-white flex;
+	}
 }
