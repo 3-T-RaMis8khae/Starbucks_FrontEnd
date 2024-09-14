@@ -12,7 +12,7 @@ interface OrderCountLinkListProps {
 function OrderCountLinkList({ items }: OrderCountLinkListProps) {
 	return (
 		<div>
-			<div className="flex justify-between px-6 items-baseline py-8">
+			<div className="flex justify-between app-px items-baseline py-8">
 				<span className="text-xl font-bold text-sb-black-100">
 					주문/배송 현황
 				</span>

@@ -9,7 +9,7 @@ export default function SearchPage() {
 	return (
 		<>
 			<ShopSearchBox />
-			<section className="w-full bg-white pt-2 px-6">
+			<section className="w-full bg-white pt-2 app-px">
 				<div className="w-full h-[20dvh] flex flex-col items-end relative">
 					{isSearchKeywordExist ? (
 						<>

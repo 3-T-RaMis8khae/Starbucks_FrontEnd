@@ -59,7 +59,7 @@ interface MyPageNavListProps {}
 function MyPageNavList(props: MyPageNavListProps) {
 	return (
 		<nav
-			className="w-full h-full px-6 py-8 bg-gray-50 flex flex-col gap-8"
+			className="w-full h-full app-px py-8 bg-gray-50 flex flex-col gap-8"
 			style={{ minHeight: "calc(100lvh - 276px)" }}
 		>
 			{navList.map((nav, index) => (
