@@ -30,7 +30,7 @@ function ShopMainNav() {
 					className={`
 						flex items-center justify-center
 						flex-1 py-1 px-2 text-sm font-normal text-sb-gray-100
-						${pathname === navItem.href ? "!text-sb-black-100 border-b-[2px] border-b-sb-green-100" : ""}
+						${pathname.includes(navItem.href) ? "!text-sb-black-100 border-b-[2px] border-b-sb-green-100" : ""}
 					`}
 				>
 					{navItem.name}
