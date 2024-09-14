@@ -3,16 +3,18 @@ import Link from "next/link"
 import { ProductItemType } from "@/type/shop/product"
 import ProductThumbnail from "@/components/atom/logo/productThumbnail"
 import { toDiscountPercent, toDiscountPrice, toPrice } from "@/lib/productUtils"
+import { LinkProps } from "next/dist/client/link"
 
 interface ProductItemProps {
 	item: ProductItemType
+	wrapperClass?: string
 }
 
-function ProductItem({ item }: ProductItemProps) {
+function ProductItem({ item, wrapperClass }: ProductItemProps) {
 	return (
 		<Link
 			href={`/shop/product-detail/${item.uuid}`}
-			className="flex flex-col flex-1 gap-1 w-48"
+			className={`flex flex-col flex-1 gap-1 ${wrapperClass}`}
 		>
 			<ProductThumbnail
 				imageProps={{

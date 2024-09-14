@@ -12,7 +12,7 @@ function ProductGroupList({ groupItem }: ProductGroupListProps) {
 			<span className="text-2xl font-bold app-px">{groupItem.title}</span>
 			<div className="grid grid-rows-1 gap-4 hidden-x-scroll grid-flow-col app-px">
 				{groupItem.items.map((item) => (
-					<ProductItem key={item.uuid} item={item} />
+					<ProductItem key={item.uuid} item={item} wrapperClass={"w-48"} />
 				))}
 			</div>
 		</div>
