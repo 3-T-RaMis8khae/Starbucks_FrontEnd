@@ -30,7 +30,11 @@ const nextConfig = {
 	images: {
 		// To resolve this error, you need to configure the next.config.js file to allow images from the specified hostname.
 		// Add the hostname sitem.ssgcdn.com to the images.domains array in your next.config.js file.
-		domains: ["sitem.ssgcdn.com", "simg.ssgcdn.com"]
+		domains: [
+			"sitem.ssgcdn.com",
+			"simg.ssgcdn.com",
+			"prod-starbucks-product-details.s3.ap-northeast-2.amazonaws.com"
+		]
 	}
 }
 
