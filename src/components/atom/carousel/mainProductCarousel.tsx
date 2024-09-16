@@ -5,7 +5,7 @@ import Image from "next/image"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, Pagination, Navigation } from "swiper/modules"
-import "./mainProductCarousel.css"
+import "./commonCarousel.css"
 
 // dummy-data
 import { items } from "@/dummy/product-caroucel-data"
