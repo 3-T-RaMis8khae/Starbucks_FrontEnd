@@ -1,7 +1,7 @@
 import React from "react"
 import Link from "next/link"
 import { ProductItemType } from "@/type/shop/product"
-import ProductThumbnail from "@/components/atom/logo/productThumbnail"
+import ProductThumbnail from "@/components/atom/product/productThumbnail"
 import { toDiscountPercent, toDiscountPrice, toPrice } from "@/lib/productUtils"
 
 interface ProductItemProps {
