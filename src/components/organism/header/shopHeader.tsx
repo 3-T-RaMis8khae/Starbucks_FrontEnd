@@ -18,6 +18,9 @@ function ShopHeader(props: ShopHeaderProps) {
 	const onCloseHandler = () => {
 		router.back()
 	}
+	const onProductMainHandler = () => {
+		router.replace("/shop/main")
+	}
 
 	return (
 		<>
@@ -53,6 +56,21 @@ function ShopHeader(props: ShopHeaderProps) {
 						/>
 					}
 					middleComponent={"장바구니"}
+				/>
+			) : pathname.startsWith("/shop/product-list") ||
+			  pathname.startsWith("/shop/product-detail") ? (
+				<ShopBaseHeader
+					leftComponent={
+						<IconButton
+							buttonProps={{ onClick: onProductMainHandler }}
+							imageProps={{
+								src: CaretLeftURL,
+								alt: "caret-left.svg",
+								width: 23,
+								height: 23
+							}}
+						/>
+					}
 				/>
 			) : (
 				<ShopBaseHeader />
