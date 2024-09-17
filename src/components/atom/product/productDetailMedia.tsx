@@ -8,15 +8,14 @@ export interface ProductDetailMediaProps {
 
 function ProductDetailMedia({ media, imageProps }: ProductDetailMediaProps) {
 	return (
-		<div className="relative w-full">
+		<div className="inline-block relative">
 			<Image
 				priority
-				layout="fill"
-				objectFit={"contain"}
-				sizes="100%"
+				fill
 				{...imageProps}
 				alt={imageProps?.alt ?? "product-detail.png"}
 				src={media?.url ?? ""}
+				className={`!w-auto !max-w-full !h-auto !relative`}
 			/>
 		</div>
 	)

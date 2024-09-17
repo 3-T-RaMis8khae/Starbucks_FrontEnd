@@ -9,7 +9,7 @@ interface PageProps {
 
 function Page({ params }: PageProps) {
 	return (
-		<div className="hidden-y-scroll">
+		<div>
 			<ProductDetail />
 		</div>
 	)
