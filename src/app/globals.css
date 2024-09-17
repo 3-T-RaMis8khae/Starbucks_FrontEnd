@@ -138,6 +138,9 @@
 	.app-px {
 		@apply px-6;
 	}
+	.app-mx {
+		@apply mx-6;
+	}
 
 	.header-1 {
 		@apply sticky w-full top-0 h-14 z-[90] bg-white flex;
