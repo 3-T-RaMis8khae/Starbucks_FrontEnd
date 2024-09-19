@@ -1,1 +1,1 @@
-{	"semi": false,	"singleQuote": false,	"printWidth": 80,	"tabWidth": 2,	"useTabs": true,	"trailingComma": "none",	"bracketSpacing": true,	"arrowParens": "always",	"endOfLine": "crlf"}
+{	"semi": false,	"singleQuote": false,	"printWidth": 80,	"tabWidth": 2,	"useTabs": true,	"trailingComma": "none",	"bracketSpacing": true,	"arrowParens": "always",	"endOfLine": "auto"}

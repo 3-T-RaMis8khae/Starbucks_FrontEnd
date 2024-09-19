@@ -10,7 +10,7 @@ module.exports = {
 	rules: {
 		"react/react-in-jsx-scope": "off", // Next.js does not require React to be in scope
 		"react/prop-types": "off", // Disable prop-types as we use TypeScript
-		"prettier/prettier": ["error", { endOfLine: "crlf" }]
+		"prettier/prettier": ["error", { endOfLine: "auto" }]
 		// Additional rules can be added here
 	},
 	settings: {
