@@ -1,21 +1,26 @@
-name: Trigger Fork Update on Pull Request Close
+#name: Trigger Fork Update on Pull Request Close
 
-on:
-  pull_request:
-    types: [closed]
-    branches:
-      - develop
+#on:
+#  pull_request:
+#    types: [closed]
+#    branches: ["main"]
+#  workflow_dispatch:
 
-jobs:
-  trigger_fork_update:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
+#permissions:
+#  contents: read
 
-      - name: Trigger Update on Fork
-        run: |
-          git remote add fork https://github.com/sing-u8/Starbucks_FrontEnd.git
-          git push fork develop --force
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#jobs:
+#  trigger_fork_update:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout the repository
+#        uses: actions/checkout@v3
+#        with:
+#          ref: main
+
+#      - name: Trigger Update on Fork
+#        run: |
+#          git remote add fork https://github.com/sing-u8/Starbucks_FrontEnd.git
+#          git push fork develop --force
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
