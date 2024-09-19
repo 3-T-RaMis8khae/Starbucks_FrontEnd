@@ -6,17 +6,18 @@ import { BaseInput } from "@/components/atom/input/baseInput"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import React from "react"
 
-import { useForm } from "react-hook-form"
+import { FieldValues, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { emailSchema } from "@/schema/authSchema"
 import { useRouter, useSearchParams } from "next/navigation"
 import { createQueryParamString } from "@/lib/queryParamUtils"
-import _ from "lodash"
 import StepIndicator from "@/components/atom/indicator/stepIndicator"
 import IconButton from "@/components/atom/icon/iconButton"
 import AuthTitle from "@/components/atom/title/authTitle"
 import ErrorText from "@/components/atom/text/errorText"
 import InputDescText from "@/components/atom/text/inputDescText"
+import { EmailType } from "@/type/auth/signUp"
+import { assignParamObject } from "@/lib/searchParamUtils"
 
 export default function EmailPage() {
 	const {
@@ -29,9 +30,15 @@ export default function EmailPage() {
 
 	const router = useRouter()
 	const searchParams = useSearchParams()
-	const routerHandler = (queryParams: string) => {
+	const routerHandler = (req: FieldValues) => {
+		const targetObj: EmailType = {
+			email: req["email"],
+			step: "5"
+		}
 		router.push(
-			`/auth/signup?${_.replace(`${searchParams}`, "step=4", "step=5")}&${queryParams}`
+			`/auth/signup?${createQueryParamString(
+				assignParamObject(searchParams, targetObj)
+			)}`
 		)
 	}
 
@@ -63,7 +70,7 @@ export default function EmailPage() {
 
 			<form
 				onSubmit={handleSubmit((data) => {
-					routerHandler(createQueryParamString(data))
+					routerHandler(data)
 				})}
 				className="w-full flex flex-col mt-[60px] px-[30px]"
 			>

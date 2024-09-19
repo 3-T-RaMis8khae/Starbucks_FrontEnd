@@ -5,7 +5,7 @@ import BaseHeader from "@/components/atom/header/baseHeader"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import { BaseInput } from "@/components/atom/input/baseInput"
 
-import { useForm } from "react-hook-form"
+import { FieldValues, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { userAccountSchema } from "@/schema/authSchema"
 import { useRouter, useSearchParams } from "next/navigation"
@@ -16,6 +16,8 @@ import React from "react"
 import IconLink from "@/components/atom/icon/iconLink"
 import AuthTitle from "@/components/atom/title/authTitle"
 import ErrorText from "@/components/atom/text/errorText"
+import { AccountType } from "@/type/auth/signUp"
+import { assignParamObject } from "@/lib/searchParamUtils"
 
 export default function MemberAccountPage() {
 	const {
@@ -28,9 +30,16 @@ export default function MemberAccountPage() {
 
 	const router = useRouter()
 	const searchParams = useSearchParams()
-	const routerHandler = (queryParams: string) => {
+	const routerHandler = (queryParams: FieldValues) => {
+		const targetObj: AccountType = {
+			loginId: queryParams["loginId"],
+			password: queryParams["password"],
+			step: "4"
+		}
 		router.push(
-			`/auth/signup?${_.replace(`${searchParams}`, "step=3", "step=4")}&${queryParams}`
+			`/auth/signup?${createQueryParamString(
+				assignParamObject(searchParams, targetObj)
+			)}`
 		)
 	}
 
@@ -63,7 +72,7 @@ export default function MemberAccountPage() {
 
 					<form
 						onSubmit={handleSubmit((data, event) => {
-							routerHandler(createQueryParamString(data))
+							routerHandler(data)
 						})}
 						className="flex flex-col gap-2.5"
 					>

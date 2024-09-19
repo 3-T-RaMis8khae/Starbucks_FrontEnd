@@ -8,16 +8,22 @@ import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import React, { useState } from "react"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
 import StepIndicator from "@/components/atom/indicator/stepIndicator"
-import { useForm } from "react-hook-form"
+import { FieldValues, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { nicknameSchema } from "@/schema/authSchema"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import IconButton from "@/components/atom/icon/iconButton"
 import AuthTitle from "@/components/atom/title/authTitle"
 import ErrorText from "@/components/atom/text/errorText"
 import InputDescText from "@/components/atom/text/inputDescText"
+import { NicknameType, SignUpRequestBodyType } from "@/type/auth/signUp"
+import { assignParamObject } from "@/lib/searchParamUtils"
 
-export default function NicknamePage() {
+export interface NickNamePageProps {
+	handleSignUp: (req: SignUpRequestBodyType) => void
+}
+
+export default function NicknamePage({ handleSignUp }: NickNamePageProps) {
 	const {
 		register,
 		handleSubmit,
@@ -27,12 +33,14 @@ export default function NicknamePage() {
 	})
 	const [isTermCheck, setIsTermCheck] = useState<boolean>(false)
 	const router = useRouter()
-	// const searchParams = useSearchParams()
-	// const routerHandler = (queryParams: string) => {
-	// 	router.push(
-	// 		`/auth/signup?${_.replace(`${searchParams}`, "step=4", "step=5")}&${queryParams}`
-	// 	)
-	// }
+	const searchParams = useSearchParams()
+	const signUpHandler = (req: FieldValues, isSkip = false) => {
+		const targetObj: NicknameType = {
+			nickname: !isSkip ? req["nickname"] : ""
+		}
+		const signUpData = assignParamObject(searchParams, targetObj)
+		handleSignUp(signUpData)
+	}
 
 	const titles = ["닉네임을", "입력해 주세요."]
 	const descriptions = [
@@ -67,7 +75,11 @@ export default function NicknamePage() {
 				/>
 
 				<form
-					onSubmit={handleSubmit((data, event) => {})}
+					onSubmit={handleSubmit((data, event) => {
+						// @ts-ignore
+						const submitterName = event?.nativeEvent.submitter.name as string
+						signUpHandler(data, submitterName === "skip")
+					})}
 					className="flex flex-col"
 				>
 					<CheckBox
@@ -97,17 +109,20 @@ export default function NicknamePage() {
 					<FixedBottomButton
 						button_title="다음"
 						button_props={{
+							name: "submit",
 							type: "submit",
 							disabled: !isTermCheck
 						}}
 					></FixedBottomButton>
+					<Button
+						name={"skip"}
+						variant="sbGreenGhost"
+						className="absolute text-sm font-medium right-0 bottom-[90px]"
+						type={"submit"}
+					>
+						건너뛰기
+					</Button>
 				</form>
-				<Button
-					variant="sbGreenGhost"
-					className="absolute text-sm font-medium right-0 bottom-[90px]"
-				>
-					건너뛰기
-				</Button>
 			</div>
 		</section>
 	)

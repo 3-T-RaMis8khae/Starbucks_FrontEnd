@@ -21,6 +21,8 @@
 		"@types/lodash": "^4.17.7",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.1",
+		"dayjs": "^1.11.13",
+		"dayjs-plugin-utc": "^0.1.2",
 		"framer-motion": "^11.5.4",
 		"immer": "^10.1.1",
 		"lodash": "^4.17.21",

@@ -16,6 +16,7 @@ import { createQueryParamString } from "@/lib/queryParamUtils"
 import Logo from "@/components/atom/logo/logo"
 import IconLink from "@/components/atom/icon/iconLink"
 import AuthTitle from "@/components/atom/title/authTitle"
+import { AgreementType } from "@/type/auth/signUp"
 
 interface SignupAgreementProps {
 	agreementState?: AgreementState
@@ -127,7 +128,12 @@ function SignupAgreement({
 
 	const router = useRouter()
 	const routerHandler = () => {
-		router.push(`/auth/signup?step=${2}&${createQueryParamString(checkboxes)}`)
+		const targetObj: AgreementType = {
+			smsmarketingConsent: checkboxes.agreeMarketingInfoSms,
+			emailMarketingConsent: checkboxes.agreeMarketingInfoEmail,
+			step: "2"
+		}
+		router.push(`/auth/signup?${createQueryParamString(targetObj)}`)
 	}
 
 	const titles = ["고객님,", "환영합니다!"]
