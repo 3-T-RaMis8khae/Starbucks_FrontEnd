@@ -74,7 +74,7 @@ function ProductEventLinkList() {
 		return () => {
 			window.removeEventListener("resize", handleResize)
 		}
-	}, [activeIndex])
+	}, [])
 
 	return (
 		<ul

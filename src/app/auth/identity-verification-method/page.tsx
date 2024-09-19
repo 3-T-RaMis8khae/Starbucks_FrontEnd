@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState } from "react"
-import Image from "next/image"
 
 import BaseHeader from "@/components/atom/header/baseHeader"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
