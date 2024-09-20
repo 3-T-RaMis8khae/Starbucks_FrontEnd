@@ -19,7 +19,7 @@ function BaseHeader({
 	return (
 		<header
 			{...headerProps}
-			className={`header-1 py-[10px] app-px items-center justify-between ${headerProps?.className}`}
+			className={`header-1 py-[10px] app-px items-center justify-between ${headerProps?.className ?? ""}`}
 		>
 			{leftComponent}
 			{middleComponent && (
