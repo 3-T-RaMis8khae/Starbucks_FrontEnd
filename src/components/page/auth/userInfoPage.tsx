@@ -1,5 +1,3 @@
-"use client"
-
 import BaseHeader from "@/components/atom/header/baseHeader"
 import CloseURL from "@/assets/svg/close.svg?url"
 import React from "react"
@@ -9,7 +7,7 @@ import AuthTitle from "@/components/atom/title/authTitle"
 import UserInfoForm from "@/components/organism/auth/userInfoForm"
 
 export default function UserInfoPage() {
-	const titles = ["아래의 정보를", "입력해 주세요."]
+	const titles = ["본인인증을 위해 아래의", "정보를 입력해 주세요."]
 
 	return (
 		<section>

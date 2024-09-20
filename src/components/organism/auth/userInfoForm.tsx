@@ -1,8 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
-import CheckBox from "@/components/molecule/checkBox/checkBox"
-import TermsItem from "@/components/atom/terms/termsItem"
+import React, { useEffect } from "react"
 import { BaseInput } from "@/components/atom/input/baseInput"
 import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import _ from "lodash"
@@ -14,14 +12,9 @@ import {
 	SelectTrigger,
 	SelectValue
 } from "@/components/ui/select"
-import { Button } from "@/components/ui/button"
 import { FieldValues, useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import {
-	mobileCarrier,
-	phoneVerifySchema,
-	phoneVerifySchemaType
-} from "@/schema/authSchema"
+import { mobileCarrier, phoneVerifySchema } from "@/schema/authSchema"
 import { handleNumberKeyPress } from "@/lib/inputUtils"
 import InputDescText from "@/components/atom/text/inputDescText"
 import { useRouter, useSearchParams } from "next/navigation"
