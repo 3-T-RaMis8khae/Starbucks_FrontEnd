@@ -6,11 +6,17 @@ import Link from "next/link"
 function LoginLink() {
 	return (
 		<div className="flex items-center justify-center mt-8">
-			<Link href={`/auth/forgot-account`} className="text-base">
+			<Link
+				href={`/auth/member-verification?type=forgotId`}
+				className="text-base"
+			>
 				아이디 찾기
 			</Link>
 			<span className="text-gray-500 px-3">|</span>
-			<Link href={`/auth/reset-password`} className="text-base">
+			<Link
+				href={`/auth/member-verification?type=forgotPassword`}
+				className="text-base"
+			>
 				비밀번호 찾기
 			</Link>
 			<span className="text-gray-500 px-3">|</span>

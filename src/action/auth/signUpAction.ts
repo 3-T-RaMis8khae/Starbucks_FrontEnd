@@ -5,7 +5,8 @@ import { getUtcFromBirthdate } from "@/lib/dayjsUtils"
 
 export async function signUpAction(
 	req: SignUpRequestBodyType
-): Promise<Response> {
+): Promise<{ ok: boolean }> {
+	console.log("signUpAction --------", req)
 	const payload: SignUpRequestBodyType = {
 		loginId: req.loginId,
 		email: req.email,
@@ -19,14 +20,17 @@ export async function signUpAction(
 	}
 
 	console.log("action payload", payload, JSON.stringify(payload))
-	const res = await fetch(`${process.env.API_BASE_URL}/api/v1/auth/signup`, {
-		method: "POST",
-		body: JSON.stringify(payload),
-		headers: {
-			"Content-Type": "application/json"
+	const apiReturn = await fetch(
+		`${process.env.API_BASE_URL}/api/v1/auth/signup`,
+		{
+			method: "POST",
+			body: JSON.stringify(payload),
+			headers: {
+				"Content-Type": "application/json"
+			}
 		}
-	})
+	)
 
-	console.log("res: ", res)
-	return res
+	console.log("res: ", apiReturn)
+	return { ok: apiReturn.ok }
 }

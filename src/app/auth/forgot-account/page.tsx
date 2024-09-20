@@ -6,8 +6,12 @@ import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import React from "react"
 import IconLink from "@/components/atom/icon/iconLink"
 import Logo from "@/components/atom/logo/logo"
+import { SearchParams } from "@/type/next"
+import { MemberLoginIdType } from "@/type/auth/memberLoginId"
+import { ValueOf } from "@/lib/types"
 
-export default function ForgotAccountPage() {
+export default function ForgotAccountPage({ searchParams }: SearchParams) {
+	const loginId = searchParams["loginId"] as ValueOf<MemberLoginIdType>
 	return (
 		<>
 			<BaseHeader
@@ -21,7 +25,7 @@ export default function ForgotAccountPage() {
 					/>
 				}
 			/>
-			<section className="w-screen h-full flex flex-col">
+			<form action={"/auth/login"} className="w-screen h-full flex flex-col">
 				<div className="w-full flex flex-col items-center mt-[60px] px-[30px]">
 					<Logo
 						imageProps={{
@@ -37,7 +41,7 @@ export default function ForgotAccountPage() {
 							고객님의 아이디는
 						</p>
 						<p className="text-sb-gray-100 font-medium text-base">
-							<span className="text-sb-green-100 ">User_ID</span> 입니다.
+							<span className="text-sb-green-100 ">{loginId}</span> 입니다.
 						</p>
 					</div>
 				</div>
@@ -46,7 +50,7 @@ export default function ForgotAccountPage() {
 					button_title="로그인하기"
 					button_props={{ type: "submit" }}
 				></FixedBottomButton>
-			</section>
+			</form>
 		</>
 	)
 }

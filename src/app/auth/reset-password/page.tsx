@@ -6,11 +6,15 @@ import React from "react"
 import ResetPasswordForm from "@/components/molecule/form/resetPasswordForm"
 import AuthTitle from "@/components/atom/title/authTitle"
 import NicknameTextBox from "@/components/atom/textbox/nicknameTextBox"
+import { SearchParams } from "@/type/next"
+import { ValueOf } from "@/lib/types"
+import { MemberLoginIdType } from "@/type/auth/memberLoginId"
 
-export default function ResetPasswordPage() {
+export default function ResetPasswordPage({ searchParams }: SearchParams) {
+	const loginId = searchParams["loginId"] as ValueOf<MemberLoginIdType>
 	const titles = [
 		<>
-			<span className="text-sb-green-100">NickName</span>님의
+			<span className="text-sb-green-100">{loginId}</span>님의
 		</>,
 		"입력해 주세요."
 	]

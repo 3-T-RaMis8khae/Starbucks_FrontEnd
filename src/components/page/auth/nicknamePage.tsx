@@ -8,7 +8,7 @@ import FixedBottomButton from "@/components/atom/button/fixedBottomButton"
 import React, { useState } from "react"
 import CheckBox from "@/components/molecule/checkBox/checkBox"
 import StepIndicator from "@/components/atom/indicator/stepIndicator"
-import { FieldValues, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { nicknameSchema } from "@/schema/authSchema"
 import { useRouter, useSearchParams } from "next/navigation"
@@ -18,12 +18,9 @@ import ErrorText from "@/components/atom/text/errorText"
 import InputDescText from "@/components/atom/text/inputDescText"
 import { assignParamObject } from "@/lib/searchParamUtils"
 import { NicknameType, SignUpRequestBodyType } from "@/type/auth/signUp"
+import { signUpAction } from "@/action/auth/signUpAction"
 
-export interface NicknamePageProps {
-	handleSignup: (signUpData: SignUpRequestBodyType) => Promise<{ ok: boolean }>
-}
-
-export default function NicknamePage({ handleSignup }: NicknamePageProps) {
+export default function NicknamePage() {
 	const {
 		register,
 		handleSubmit,
@@ -35,12 +32,13 @@ export default function NicknamePage({ handleSignup }: NicknamePageProps) {
 	const router = useRouter()
 	const searchParams = useSearchParams()
 
-	const signUpHandler = async (req: FieldValues, isSkip = false) => {
+	const signUpHandler = async (nickname: string, isSkip = false) => {
 		const targetObj: NicknameType = {
-			nickname: !isSkip ? req["nickname"] : ""
+			nickname: !isSkip ? nickname : ""
 		}
 		const signUpData = assignParamObject(searchParams, targetObj)
-		const res = await handleSignup(signUpData as SignUpRequestBodyType)
+		console.log("handleSignup ---- before  : ", signUpData)
+		const res = await signUpAction(signUpData as SignUpRequestBodyType)
 		console.log("handleSignup ---- : ", res)
 		if (res.ok) {
 			router.replace("/auth/login")
@@ -80,10 +78,10 @@ export default function NicknamePage({ handleSignup }: NicknamePageProps) {
 				/>
 
 				<form
-					onSubmit={handleSubmit((data, event) => {
+					onSubmit={handleSubmit(async (data, event) => {
 						// @ts-ignore
 						const submitterName = event?.nativeEvent.submitter.name as string
-						signUpHandler(data, submitterName === "skip")
+						await signUpHandler(data["nickname"], submitterName === "skip")
 					})}
 					className="flex flex-col"
 				>
