@@ -4,14 +4,13 @@ import EmailPage from "@/components/page/auth/emailPage"
 import NicknamePage from "@/components/page/auth/nicknamePage"
 import UserInfoPage from "@/components/page/auth/userInfoPage"
 import { SignUpRequestBodyType } from "@/type/auth/signUp"
-import _ from "lodash"
 import { signUpAction } from "@/action/auth/signUpAction"
 
-export default async function SignupPage({
-	searchParams
-}: {
+export interface SignupPageProps {
 	searchParams: { [key: string]: string }
-}) {
+}
+
+export default async function SignupPage({ searchParams }: SignupPageProps) {
 	const handleSignUp = async (
 		req: SignUpRequestBodyType
 	): Promise<{ ok: boolean }> => {
