@@ -27,7 +27,7 @@ export default function NicknamePage({ handleSignup }: NicknamePageProps) {
 	const {
 		register,
 		handleSubmit,
-		formState: { isValid, errors }
+		formState: { errors }
 	} = useForm({
 		resolver: zodResolver(nicknameSchema)
 	})
