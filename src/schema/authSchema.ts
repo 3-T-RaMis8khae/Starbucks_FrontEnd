@@ -46,8 +46,12 @@ export const phoneVerifySchema = z.object({
 	birthDate: z
 		.string()
 		.regex(/^\d{6}$/, { message: "생년월일 6자리를 입력해주세요." }),
-	firstRrn: z.string().regex(/^\d$/),
-	phoneNumber: z.string().regex(/^\d{10,11}$/),
+	firstRrn: z
+		.string()
+		.regex(/^\d$/, { message: "주민번호 뒷자리 첫번째 숫자를 입력해주세요." }),
+	phoneNumber: z
+		.string()
+		.regex(/^\d{10,11}$/, { message: "휴대전화번호를 입력해주세요." }),
 	mobileCarrier: z.string()
 })
 
