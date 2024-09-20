@@ -20,7 +20,7 @@ import { assignParamObject } from "@/lib/searchParamUtils"
 import { NicknameType, SignUpRequestBodyType } from "@/type/auth/signUp"
 
 export interface NicknamePageProps {
-	handleSignup: (signUpData: SignUpRequestBodyType) => Promise<void>
+	handleSignup: (signUpData: SignUpRequestBodyType) => Promise<{ ok: boolean }>
 }
 
 export default function NicknamePage({ handleSignup }: NicknamePageProps) {
@@ -41,7 +41,10 @@ export default function NicknamePage({ handleSignup }: NicknamePageProps) {
 		}
 		const signUpData = assignParamObject(searchParams, targetObj)
 		const res = await handleSignup(signUpData as SignUpRequestBodyType)
-		console.log("signUpHandler : ", res)
+		console.log("handleSignup ---- : ", res)
+		if (res.ok) {
+			router.replace("/auth/login")
+		}
 	}
 
 	const titles = ["닉네임을", "입력해 주세요."]

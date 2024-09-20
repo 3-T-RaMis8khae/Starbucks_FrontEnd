@@ -1,9 +1,7 @@
 "use server"
 
-import { NicknameType, SignUpRequestBodyType } from "@/type/auth/signUp"
+import { SignUpRequestBodyType } from "@/type/auth/signUp"
 import { getUtcFromBirthdate } from "@/lib/dayjsUtils"
-import { FieldValues } from "react-hook-form"
-import { assignParamObject } from "@/lib/searchParamUtils"
 
 export async function signUpAction(
 	req: SignUpRequestBodyType
