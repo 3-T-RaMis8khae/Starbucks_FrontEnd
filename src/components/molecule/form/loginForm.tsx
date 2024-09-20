@@ -17,7 +17,7 @@ const onLogIn = (data: loginSchemaType): void => {
 		password: data.password,
 		redirect: false
 	}).then((res) => {
-		console.log("res : ", res)
+		console.log("res in LOGIN FORM: ", res)
 	})
 }
 

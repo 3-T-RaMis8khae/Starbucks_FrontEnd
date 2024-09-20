@@ -1,5 +1,7 @@
 import CredentialsProvider from "next-auth/providers/credentials"
 import { NextAuthOptions } from "next-auth"
+import { signInAction } from "@/action/auth/signInAction"
+import { MemberType } from "@/type/member/member"
 
 export const authOptions: NextAuthOptions = {
 	providers: [
@@ -10,54 +12,63 @@ export const authOptions: NextAuthOptions = {
 				password: { label: "Password", type: "password" }
 			},
 			async authorize(
-				credentials: Record<string, string> | undefined,
-				req: any
+				credentials: Record<string, string> | undefined
 			): Promise<any> {
-				console.log("authorize", credentials, req)
+				console.log("authorize : \n\n", credentials, "\n\n")
+				// console.log("request : \n\n", req, "\n\n\n\n")
 				if (!isCredentialsExist(credentials)) return null
 
-				// todo : requet sigin api  and get user data
-				// -- example --
-				// const res = await fetch(`http://localhost:8080/api/v1/auth/sign-in`, {
-				// 	method: 'POST',
-				// 	headers: {
-				// 		'Content-Type': 'application/json',
-				// 	},
-				// 	body: JSON.stringify({
-				// 		email: credentials.email,
-				// 		password: credentials.password,
-				// 	}),
-				// });
-				//
-				// if (res.ok) {
-				// 	const user = (await res.json()) as commonResType<userDataType>;
-				// 	console.log('user', user.data);
-				// 	const data = user.data as userDataType;
-				// 	return data;
-				// }
-				const user = { id: 1, name: "Test User" }
-				return user
+				const res = await signInAction({
+					loginId: credentials?.loginId as string,
+					password: credentials?.password as string
+				})
+
+				if (res.ok) {
+					const signInReturn = await res.json()
+					return signInReturn.res as MemberType
+				} else {
+					return null
+				}
 			}
 		})
 	],
 	secret: process.env.NEXTAUTH_SECRET,
 	callbacks: {
-		async signIn({ user, account, profile, email, credentials }: any) {
-			console.log("signIn", user, account, profile, email, credentials)
+		async signIn({ user, account, profile, email, credentials }) {
+			console.log(
+				"signIn callback in authOption",
+				user,
+				account,
+				profile,
+				email,
+				credentials
+			)
+
 			return true
 		},
-		async jwt({ token, user }: { token: any; user: any }) {
-			// console.log("token", token, "user", user)
+		async jwt({ token, user }) {
+			// console.log(
+			// 	"\n\n jwt token in authOption : \n\n",
+			// 	token,
+			// 	"\n\nuser\n\n",
+			// 	user
+			// )
 			return { ...token, ...user }
 		},
-		async session({ session, token }: { session: any; token: any }) {
-			// console.log("session", session, "token", token)
+		async session({ session, token }) {
+			// console.log(
+			// 	"\n\nsession in authOption\n\n",
+			// 	session,
+			// 	"\n\ntoken\n\n",
+			// 	token
+			// )
 			session.user = token
 			return session
 		}
 	},
 	pages: {
-		signIn: "/auth/login"
+		signIn: "/auth/login",
+		error: "/auth/error"
 	}
 }
 

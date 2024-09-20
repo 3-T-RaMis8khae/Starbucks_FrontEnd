@@ -26,20 +26,23 @@ export default withAuth(
 			}
 		}
 	}
-	// (req: NextRequest) => {
-	// 	console.log("auth middleware: ", req)
-	// 	const res = customMiddleware(req)
-	// 	if (res) return res
-	// 	return NextResponse.next()
-	// },
-	// {
-	// 	pages: {
-	// 		signIn: "/auth/login" // Redirect to /auth/login if not authenticated
-	// 	}
-	// }
 )
 
-// See "Matching Paths" below to learn more
 export const config = {
-	matcher: ["/auth/:path*"]
+	/*
+		"/auth/:path*"
+	 */
+	matcher: []
 }
+
+// (req: NextRequest) => {
+// 	console.log("auth middleware: ", req)
+// 	const res = customMiddleware(req)
+// 	if (res) return res
+// 	return NextResponse.next()
+// },
+// {
+// 	pages: {
+// 		signIn: "/auth/login" // Redirect to /auth/login if not authenticated
+// 	}
+// }
