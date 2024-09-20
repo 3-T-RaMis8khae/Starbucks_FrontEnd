@@ -1,9 +1,13 @@
 "use server"
 
-import { SignUpRequestBodyType } from "@/type/auth/signUp"
+import { NicknameType, SignUpRequestBodyType } from "@/type/auth/signUp"
 import { getUtcFromBirthdate } from "@/lib/dayjsUtils"
+import { FieldValues } from "react-hook-form"
+import { assignParamObject } from "@/lib/searchParamUtils"
 
-export async function signUpAction(req: SignUpRequestBodyType) {
+export async function signUpAction(
+	req: SignUpRequestBodyType
+): Promise<Response> {
 	const payload: SignUpRequestBodyType = {
 		loginId: req.loginId,
 		email: req.email,
@@ -26,8 +30,5 @@ export async function signUpAction(req: SignUpRequestBodyType) {
 	})
 
 	console.log("res: ", res)
-	if (res.ok) {
-		return await res.json()
-	}
-	return null
+	return res
 }

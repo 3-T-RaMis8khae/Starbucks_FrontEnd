@@ -11,7 +11,7 @@ export default async function SignupPage({
 }: {
 	searchParams: { [key: string]: string }
 }) {
-	const handleSignUp = async (req: SignUpRequestBodyType) => {
+	const handleSignUp = async (req: SignUpRequestBodyType): Promise<void> => {
 		"use server"
 		const res = await signUpAction(req)
 	}
@@ -24,7 +24,7 @@ export default async function SignupPage({
 			{searchParams["step"] == "3" && <MemberAccountPage />}
 			{searchParams["step"] == "4" && <EmailPage />}
 			{searchParams["step"] == "5" && (
-				<NicknamePage handleSignUp={handleSignUp} />
+				<NicknamePage handleSignup={handleSignUp} />
 			)}
 		</main>
 	)

@@ -16,14 +16,14 @@ import IconButton from "@/components/atom/icon/iconButton"
 import AuthTitle from "@/components/atom/title/authTitle"
 import ErrorText from "@/components/atom/text/errorText"
 import InputDescText from "@/components/atom/text/inputDescText"
-import { NicknameType, SignUpRequestBodyType } from "@/type/auth/signUp"
 import { assignParamObject } from "@/lib/searchParamUtils"
+import { NicknameType, SignUpRequestBodyType } from "@/type/auth/signUp"
 
-export interface NickNamePageProps {
-	handleSignUp: (req: SignUpRequestBodyType) => void
+export interface NicknamePageProps {
+	handleSignup: (signUpData: SignUpRequestBodyType) => Promise<void>
 }
 
-export default function NicknamePage({ handleSignUp }: NickNamePageProps) {
+export default function NicknamePage({ handleSignup }: NicknamePageProps) {
 	const {
 		register,
 		handleSubmit,
@@ -34,12 +34,14 @@ export default function NicknamePage({ handleSignUp }: NickNamePageProps) {
 	const [isTermCheck, setIsTermCheck] = useState<boolean>(false)
 	const router = useRouter()
 	const searchParams = useSearchParams()
-	const signUpHandler = (req: FieldValues, isSkip = false) => {
+
+	const signUpHandler = async (req: FieldValues, isSkip = false) => {
 		const targetObj: NicknameType = {
 			nickname: !isSkip ? req["nickname"] : ""
 		}
 		const signUpData = assignParamObject(searchParams, targetObj)
-		handleSignUp(signUpData)
+		const res = await handleSignup(signUpData as SignUpRequestBodyType)
+		console.log("signUpHandler : ", res)
 	}
 
 	const titles = ["닉네임을", "입력해 주세요."]
