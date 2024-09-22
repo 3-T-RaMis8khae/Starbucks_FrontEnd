@@ -1,12 +1,14 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import AuthProvider from "@/provider/authProvider"
 import React from "react"
 
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
+import { getServerSession } from "next-auth"
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOption"
+import AuthContextProvider from "@/provider/AuthContextProvider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -26,14 +28,18 @@ export const metadata: Metadata = {
 	}
 }
 
-export default function RootLayout({
+export default async function RootLayout({
 	children
 }: Readonly<{
 	children: React.ReactNode
 }>) {
+	const session = await getServerSession(authOptions)
+	const isAuth = !!session?.user
 	return (
 		<html lang="en">
-			<body className={inter.className}>{children}</body>
+			<body className={inter.className}>
+				<AuthContextProvider isAuth={isAuth}>{children}</AuthContextProvider>
+			</body>
 		</html>
 	)
 }
