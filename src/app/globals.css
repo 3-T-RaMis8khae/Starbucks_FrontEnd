@@ -151,4 +151,8 @@
 	.header-3 {
 		@apply sticky w-full top-[92px] h-11 z-[80] bg-white flex;
 	}
+
+	.title__text {
+		@apply text-2xl text-sb-black-100;
+	}
 }
