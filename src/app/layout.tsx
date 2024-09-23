@@ -9,6 +9,8 @@ import "swiper/css/pagination"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/app/api/auth/[...nextauth]/authOption"
 import AuthContextProvider from "@/provider/AuthContextProvider"
+import { DialogContextProvider } from "@/provider/dialogContextProvider"
+import { GlobalDialog } from "@/components/molecule/dialog/globalDialog"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -38,7 +40,12 @@ export default async function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
-				<AuthContextProvider isAuth={isAuth}>{children}</AuthContextProvider>
+				<AuthContextProvider isAuth={isAuth}>
+					<DialogContextProvider>
+						{children}
+						<GlobalDialog />
+					</DialogContextProvider>
+				</AuthContextProvider>
 			</body>
 		</html>
 	)
