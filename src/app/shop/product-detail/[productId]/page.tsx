@@ -10,10 +10,10 @@ interface PageProps {
 
 function Page({ params }: PageProps) {
 	return (
-		<div className="pb-[105px]">
+		<main className="pb-[105px]">
 			<ProductDetail />
 			<ProductOrderButton />
-		</div>
+		</main>
 	)
 }
 
