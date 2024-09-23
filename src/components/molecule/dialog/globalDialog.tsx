@@ -34,7 +34,7 @@ export function GlobalDialog() {
 							{dialogContext?.descriptionContent}
 						</DialogDescription>
 					</DialogHeader>
-					<div className="flex items-center justify-center gap-2">
+					<div className="flex items-center justify-center gap-2 border-t-[1px] border-b-sb-gray-0">
 						<Button
 							variant={"sbGreenGhost"}
 							className={"flex-1"}
