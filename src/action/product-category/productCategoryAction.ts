@@ -9,6 +9,8 @@ import {
 	ChildProductCategory
 } from "@/type/shop/product-category"
 
+// await new Promise((resolve) => setTimeout(resolve, 2000))
+
 export async function getMainProductCategoryAction(): Promise<
 	MainProductCategory[]
 > {
@@ -22,6 +24,7 @@ export async function getMainProductCategoryAction(): Promise<
 		}
 	)
 	const res = (await apiReturn.json()) as ApiResponse<MainProductCategory[]>
+
 	return res.result
 }
 
