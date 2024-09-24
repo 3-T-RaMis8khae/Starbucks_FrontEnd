@@ -4,6 +4,11 @@ import { signInAction } from "@/action/auth/signInAction"
 import { MemberType } from "@/type/member/member"
 
 export const authOptions: NextAuthOptions = {
+	session: {
+		strategy: "jwt",
+		maxAge: 24 * 60 * 60, // 1 day
+		updateAge: 24 * 60 * 60 // 24 hours
+	},
 	providers: [
 		CredentialsProvider({
 			name: "Credentials",
@@ -69,6 +74,7 @@ export const authOptions: NextAuthOptions = {
 	pages: {
 		signIn: "/auth/login",
 		error: "/auth/error"
+		// redirect: "/shop/main"
 	}
 }
 

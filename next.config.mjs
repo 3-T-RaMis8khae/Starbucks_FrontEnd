@@ -36,6 +36,11 @@ const nextConfig = {
 			"prod-starbucks-product-details.s3.ap-northeast-2.amazonaws.com"
 		]
 	}
+	// todo: env 설정
+	// env: {
+	// 	API_URL: process.env.API_URL,
+	// 	API_KEY: process
+	// }
 }
 
 export default nextConfig
