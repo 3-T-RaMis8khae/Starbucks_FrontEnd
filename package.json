@@ -34,6 +34,7 @@
 		"react": "^18",
 		"react-dom": "^18",
 		"react-hook-form": "^7.53.0",
+		"rxjs": "^7.8.1",
 		"swiper": "^11.1.12",
 		"tailwind-merge": "^2.5.2",
 		"tailwindcss-animate": "^1.0.7",
