@@ -18,14 +18,19 @@ function ProductCategoryLink({
 		<Link
 			{...linkProps}
 			href={linkProps?.href ?? ""}
-			className={`flex-1 flex flex-col justify-center items-center gap-4 object-cover ${linkProps?.className}`}
+			className={`flex-1 flex flex-col justify-center items-center gap-4 ${linkProps?.className} ?? ""`}
 		>
-			<Image
-				{...imageProps}
-				src={imageProps?.src ?? ""}
-				alt={imageProps?.alt ?? ""}
-				className={`rounded-full`}
-			/>
+			<div className="w-full h-full relative object-cover aspect-square">
+				<Image
+					{...imageProps}
+					fill
+					sizes="100%"
+					quality={80}
+					src={imageProps?.src ?? ""}
+					alt={imageProps?.alt ?? ""}
+					className={`rounded-full`}
+				/>
+			</div>
 			<span className="text-base font-normal">{title}</span>
 		</Link>
 	)
