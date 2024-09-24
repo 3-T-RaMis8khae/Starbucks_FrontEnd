@@ -3,6 +3,7 @@ import Coffee from "@/assets/image/product-category/coffee.jpeg"
 import Lifestyle from "@/assets/image/product-category/lifestyle.jpeg"
 import Mug from "@/assets/image/product-category/mug.jpeg"
 
+// todo: remove this dummy data
 export const productCategoryList = [
 	{
 		title: "텀블러/보온병",
