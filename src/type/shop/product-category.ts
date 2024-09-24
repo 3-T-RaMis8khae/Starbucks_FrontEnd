@@ -11,6 +11,12 @@ export interface TopProductCategory {
 	topCategoryDescription: string
 }
 
+export const AllTopProductCategory: TopProductCategory = {
+	topCategoryCode: "tc-all",
+	topCategoryName: "전체",
+	topCategoryDescription: "카테고리 전체"
+}
+
 export interface MiddleProductCategory {
 	middleCategoryCode: string
 	middleCategoryName: string

@@ -1,5 +1,5 @@
 import ProductCategoryLink from "@/components/atom/product/productCategoryLink"
-import { trimMainCategory } from "@/lib/actionUtils"
+import { trimTopCategory } from "@/lib/actionUtils"
 import { getMainProductCategoryAction } from "@/action/product-category/productCategoryAction"
 import ProductCategoryPage from "@/components/page/product/productCategoryPage"
 
@@ -17,7 +17,7 @@ export default async function _ProductCategoryPage() {
 						src: item.imageUrl,
 						alt: `${item.categoryName}.jpg`
 					}}
-					title={trimMainCategory(item.categoryName)}
+					title={trimTopCategory(item.categoryName)}
 				/>
 			))}
 		</ProductCategoryPage>
