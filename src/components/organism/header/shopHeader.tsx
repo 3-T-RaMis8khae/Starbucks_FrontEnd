@@ -57,7 +57,7 @@ function ShopHeader(props: ShopHeaderProps) {
 					}
 					middleComponent={"장바구니"}
 				/>
-			) : pathname.startsWith("/shop/product-list") ||
+			) : pathname.startsWith("/shop/product") ||
 			  pathname.startsWith("/shop/product-detail") ? (
 				<ShopBaseHeader
 					leftComponent={
