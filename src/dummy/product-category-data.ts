@@ -4,6 +4,7 @@ import {
 	ProductListCategItem
 } from "@/type/shop/product"
 
+// todo: remove this dummy data
 export const testProductCategs: ProductCategItem[] = [
 	{
 		id: "1",
