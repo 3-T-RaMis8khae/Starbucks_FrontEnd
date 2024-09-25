@@ -2,18 +2,17 @@
 
 import { ApiResponse } from "@/type/common/response"
 import {
-	MainProductCategory,
-	TopProductCategory,
-	MiddleProductCategory,
-	BottomProductCategory,
-	ChildProductCategory,
-	AllTopProductCategory
+	MainProductCategoryType,
+	TopProductCategoryType,
+	MiddleProductCategoryType,
+	BottomProductCategoryType
 } from "@/type/shop/product-category"
+import _ from "lodash"
 
 // await new Promise((resolve) => setTimeout(resolve, 2000))
 
 export async function getMainProductCategoryAction(): Promise<
-	MainProductCategory[]
+	MainProductCategoryType[]
 > {
 	const apiReturn = await fetch(
 		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/main`,
@@ -24,14 +23,13 @@ export async function getMainProductCategoryAction(): Promise<
 			}
 		}
 	)
-	const res = (await apiReturn.json()) as ApiResponse<MainProductCategory[]>
-
+	const res = (await apiReturn.json()) as ApiResponse<MainProductCategoryType[]>
 	return res.result
 }
 
 //  ---------------------------- top category ------------------------------------
 export async function getTopProductCategoriesAction(): Promise<
-	TopProductCategory[]
+	TopProductCategoryType[]
 > {
 	const apiReturn = await fetch(
 		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/top-categories`,
@@ -42,13 +40,13 @@ export async function getTopProductCategoriesAction(): Promise<
 			}
 		}
 	)
-	const res = (await apiReturn.json()) as ApiResponse<TopProductCategory[]>
+	const res = (await apiReturn.json()) as ApiResponse<TopProductCategoryType[]>
 	return res.result
 }
 
 export async function getTopProductCategoryAction(
 	topCategCode: string
-): Promise<MainProductCategory[]> {
+): Promise<MainProductCategoryType[]> {
 	const apiReturn = await fetch(
 		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/top-category/${topCategCode}`,
 		{
@@ -58,17 +56,17 @@ export async function getTopProductCategoryAction(
 			}
 		}
 	)
-	const res = (await apiReturn.json()) as ApiResponse<MainProductCategory[]>
+	const res = (await apiReturn.json()) as ApiResponse<MainProductCategoryType[]>
 
 	return res.result
 }
 
 // ---------------------------- middle category ------------------------------------
 export async function getMiddleProductCategoriesAction(
-	topCategoryName: string
-): Promise<MiddleProductCategory[]> {
+	topCategoryCode: string
+): Promise<MiddleProductCategoryType[]> {
 	const apiReturn = await fetch(
-		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/middle-categories/${topCategoryName}`,
+		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/middle-categories/${topCategoryCode}`,
 		{
 			method: "GET",
 			headers: {
@@ -76,15 +74,17 @@ export async function getMiddleProductCategoriesAction(
 			}
 		}
 	)
-	const res = (await apiReturn.json()) as ApiResponse<MiddleProductCategory[]>
+	const res = (await apiReturn.json()) as ApiResponse<
+		MiddleProductCategoryType[]
+	>
 	return res.result
 }
 
 export async function getMiddleProductCategoryAction(
-	middleCategoryName: string
-): Promise<MiddleProductCategory[]> {
+	middleCategoryCode: string
+): Promise<MiddleProductCategoryType[]> {
 	const apiReturn = await fetch(
-		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/middle-category/${middleCategoryName}`,
+		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/middle-category/${middleCategoryCode}`,
 		{
 			method: "GET",
 			headers: {
@@ -92,17 +92,19 @@ export async function getMiddleProductCategoryAction(
 			}
 		}
 	)
-	const res = (await apiReturn.json()) as ApiResponse<MiddleProductCategory[]>
+	const res = (await apiReturn.json()) as ApiResponse<
+		MiddleProductCategoryType[]
+	>
 	return res.result
 }
 
 //----------------------------- bottom category ------------------------------------
 
 export async function getBottomProductCategoriesAction(
-	middleCategoryName: string
-): Promise<BottomProductCategory[]> {
+	middleCategoryCode: string
+): Promise<BottomProductCategoryType[]> {
 	const apiReturn = await fetch(
-		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/middle-categories/${middleCategoryName}`,
+		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/middle-categories/${middleCategoryCode}`,
 		{
 			method: "GET",
 			headers: {
@@ -110,15 +112,17 @@ export async function getBottomProductCategoriesAction(
 			}
 		}
 	)
-	const res = (await apiReturn.json()) as ApiResponse<BottomProductCategory[]>
+	const res = (await apiReturn.json()) as ApiResponse<
+		BottomProductCategoryType[]
+	>
 	return res.result
 }
 
 export async function getBottomProductCategoryAction(
-	bottomCategoryName: string
-): Promise<BottomProductCategory[]> {
+	bottomCategoryCode: string
+): Promise<BottomProductCategoryType[]> {
 	const apiReturn = await fetch(
-		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/middle-category/${bottomCategoryName}`,
+		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/middle-category/${bottomCategoryCode}`,
 		{
 			method: "GET",
 			headers: {
@@ -126,6 +130,30 @@ export async function getBottomProductCategoryAction(
 			}
 		}
 	)
-	const res = (await apiReturn.json()) as ApiResponse<BottomProductCategory[]>
+	const res = (await apiReturn.json()) as ApiResponse<
+		BottomProductCategoryType[]
+	>
 	return res.result
+}
+
+//----------------------------- all category actions ------------------------------------
+export async function getAllTopProductCategoriesAction(
+	categList: string[]
+): Promise<any> {
+	console.log("before getAllTopProductCategoriesAction : ", categList)
+	const fetchPromises: any = [getTopProductCategoriesAction()]
+	if (!_.isEmpty(categList[0])) {
+		console.log("getAllTopProductCategoriesAction : categList[1]")
+		fetchPromises.push(getMiddleProductCategoriesAction(categList[0]))
+	}
+
+	if (!_.isEmpty(categList[1])) {
+		fetchPromises.push(getBottomProductCategoriesAction(categList[1]))
+	}
+
+	const res = await Promise.all(fetchPromises)
+	console.log("getAllTopProductCategoriesAction : ", fetchPromises.length, res)
+	// call get topCategories api when first param exists or not.
+	return res
+	// call get middleCategories api when first param exists and second param do or don't.
 }

@@ -9,7 +9,7 @@ import CaretUpURL from "@/assets/svg/caret-up.svg?url"
 // dummy-data
 import { testProductCategFilter } from "@/dummy/product-category-data"
 
-function ProductListCategFilter() {
+function ProductCategFilter() {
 	const [isOpenAll, setIsOpenAll] = useState<boolean>(false)
 
 	const getProductCategFilter = (
@@ -74,4 +74,4 @@ function ProductListCategFilter() {
 	)
 }
 
-export default ProductListCategFilter
+export default ProductCategFilter
