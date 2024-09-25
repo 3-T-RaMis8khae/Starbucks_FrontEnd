@@ -50,28 +50,20 @@ export const getCategoryPath = (
 ) => {
 	switch (productCategCode.type) {
 		case "top":
-			console.log(
-				"getCategoryPath :: ",
-				productCategCode,
-				categCodes,
-				createQueryParamString({
-					ptcc: productCategCode.code
-				})
-			)
 			return `${routes.shop_productList}?${createQueryParamString({
 				ptcc: productCategCode.code
 			})}`
 		case "middle":
-			return `${routes.shop_productList}?${{
+			return `${routes.shop_productList}?${createQueryParamString({
 				ptcc: categCodes[0],
 				pmcc: productCategCode.code
-			}}`
+			})}`
 		case "bottom":
-			return `${routes.shop_productList}?${{
+			return `${routes.shop_productList}?${createQueryParamString({
 				ptcc: categCodes[0],
 				pmcc: categCodes[1],
 				pbcc: productCategCode.code
-			}}`
+			})}`
 		default:
 			throw new Error("Invalid product category")
 	}

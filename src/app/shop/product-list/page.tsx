@@ -25,7 +25,6 @@ export default async function ProductListPage({
 			searchParams["pbcc"] as string
 		])
 	}
-	console.log("queryList - ", queryList, searchParams)
 	return (
 		<section>
 			{/*<ProductCateg />*/}

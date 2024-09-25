@@ -140,10 +140,8 @@ export async function getBottomProductCategoryAction(
 export async function getAllTopProductCategoriesAction(
 	categList: string[]
 ): Promise<any> {
-	console.log("before getAllTopProductCategoriesAction : ", categList)
 	const fetchPromises: any = [getTopProductCategoriesAction()]
 	if (!_.isEmpty(categList[0])) {
-		console.log("getAllTopProductCategoriesAction : categList[1]")
 		fetchPromises.push(getMiddleProductCategoriesAction(categList[0]))
 	}
 
@@ -152,8 +150,7 @@ export async function getAllTopProductCategoriesAction(
 	}
 
 	const res = await Promise.all(fetchPromises)
-	console.log("getAllTopProductCategoriesAction : ", fetchPromises.length, res)
 	// call get topCategories api when first param exists or not.
-	return res
+	return _.compact(res)
 	// call get middleCategories api when first param exists and second param do or don't.
 }

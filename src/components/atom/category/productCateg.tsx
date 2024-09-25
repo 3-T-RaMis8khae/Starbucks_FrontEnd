@@ -38,7 +38,7 @@ async function ProductCateg({
 							replace={true}
 							className={`text-sb-gray-200 font-normal text-base ${_.some(categoryCodeList, (categCode) => categCode === item.code) && "text-sb-green-100"}`}
 						>
-							{trimTopCategory(item.name)}
+							{item.name}
 						</Link>
 					</li>
 				)
