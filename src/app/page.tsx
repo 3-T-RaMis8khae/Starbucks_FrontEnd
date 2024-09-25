@@ -2,15 +2,17 @@
 
 import { useDialog } from "@/context/dialogContext"
 import { useEffect } from "react"
+import _ from "lodash"
 
 export default function Home() {
 	const dialogContext = useDialog()
 
 	useEffect(() => {
-		if (dialogContext !== undefined) {
+		if (!_.isEmpty(dialogContext)) {
 			dialogContext?.setDialogContext({
 				descriptionContent:
-					"로그인 정보가 일치하지 않습니다.\n 아이디나 비밀번호를 확인 후 다시 입력해주세요."
+					"로그인 정보가 일치하지 않습니다.\n 아이디나 비밀번호를 확인 후 다시 입력해주세요.",
+				type: "alert"
 			})
 		}
 	}, [])

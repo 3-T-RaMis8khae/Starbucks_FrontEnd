@@ -1,8 +1,9 @@
 "use client"
 
 import React, { useState } from "react"
-import { defaultDialogContext, DialogContext } from "@/context/dialogContext"
+import { DialogContext } from "@/context/dialogContext"
 import { GlobalDialogType } from "@/type/components/dialog"
+import _ from "lodash"
 
 export const DialogContextProvider = ({
 	children
@@ -10,16 +11,13 @@ export const DialogContextProvider = ({
 	children: React.ReactNode
 }) => {
 	const [isDialogOpen, setIsDialogOpen] = useState(false)
-	const [dialogContext, setDialogContext] =
-		useState<Omit<GlobalDialogType, "setDialogContext" | "openHook">>(
-			defaultDialogContext
-		)
+	const [dialogContext, setDialogContext] = useState<
+		Omit<GlobalDialogType, "setDialogContext" | "openHook">
+	>({})
 	return (
 		<DialogContext.Provider
-			value={{
-				...dialogContext,
-				...{
-					type: "alert",
+			value={_.assign(
+				{
 					confirm: {
 						text: "확인",
 						onClick: () => {
@@ -31,14 +29,15 @@ export const DialogContextProvider = ({
 						onClick: () => {
 							setIsDialogOpen(false)
 						}
+					},
+					setDialogContext: setDialogContext,
+					openHook: {
+						open: isDialogOpen,
+						setOpen: setIsDialogOpen
 					}
 				},
-				setDialogContext: setDialogContext,
-				openHook: {
-					open: isDialogOpen,
-					setOpen: setIsDialogOpen
-				}
-			}}
+				dialogContext
+			)}
 		>
 			{children}
 		</DialogContext.Provider>
