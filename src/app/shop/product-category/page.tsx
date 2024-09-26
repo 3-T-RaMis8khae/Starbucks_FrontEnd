@@ -12,7 +12,7 @@ export default async function _ProductCategoryPage() {
 			{mainProductCategList.map((item, index) => (
 				<ProductCategoryLink
 					key={item.categoryCode}
-					linkProps={{ href: item.categoryCode }}
+					linkProps={{ href: `/shop/product-list?ptcc=${item.categoryCode}` }}
 					imageProps={{
 						src: item.imageUrl,
 						alt: `${item.categoryName}.jpg`
