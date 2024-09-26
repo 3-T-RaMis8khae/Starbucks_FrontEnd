@@ -155,4 +155,11 @@
 	.title__text {
 		@apply text-2xl text-sb-black-100;
 	}
+
+	.grid-columns-max-content {
+		grid-template-columns: max-content max-content;
+	}
+	.grid-rows-max-content {
+		grid-template-rows: max-content max-content;
+	}
 }
