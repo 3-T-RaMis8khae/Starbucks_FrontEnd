@@ -9,7 +9,7 @@ export interface ProductDetailMediaWrapperProps {
 
 function ProductDetailMediaWrapper({ media }: ProductDetailMediaWrapperProps) {
 	return (
-		<div className="flex flex-col gap-4 pt-6">
+		<div className="flex flex-col gap-4 py-6">
 			<span className="text-sb-black-100 font-bold text-xl app-px">상품</span>
 
 			<ShowMoreProductWrapper>

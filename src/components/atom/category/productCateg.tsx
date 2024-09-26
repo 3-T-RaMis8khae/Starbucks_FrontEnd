@@ -28,6 +28,7 @@ async function ProductCateg({
 	// let topCategories = _.concat([AllTopProductCategory])
 	// console.log("ProductCateg -=--=-= ", categoryList, categoryCodeList)
 
+	// todo : make this component client to implement focus scroll usability
 	return (
 		<ul className="h-11 hidden-x-scroll flex items-center border-b-[1px] border-b-sb-gray-0 select-none">
 			{categoryList.map((item) => {

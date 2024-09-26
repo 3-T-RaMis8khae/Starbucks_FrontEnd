@@ -40,3 +40,54 @@ export interface ProductListCategFilterItem {
 	id: string
 	name: string
 }
+
+// ------------------------------------------------------------
+interface Sort {
+	empty: boolean
+	unsorted: boolean
+	sorted: boolean
+}
+
+interface Pageable {
+	offset: number
+	sort: Sort
+	pageSize: number
+	pageNumber: number
+	paged: boolean
+	unpaged: boolean
+}
+
+export interface GetProductListIdsResponse {
+	first: boolean
+	last: boolean
+	size: number
+	content: number[]
+	number: number
+	sort: Sort
+	pageable: Pageable
+	numberOfElements: number
+	empty: boolean
+}
+
+export interface GetProductListIdsRequest extends RequestPagination {
+	topCode?: string
+	middleCode?: string
+	productName?: string
+	//priceType is BELOW_10000, BETWEEN_10000_AND_19999, BETWEEN_20000_AND_29999, BETWEEN_30000_AND_39999, BETWEEN_40000_AND_49999, ABOVE_50000
+	priceType?:
+		| "BELOW_10000"
+		| "BETWEEN_10000_AND_19999"
+		| "BETWEEN_20000_AND_29999"
+		| "BETWEEN_30000_AND_39999"
+		| "BETWEEN_40000_AND_49999"
+		| "ABOVE_50000"
+	orderCondition?: "NEWEST" | "DISCOUNT" | "HIGHEST_PRICE" | "LOWEST_PRICE"
+}
+
+export interface RequestPagination {
+	page?: number
+	size?: number
+	sort?: string[]
+}
+
+// ------------------------------------------------------------

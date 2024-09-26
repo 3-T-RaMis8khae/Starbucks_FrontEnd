@@ -15,7 +15,7 @@ export async function getMainProductCategoryAction(): Promise<
 	MainProductCategoryType[]
 > {
 	const apiReturn = await fetch(
-		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/main`,
+		`${process.env.API1_BASE_URL}/api/v1/category/main`,
 		{
 			method: "GET",
 			headers: {
@@ -32,7 +32,7 @@ export async function getTopProductCategoriesAction(): Promise<
 	TopProductCategoryType[]
 > {
 	const apiReturn = await fetch(
-		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/top-categories`,
+		`${process.env.API1_BASE_URL}/api/v1/category/top-categories`,
 		{
 			method: "GET",
 			headers: {
@@ -48,7 +48,7 @@ export async function getTopProductCategoryAction(
 	topCategCode: string
 ): Promise<MainProductCategoryType[]> {
 	const apiReturn = await fetch(
-		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/top-category/${topCategCode}`,
+		`${process.env.API1_BASE_URL}/api/v1/category/top-category/${topCategCode}`,
 		{
 			method: "GET",
 			headers: {
@@ -66,7 +66,7 @@ export async function getMiddleProductCategoriesAction(
 	topCategoryCode: string
 ): Promise<MiddleProductCategoryType[]> {
 	const apiReturn = await fetch(
-		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/middle-categories/${topCategoryCode}`,
+		`${process.env.API1_BASE_URL}/api/v1/category/middle-categories/${topCategoryCode}`,
 		{
 			method: "GET",
 			headers: {
@@ -84,7 +84,7 @@ export async function getMiddleProductCategoryAction(
 	middleCategoryCode: string
 ): Promise<MiddleProductCategoryType[]> {
 	const apiReturn = await fetch(
-		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/middle-category/${middleCategoryCode}`,
+		`${process.env.API1_BASE_URL}/api/v1/category/middle-category/${middleCategoryCode}`,
 		{
 			method: "GET",
 			headers: {
@@ -104,7 +104,7 @@ export async function getBottomProductCategoriesAction(
 	middleCategoryCode: string
 ): Promise<BottomProductCategoryType[]> {
 	const apiReturn = await fetch(
-		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/middle-categories/${middleCategoryCode}`,
+		`${process.env.API1_BASE_URL}/api/v1/category/middle-categories/${middleCategoryCode}`,
 		{
 			method: "GET",
 			headers: {
@@ -122,7 +122,7 @@ export async function getBottomProductCategoryAction(
 	bottomCategoryCode: string
 ): Promise<BottomProductCategoryType[]> {
 	const apiReturn = await fetch(
-		`${process.env.API1_LOCAL_BASE_URL}/api/v1/category/middle-category/${bottomCategoryCode}`,
+		`${process.env.API1_BASE_URL}/api/v1/category/middle-category/${bottomCategoryCode}`,
 		{
 			method: "GET",
 			headers: {
