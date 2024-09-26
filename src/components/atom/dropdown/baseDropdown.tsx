@@ -21,10 +21,29 @@ import CaretDownURL from "@/assets/svg/caret-down.svg?url"
 
 type Checked = DropdownMenuCheckboxItemProps["checked"]
 
-interface BaseDropdownProps {}
+interface BaseDropdownProps {
+	defaultValue: string
+	values: Array<DropdownValueType>
+	onValueChange?: (value: string) => void
+}
 
-function BaseDropdown(props: BaseDropdownProps) {
-	const [position, setPosition] = React.useState("추천순")
+interface DropdownValueType {
+	value: string
+
+	[key: string]: any
+}
+
+// note: This component is not completed yet.
+function BaseDropdown({
+	defaultValue,
+	values,
+	onValueChange
+}: BaseDropdownProps) {
+	const [position, setPosition] = React.useState(defaultValue)
+	const onChangeHandler = (value: string) => {
+		setPosition(value)
+		onValueChange?.(value)
+	}
 
 	return (
 		<DropdownMenu>
@@ -45,31 +64,19 @@ function BaseDropdown(props: BaseDropdownProps) {
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent className="w-32">
-				<DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-					<DropdownMenuRadioItem
-						value="추천순"
-						className="text-sb-gray-200 font-semibold text-base"
-					>
-						추천순
-					</DropdownMenuRadioItem>
-					<DropdownMenuRadioItem
-						value="신상품순"
-						className="text-sb-gray-200 font-semibold text-base"
-					>
-						신상품순
-					</DropdownMenuRadioItem>
-					<DropdownMenuRadioItem
-						value="낮은가격순"
-						className="text-sb-gray-200 font-semibold text-base"
-					>
-						낮은가격순
-					</DropdownMenuRadioItem>
-					<DropdownMenuRadioItem
-						value="높은가격순"
-						className="text-sb-gray-200 font-semibold text-base"
-					>
-						높은가격순
-					</DropdownMenuRadioItem>
+				<DropdownMenuRadioGroup
+					value={position}
+					onValueChange={onChangeHandler}
+				>
+					{values.map((value, index) => (
+						<DropdownMenuRadioItem
+							key={index}
+							value={value.value}
+							className="text-sb-gray-200 font-semibold text-base"
+						>
+							{value.value}
+						</DropdownMenuRadioItem>
+					))}
 				</DropdownMenuRadioGroup>
 			</DropdownMenuContent>
 		</DropdownMenu>

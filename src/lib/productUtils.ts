@@ -1,4 +1,5 @@
 import _ from "lodash"
+import { OrderCondition, orderConditionList } from "@/type/shop/product"
 
 export const toPrice = (price: number) => {
 	let isNegative = false
@@ -35,4 +36,11 @@ export const toDiscountPrice = (
 
 	const _price = price - discountedPrice
 	return toPrice(_price)
+}
+
+export const getProductOrderFilterValue = (order: string) => {
+	return _.find(orderConditionList, { id: order })
+}
+export const getDefaultProductOrderFilterValue = (value: string) => {
+	return getProductOrderFilterValue(value) ?? { id: "NEWEST", value: "최신순" }
 }

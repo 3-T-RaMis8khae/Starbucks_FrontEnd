@@ -83,8 +83,33 @@ export interface GetProductListIdsRequest extends PaginationRequest {
 		| "BETWEEN_30000_AND_39999"
 		| "BETWEEN_40000_AND_49999"
 		| "ABOVE_50000"
-	orderCondition?: "NEWEST" | "DISCOUNT" | "HIGHEST_PRICE" | "LOWEST_PRICE"
+	orderCondition?: OrderCondition
 }
+
+export type OrderCondition =
+	| "NEWEST"
+	| "DISCOUNT"
+	| "HIGHEST_PRICE"
+	| "LOWEST_PRICE"
+
+export const orderConditionList = [
+	{
+		id: "NEWEST",
+		value: "최신순"
+	},
+	{
+		id: "DISCOUNT",
+		value: "할인순"
+	},
+	{
+		id: "HIGHEST_PRICE",
+		value: "높은 가격순"
+	},
+	{
+		id: "LOWEST_PRICE",
+		value: "낮은 가격순"
+	}
+]
 
 export interface GetProductInfoResponse {
 	name: string
