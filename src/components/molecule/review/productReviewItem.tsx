@@ -38,8 +38,8 @@ function ProductReviewItem({
 				<Image
 					src={CaretRightURL}
 					alt={"caret-right.svg"}
-					width={18}
-					height={18}
+					width={14}
+					height={14}
 				/>
 			</div>
 
