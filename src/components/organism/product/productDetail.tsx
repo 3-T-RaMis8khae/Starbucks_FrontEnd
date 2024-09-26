@@ -8,6 +8,7 @@ import ProductDetailThumbnail from "@/components/atom/product/productDetailThumb
 import ProductDetailThumbnailCarousel from "@/components/atom/carousel/productDetailThumbnailCarousel"
 import ProductDetailInfo from "@/components/atom/product/productDetailInfo"
 import ProductDetailMediaWrapper from "@/components/molecule/product/productDetailMediaWrapper"
+import ProductReview from "@/components/organism/review/productReview"
 
 function ProductDetail() {
 	return (
@@ -40,6 +41,8 @@ function ProductDetail() {
 			/>
 
 			<ProductDetailMediaWrapper media={productDetailData_tumbler1.images} />
+
+			<ProductReview />
 		</div>
 	)
 }
