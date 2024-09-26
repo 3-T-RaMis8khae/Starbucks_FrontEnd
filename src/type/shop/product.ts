@@ -1,3 +1,6 @@
+import { PaginationRequest } from "@/type/common/request"
+import { getProductThumbnail } from "@/action/product/prodcutAction"
+
 export interface ProductItemType {
 	uuid: string
 	name: string
@@ -69,11 +72,10 @@ export interface GetProductListIdsResponse {
 	empty: boolean
 }
 
-export interface GetProductListIdsRequest extends RequestPagination {
+export interface GetProductListIdsRequest extends PaginationRequest {
 	topCode?: string
 	middleCode?: string
 	productName?: string
-	//priceType is BELOW_10000, BETWEEN_10000_AND_19999, BETWEEN_20000_AND_29999, BETWEEN_30000_AND_39999, BETWEEN_40000_AND_49999, ABOVE_50000
 	priceType?:
 		| "BELOW_10000"
 		| "BETWEEN_10000_AND_19999"
@@ -84,10 +86,18 @@ export interface GetProductListIdsRequest extends RequestPagination {
 	orderCondition?: "NEWEST" | "DISCOUNT" | "HIGHEST_PRICE" | "LOWEST_PRICE"
 }
 
-export interface RequestPagination {
-	page?: number
-	size?: number
-	sort?: string[]
+export interface GetProductInfoResponse {
+	name: string
+	isNew: boolean
+	isDiscounted: boolean
+	price: number
+	discountRate: number
+	wishCount: number
+}
+
+export interface GetProductThumbnailResponse {
+	productId: number
+	src: string
 }
 
 // ------------------------------------------------------------

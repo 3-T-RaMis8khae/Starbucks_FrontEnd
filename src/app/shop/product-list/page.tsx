@@ -6,12 +6,16 @@ import BaseDropdown from "@/components/atom/dropdown/baseDropdown"
 import { SearchParams } from "@/type/next"
 import _ from "lodash"
 
-// dummy-data
-import { productItems } from "@/dummy/product-data"
 import { getAllTopProductCategoriesAction } from "@/action/product-category/productCategoryAction"
 import ProductCategWrapper from "@/components/atom/category/productCategWrapper"
 import { ValueOf } from "@/lib/types"
 import { ProductCategoryQueryType } from "@/type/shop/product-category"
+// dummy-data
+import { productItems } from "@/dummy/product-data"
+import ProductListWrapper from "@/components/molecule/product/productListWrapper"
+import { defaultPaginationRequest } from "@/type/common/request"
+import { GetProductListIdsRequest } from "@/type/shop/product"
+import { getProductIds } from "@/action/product/prodcutAction"
 
 interface ProductListPageProps extends SearchParams {}
 
@@ -25,6 +29,18 @@ export default async function ProductListPage({
 			searchParams["pbcc"] as string
 		])
 	}
+
+	const defaultPagination = _.assign(defaultPaginationRequest, {})
+	const reqOption: GetProductListIdsRequest = {
+		topCode: (searchParams["ptcc"] as string) ?? "",
+		middleCode: (searchParams["pmcc"] as string) ?? "",
+		productName: "",
+		priceType: undefined,
+		orderCondition: "NEWEST",
+		...defaultPagination
+	}
+	const res = await getProductIds(reqOption)
+
 	return (
 		<section>
 			{/*<ProductCateg />*/}
@@ -34,11 +50,12 @@ export default async function ProductListPage({
 				<BaseDropdown />
 			</div>
 			<div className="px-[30px] py-4">
-				<ProductList>
-					{productItems.map((productItem) => (
-						<ProductItem key={productItem.uuid} item={productItem} />
-					))}
-				</ProductList>
+				<ProductListWrapper productIds={res.content} />
+				{/*<ProductList>*/}
+				{/*	{productItems.map((productItem) => (*/}
+				{/*		<ProductItem key={productItem.uuid} item={productItem} />*/}
+				{/*	))}*/}
+				{/*</ProductList>*/}
 			</div>
 		</section>
 	)
