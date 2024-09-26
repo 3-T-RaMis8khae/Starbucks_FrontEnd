@@ -2,6 +2,7 @@ import React from "react"
 import ProductList from "@/components/atom/product/productList"
 import { productItems } from "@/dummy/product-data"
 import ProductItem from "@/components/atom/product/productItem"
+import ProductItemDy from "@/components/atom/product/productItemDy"
 
 interface PageProps {
 	params: {
@@ -16,7 +17,7 @@ function Page({ params }: PageProps) {
 			<div className="px-[30px] py-4">
 				<ProductList>
 					{productItems.map((productItem) => (
-						<ProductItem key={productItem.uuid} item={productItem} />
+						<ProductItemDy key={productItem.uuid} item={productItem} />
 					))}
 				</ProductList>
 			</div>
