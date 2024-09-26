@@ -7,3 +7,15 @@ export interface ProductReviewType {
 	createdAt: string
 	images?: string[]
 }
+
+// ------------------------------------------------------------
+
+export interface ProductReviewResponse {
+	nickName: string
+	star: number
+	createAt: string //"2024-09-26T01:44:07.118Z",
+	content: string
+	commentCount: 1
+	// temporary
+	imageUrls?: string[]
+}
