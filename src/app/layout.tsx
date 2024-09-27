@@ -11,6 +11,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/authOption"
 import AuthContextProvider from "@/provider/AuthContextProvider"
 import { DialogContextProvider } from "@/provider/dialogContextProvider"
 import { GlobalDialog } from "@/components/molecule/dialog/globalDialog"
+import { QueryProvider } from "@/provider/QueryProvider"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -41,10 +42,12 @@ export default async function RootLayout({
 		<html lang="en">
 			<body className={inter.className}>
 				<AuthContextProvider isAuth={isAuth}>
-					<DialogContextProvider>
-						{children}
-						<GlobalDialog />
-					</DialogContextProvider>
+					<QueryProvider>
+						<DialogContextProvider>
+							{children}
+							<GlobalDialog />
+						</DialogContextProvider>
+					</QueryProvider>
 				</AuthContextProvider>
 			</body>
 		</html>

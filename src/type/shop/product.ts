@@ -1,5 +1,4 @@
 import { PaginationRequest } from "@/type/common/request"
-import { getProductThumbnail } from "@/action/product/prodcutAction"
 
 export interface ProductItemType {
 	uuid: string
@@ -44,7 +43,7 @@ export interface ProductListCategFilterItem {
 	name: string
 }
 
-// ------------------------------------------------------------
+// -----------------------------product ids ------------------------------
 interface Sort {
 	empty: boolean
 	unsorted: boolean
@@ -125,4 +124,23 @@ export interface GetProductThumbnailResponse {
 	src: string
 }
 
-// ------------------------------------------------------------
+// ---------------------------- product detail info  --------------------------------
+
+export interface GetProductDetailInfoResponse {
+	name: string
+	isNew: boolean
+	shortDescription: string
+	isDiscounted: boolean
+	discountRate: number
+	cartCount: number
+	wishCount: number
+}
+
+export interface GetProductDetailThumbnailsResponse {
+	url: string
+	isMainImage: boolean
+}
+
+export interface GetProductDetailDescriptionResponse {
+	detail: string
+}

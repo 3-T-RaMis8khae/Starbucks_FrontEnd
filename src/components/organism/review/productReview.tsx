@@ -1,6 +1,6 @@
 import React from "react"
 import Rating from "@mui/material/Rating"
-import HorizontalScrollWrapper from "@/components/atom/scrollWrapper/horizontalScrollWrapper"
+import HorizontalScrollWrapper from "@/components/atom/wrapper/horizontalScrollWrapper"
 
 import ReviewThumbnail from "@/components/atom/review/reviewThumbnail"
 import { thumbnails } from "@/dummy/product-group-data"

@@ -1,5 +1,4 @@
 import React from "react"
-import { productItems } from "@/dummy/product-data"
 
 import ProductItem from "@/components/atom/product/productItem"
 import ProductList from "@/components/atom/product/productList"

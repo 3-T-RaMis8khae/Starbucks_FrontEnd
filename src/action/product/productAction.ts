@@ -3,6 +3,9 @@
 import { ApiResponse } from "@/type/common/response"
 import _ from "lodash"
 import {
+	GetProductDetailDescriptionResponse,
+	GetProductDetailInfoResponse,
+	GetProductDetailThumbnailsResponse,
 	GetProductInfoResponse,
 	GetProductListIdsRequest,
 	GetProductListIdsResponse,
@@ -58,5 +61,57 @@ export async function getProductThumbnail(
 	)
 	const res =
 		(await apiReturn.json()) as ApiResponse<GetProductThumbnailResponse>
+	return res.result
+}
+
+// ---------------------------- product detail ------------------------------------
+export async function getProductDetailInfoAction(
+	productId: string
+): Promise<GetProductDetailInfoResponse> {
+	const apiReturn = await fetch(
+		`${process.env.API1_BASE_URL}/api/v1/product/info/${productId}`,
+		{
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			}
+		}
+	)
+	const res =
+		(await apiReturn.json()) as ApiResponse<GetProductDetailInfoResponse>
+	return res.result
+}
+
+export async function getProductDetailThumbnailAction(
+	productId: string
+): Promise<GetProductDetailThumbnailsResponse> {
+	const apiReturn = await fetch(
+		`${process.env.API1_BASE_URL}/api/v1/product/images/${productId}`,
+		{
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			}
+		}
+	)
+	const res =
+		(await apiReturn.json()) as ApiResponse<GetProductDetailThumbnailsResponse>
+	return res.result
+}
+
+export async function getProductDetailDescriptionAction(
+	productId: string
+): Promise<GetProductDetailDescriptionResponse> {
+	const apiReturn = await fetch(
+		`${process.env.API1_BASE_URL}/api/v1/product/detail/${productId}`,
+		{
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			}
+		}
+	)
+	const res =
+		(await apiReturn.json()) as ApiResponse<GetProductDetailDescriptionResponse>
 	return res.result
 }

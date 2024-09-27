@@ -5,7 +5,7 @@ import Rating from "@mui/material/Rating"
 
 import CaretRightURL from "@/assets/svg/caret-right.svg?url"
 import ReviewThumbnail from "@/components/atom/review/reviewThumbnail"
-import HorizontalScrollWrapper from "@/components/atom/scrollWrapper/horizontalScrollWrapper"
+import HorizontalScrollWrapper from "@/components/atom/wrapper/horizontalScrollWrapper"
 
 interface ProductReviewItemProps {
 	productReview: ProductReviewResponse

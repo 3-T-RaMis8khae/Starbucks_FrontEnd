@@ -6,7 +6,7 @@ import { toDiscountPercent, toDiscountPrice, toPrice } from "@/lib/productUtils"
 import {
 	getProductInfo,
 	getProductThumbnail
-} from "@/action/product/prodcutAction"
+} from "@/action/product/productAction"
 
 interface ProductItemProps {
 	id: number
