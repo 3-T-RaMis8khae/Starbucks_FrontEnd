@@ -2,7 +2,8 @@ import {
 	BottomProductCategoryType,
 	ProductCategoryType,
 	MiddleProductCategoryType,
-	TopProductCategoryType
+	TopProductCategoryType,
+	ProductCategoryQuery
 } from "@/type/shop/product-category"
 import {
 	trimBottomCategory,
@@ -46,7 +47,7 @@ export const mapProductCategoryFrom = (
 
 export const getCategoryPath = (
 	productCategCode: ProductCategoryType,
-	categCodes: string[]
+	categoryCodeObj: ProductCategoryQuery
 ) => {
 	switch (productCategCode.type) {
 		case "top":
@@ -55,13 +56,13 @@ export const getCategoryPath = (
 			})}`
 		case "middle":
 			return `${routes.shop_productList}?${createQueryParamString({
-				ptcc: categCodes[0],
+				ptcc: categoryCodeObj.ptcc,
 				pmcc: productCategCode.code
 			})}`
 		case "bottom":
 			return `${routes.shop_productList}?${createQueryParamString({
-				ptcc: categCodes[0],
-				pmcc: categCodes[1],
+				ptcc: categoryCodeObj.ptcc,
+				pmcc: categoryCodeObj.pmcc,
 				pbcc: productCategCode.code
 			})}`
 		default:

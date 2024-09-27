@@ -85,7 +85,7 @@ function ProductEventLinkList() {
 				<li key={index} ref={addToRefs} className="whitespace-nowrap px-3">
 					<Link
 						href={navItem.href}
-						onClick={() => handleItemClick(index)}
+						onClickCapture={() => handleItemClick(index)}
 						className={`
 								text-sb-gray-200 font-normal text-base
 								${activeIndex === index ? "!text-sb-green-100 !font-semibold" : ""}

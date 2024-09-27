@@ -5,7 +5,8 @@ import {
 	MainProductCategoryType,
 	TopProductCategoryType,
 	MiddleProductCategoryType,
-	BottomProductCategoryType
+	BottomProductCategoryType,
+	ProductCategoryQuery
 } from "@/type/shop/product-category"
 import _ from "lodash"
 
@@ -104,7 +105,7 @@ export async function getBottomProductCategoriesAction(
 	middleCategoryCode: string
 ): Promise<BottomProductCategoryType[]> {
 	const apiReturn = await fetch(
-		`${process.env.API1_BASE_URL}/api/v1/category/middle-categories/${middleCategoryCode}`,
+		`${process.env.API1_BASE_URL}/api/v1/category/bottom-categories/${middleCategoryCode}`,
 		{
 			method: "GET",
 			headers: {
@@ -138,15 +139,20 @@ export async function getBottomProductCategoryAction(
 
 //----------------------------- all category actions ------------------------------------
 export async function getAllTopProductCategoriesAction(
-	categList: string[]
+	queryObj: ProductCategoryQuery
 ): Promise<any> {
+	console.log("getAllTopProductCategoriesAction ------ categList: ", queryObj)
 	const fetchPromises: any = [getTopProductCategoriesAction()]
-	if (!_.isEmpty(categList[0])) {
-		fetchPromises.push(getMiddleProductCategoriesAction(categList[0]))
-	}
 
-	if (!_.isEmpty(categList[1])) {
-		fetchPromises.push(getBottomProductCategoriesAction(categList[1]))
+	if (!_.isEmpty(queryObj.ptcc)) {
+		fetchPromises.push(getMiddleProductCategoriesAction(String(queryObj.ptcc)))
+		console.log(
+			"getMiddleProductCategoriesAction(categList[0] pushed : ",
+			queryObj.ptcc
+		)
+	}
+	if (!_.isEmpty(queryObj.pmcc)) {
+		fetchPromises.push(getBottomProductCategoriesAction(String(queryObj.pmcc)))
 	}
 
 	const res = await Promise.all(fetchPromises)

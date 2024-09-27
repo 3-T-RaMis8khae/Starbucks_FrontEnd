@@ -46,3 +46,7 @@ export type ProductCategoryDepthType = "top" | "middle" | "bottom"
 
 // product top category code, product middle category code, product bottom category code
 export type ProductCategoryQueryType = "ptcc" | "pmcc" | "pbcc"
+
+export type ProductCategoryQuery = {
+	[key in ProductCategoryQueryType]?: string
+}

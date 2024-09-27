@@ -43,7 +43,6 @@ export async function getProductInfo(
 		}
 	)
 	const res = (await apiReturn.json()) as ApiResponse<GetProductInfoResponse>
-	console.log("\n\ngetProductInfo -- ", res)
 	return res.result
 }
 

@@ -9,7 +9,8 @@ import { GetProductListIdsRequest, OrderCondition } from "@/type/shop/product"
 import { getProductIds } from "@/action/product/productAction"
 import ProductDropdown from "@/components/atom/product/productDropdown"
 import { getDefaultProductOrderFilterValue } from "@/lib/productUtils"
-import ProductListPage from "@/components/page/product/productListPage"
+import ProductListPage from "@/components/page/product/listpage/productListPage"
+import { ProductCategoryQuery } from "@/type/shop/product-category"
 
 interface ProductListPageProps extends SearchParams {}
 
@@ -17,13 +18,15 @@ export default async function _ProductListPage({
 	searchParams
 }: ProductListPageProps) {
 	// -- get query params
-	const queryList = {
-		categCode: _.compact([
-			searchParams["ptcc"] as string,
-			searchParams["pmcc"] as string,
-			searchParams["pbcc"] as string
-		])
-	}
+	const queryObj: ProductCategoryQuery = _.omitBy(
+		{
+			ptcc: searchParams["ptcc"],
+			pmcc: searchParams["pmcc"],
+			pbcc: searchParams["pbcc"]
+		},
+		_.isNil
+	)
+	console.log("queryObj : ", queryObj)
 	const filterDefaultValue = getDefaultProductOrderFilterValue(
 		searchParams["orderFilter"] as string
 	)
@@ -41,14 +44,14 @@ export default async function _ProductListPage({
 
 	return (
 		<section>
-			<ProductCategWrapper params={queryList} />
+			<ProductCategWrapper queryObj={queryObj} />
 			<div className="flex itmes-center justify-end px-[30px] pt-2">
 				<ProductDropdown defaultValue={filterDefaultValue.value} />
 			</div>
 			<div className="px-[30px] py-4">
 				<ProductListWrapper productIds={res.content} />
 			</div>
-			{/*<ProductListPage />*/}
+			{/*<ProductListPage searchParams={searchParams} />*/}
 		</section>
 	)
 }

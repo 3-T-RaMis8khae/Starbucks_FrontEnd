@@ -1,10 +1,8 @@
 import React from "react"
 
-import { getTopProductCategoriesAction } from "@/action/product-category/productCategoryAction"
-import { trimTopCategory } from "@/lib/actionUtils"
 import {
-	AllTopProductCategory,
 	ProductCategoryDepthType,
+	ProductCategoryQuery,
 	ProductCategoryType
 } from "@/type/shop/product-category"
 import _ from "lodash"
@@ -13,20 +11,16 @@ import Link from "next/link"
 
 export interface ProductCategProps {
 	categoryList: ProductCategoryType[]
-	categoryCodeList: string[]
+	categoryCodeObj: ProductCategoryQuery
 	type: ProductCategoryDepthType
 }
 
 async function ProductCateg({
 	categoryList,
-	categoryCodeList,
+	categoryCodeObj,
 	type
 }: ProductCategProps) {
-	// if (type === "top") {
-	// 	categoryList = _.concat([AllTopProductCategory], categoryList)
-	// }
-	// let topCategories = _.concat([AllTopProductCategory])
-	// console.log("ProductCateg -=--=-= ", categoryList, categoryCodeList)
+	const categList = _.map(_.values(categoryCodeObj), (value) => value)
 
 	// todo : make this component client to implement focus scroll usability
 	return (
@@ -35,9 +29,9 @@ async function ProductCateg({
 				return (
 					<li key={item.code} className="whitespace-nowrap px-3">
 						<Link
-							href={getCategoryPath(item, categoryCodeList)}
+							href={getCategoryPath(item, categoryCodeObj)}
 							replace={true}
-							className={`text-sb-gray-200 font-normal text-base ${_.some(categoryCodeList, (categCode) => categCode === item.code) && "text-sb-green-100"}`}
+							className={`text-sb-gray-200 font-normal text-base ${_.some(categList, (categCode) => String(categCode) === item.code) && "text-sb-green-100"}`}
 						>
 							{item.name}
 						</Link>

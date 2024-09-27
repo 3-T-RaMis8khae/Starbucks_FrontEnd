@@ -4,6 +4,7 @@ import { mapProductCategoryFrom } from "@/lib/productCategoryUtils"
 import {
 	BottomProductCategoryType,
 	MiddleProductCategoryType,
+	ProductCategoryQuery,
 	ProductCategoryType,
 	TopProductCategoryType
 } from "@/type/shop/product-category"
@@ -12,13 +13,12 @@ import { redirect } from "next/navigation"
 import ProductCateg from "@/components/atom/category/productCateg"
 
 interface ProductCategWrapperProps {
-	params: {
-		categCode: Array<string> | undefined
-	}
+	queryObj: ProductCategoryQuery
 }
 
-async function ProductCategWrapper({ params }: ProductCategWrapperProps) {
-	const res = await getAllTopProductCategoriesAction(params.categCode ?? [])
+async function ProductCategWrapper({ queryObj }: ProductCategWrapperProps) {
+	console.log("Before get All top product categories : ", queryObj)
+	const res = await getAllTopProductCategoriesAction(queryObj)
 	const categoryList: ProductCategoryType[][] = res.map(
 		(
 			item:
@@ -41,7 +41,7 @@ async function ProductCategWrapper({ params }: ProductCategWrapperProps) {
 						<ProductCateg
 							key={index}
 							categoryList={item}
-							categoryCodeList={params.categCode ?? []}
+							categoryCodeObj={queryObj}
 							type={item[0].type}
 						/>
 					)
