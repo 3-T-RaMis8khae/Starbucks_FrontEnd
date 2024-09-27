@@ -1,4 +1,5 @@
 import { PaginationRequest } from "@/type/common/request"
+import { PaginationResponse } from "@/type/common/response"
 
 export interface ProductItemType {
 	uuid: string
@@ -44,32 +45,9 @@ export interface ProductListCategFilterItem {
 }
 
 // -----------------------------product ids ------------------------------
-interface Sort {
-	empty: boolean
-	unsorted: boolean
-	sorted: boolean
-}
 
-interface Pageable {
-	offset: number
-	sort: Sort
-	pageSize: number
-	pageNumber: number
-	paged: boolean
-	unpaged: boolean
-}
-
-export interface GetProductListIdsResponse {
-	first: boolean
-	last: boolean
-	size: number
-	content: number[]
-	number: number
-	sort: Sort
-	pageable: Pageable
-	numberOfElements: number
-	empty: boolean
-}
+export interface GetProductListIdsResponse
+	extends PaginationResponse<number[]> {}
 
 export interface GetProductListIdsRequest extends PaginationRequest {
 	topCode?: string
@@ -128,14 +106,15 @@ export interface GetProductThumbnailResponse {
 
 export interface GetProductDetailInfoResponse {
 	name: string
+	price: number
 	isNew: boolean
 	shortDescription: string
 	isDiscounted: boolean
 	discountRate: number
-	cartCount: number
 	wishCount: number
 }
 
+// array로 받음
 export interface GetProductDetailThumbnailsResponse {
 	url: string
 	isMainImage: boolean

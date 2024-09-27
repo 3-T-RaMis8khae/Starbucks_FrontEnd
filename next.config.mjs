@@ -39,6 +39,12 @@ const nextConfig = {
 			},
 			{
 				protocol: "https",
+				hostname: "sstatic.ssgcdn.com",
+				port: "",
+				pathname: "/**"
+			},
+			{
+				protocol: "https",
 				hostname: "simg.ssgcdn.com",
 				port: "",
 				pathname: "/**"

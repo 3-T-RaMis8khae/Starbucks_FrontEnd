@@ -84,7 +84,7 @@ export async function getProductDetailInfoAction(
 
 export async function getProductDetailThumbnailAction(
 	productId: string
-): Promise<GetProductDetailThumbnailsResponse> {
+): Promise<Array<GetProductDetailThumbnailsResponse>> {
 	const apiReturn = await fetch(
 		`${process.env.API1_BASE_URL}/api/v1/product/images/${productId}`,
 		{
@@ -94,8 +94,9 @@ export async function getProductDetailThumbnailAction(
 			}
 		}
 	)
-	const res =
-		(await apiReturn.json()) as ApiResponse<GetProductDetailThumbnailsResponse>
+	const res = (await apiReturn.json()) as ApiResponse<
+		Array<GetProductDetailThumbnailsResponse>
+	>
 	return res.result
 }
 

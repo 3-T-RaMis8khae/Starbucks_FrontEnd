@@ -1,32 +1,58 @@
 import React from "react"
 
-import {
-	productDetailData_tumbler1,
-	productDetailData_tumbler2
-} from "@/dummy/product-detail-data"
+import { productDetailData_tumbler1 } from "@/dummy/product-detail-data"
 import ProductDetailThumbnail from "@/components/atom/product/productDetailThumbnail"
 import ProductDetailThumbnailCarousel from "@/components/atom/carousel/productDetailThumbnailCarousel"
 import ProductDetailInfo from "@/components/atom/product/productDetailInfo"
 import ProductDetailMediaWrapper from "@/components/molecule/product/productDetailMediaWrapper"
 import ProductReview from "@/components/organism/review/productReview"
+import {
+	getProductDetailDescriptionAction,
+	getProductDetailInfoAction,
+	getProductDetailThumbnailAction
+} from "@/action/product/productAction"
+import _ from "lodash"
 
-function ProductDetail() {
+export interface ProductDetailProps {
+	productId: string
+}
+
+async function ProductDetail({ productId }: ProductDetailProps) {
+	const info = await getProductDetailInfoAction(productId)
+	const thumbnails = await getProductDetailThumbnailAction(productId)
+	const desc = await getProductDetailDescriptionAction(productId)
+
+	const descList = _.split(desc.detail, ",").map((item, index) => ({
+		uuid: index.toString(),
+		url: item
+	}))
+
+	// todo : 상세 이미지 정보가 없으면 어떻게 하지 ?
+	// console.log(
+	// 	"ProductDetail ----- : \n",
+	// 	info,
+	// 	"\n\n",
+	// 	thumbnails,
+	// 	"\n\n",
+	// 	desc,
+	// 	"\n\n",
+	// 	descList
+	// )
+
 	return (
 		<div className="flex flex-col">
-			{productDetailData_tumbler1.thumbnails.length > 1 ? (
+			{thumbnails.length > 1 ? (
 				<ProductDetailThumbnailCarousel
-					thumbnails={productDetailData_tumbler1.thumbnails.map(
-						(thumbnail, index) => ({
-							src: thumbnail,
-							alt: `${productDetailData_tumbler1.name + index}.png`
-						})
-					)}
+					thumbnails={thumbnails.map((thumbnailObj, index) => ({
+						src: thumbnailObj.url,
+						alt: `${info.name + index}.png`
+					}))}
 				/>
 			) : (
 				<ProductDetailThumbnail
 					imageProps={{
-						src: productDetailData_tumbler1.thumbnails[0],
-						alt: `${productDetailData_tumbler1.name}.png`
+						src: thumbnails[0].url,
+						alt: `${info.name}.png`
 					}}
 				/>
 			)}
@@ -34,15 +60,15 @@ function ProductDetail() {
 			<ProductDetailInfo
 				wrapperProps={{ className: "py-6" }}
 				product={{
-					title: productDetailData_tumbler1.name,
-					description: productDetailData_tumbler1.description,
-					price: productDetailData_tumbler1.price
+					title: info.name,
+					description: info.shortDescription,
+					price: info.price
 				}}
 			/>
 
-			<ProductDetailMediaWrapper media={productDetailData_tumbler1.images} />
+			<ProductDetailMediaWrapper media={descList} />
 
-			<ProductReview />
+			<ProductReview productId={productId} />
 		</div>
 	)
 }

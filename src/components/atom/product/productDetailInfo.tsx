@@ -21,9 +21,9 @@ function ProductDetailInfo({ product, wrapperProps }: ProductDetailInfoProps) {
 					{product.title}
 				</span>
 			</div>
-			<span className="text-sm font-medium text-sb-gray-200">
-				{product.description}
-			</span>
+			{product.description && (
+				<p className="text-sb-black-100 text-base">{product.description}</p>
+			)}
 			<span className="text-sb-black-100 font-bold text-2xl">
 				{toPrice(product.price)}원
 			</span>

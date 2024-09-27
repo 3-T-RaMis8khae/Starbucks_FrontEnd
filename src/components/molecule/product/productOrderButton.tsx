@@ -8,9 +8,11 @@ import { Button } from "@/components/ui/button"
 import CartURL from "@/assets/svg/cart.svg?url"
 import ProductOrderOption from "@/components/molecule/product/productOrderOption"
 
-interface ProductOrderButtonProps {}
+interface ProductOrderButtonProps {
+	productId: string
+}
 
-function ProductOrderButton(props: ProductOrderButtonProps) {
+function ProductOrderButton({ productId }: ProductOrderButtonProps) {
 	return (
 		<div className="w-full fixed left-0 bottom-0  bg-white">
 			<ProductOrderOption />

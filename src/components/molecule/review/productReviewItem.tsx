@@ -1,21 +1,25 @@
 import React from "react"
-import { ProductReviewResponse, ProductReviewType } from "@/type/shop/review"
 import Image from "next/image"
 import Rating from "@mui/material/Rating"
 
 import CaretRightURL from "@/assets/svg/caret-right.svg?url"
 import ReviewThumbnail from "@/components/atom/review/reviewThumbnail"
 import HorizontalScrollWrapper from "@/components/atom/wrapper/horizontalScrollWrapper"
+import { getReviewImage, getReviewInfo } from "@/action/review/revewAction"
+import { getCreatedAt } from "@/lib/dayjsUtils"
 
 interface ProductReviewItemProps {
-	productReview: ProductReviewResponse
+	reviewId: string | number
 	wrapperProps?: React.HTMLProps<HTMLDivElement>
 }
 
-function ProductReviewItem({
-	productReview,
-	wrapperProps
+async function ProductReviewItem({
+	wrapperProps,
+	reviewId
 }: ProductReviewItemProps) {
+	const reviewInfo = await getReviewInfo(reviewId)
+	const reviewImages = await getReviewImage(reviewId)
+
 	return (
 		<div
 			{...wrapperProps}
@@ -25,13 +29,13 @@ function ProductReviewItem({
 				<div className="flex items-center gap-2">
 					<Rating
 						name="review-rating"
-						value={productReview.star}
+						value={reviewInfo.star}
 						readOnly
 						precision={0.1}
 						size={"small"}
 					/>
 					<span className="text-xs font-normal text-sb-black-100 self-end">
-						{productReview.nickName}
+						{reviewInfo.nickName}
 					</span>
 				</div>
 
@@ -44,11 +48,11 @@ function ProductReviewItem({
 			</div>
 
 			<span className="w-full text-sm font-normal text-sb-black-100 app-px">
-				{productReview.content}
+				{reviewInfo.content}
 			</span>
-			{productReview?.imageUrls && productReview?.imageUrls.length > 0 && (
+			{reviewImages.imageUrl.length > 0 && (
 				<HorizontalScrollWrapper>
-					{productReview?.imageUrls?.map((image, idx) => (
+					{reviewImages.imageUrl?.map((image, idx) => (
 						<ReviewThumbnail
 							key={idx}
 							wrapperProps={{ className: "w-20 h-20" }}
@@ -59,7 +63,7 @@ function ProductReviewItem({
 			)}
 
 			<span className="text-xs font-normal text-sb-gray-200 app-px">
-				{productReview.createAt}
+				{getCreatedAt(reviewInfo.createAt)}
 			</span>
 		</div>
 	)

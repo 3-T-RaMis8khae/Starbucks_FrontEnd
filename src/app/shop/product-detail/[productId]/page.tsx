@@ -9,10 +9,12 @@ interface PageProps {
 }
 
 function Page({ params }: PageProps) {
+	console.log("product detail Page -- params : \n", params)
+	const productId = params.productId
 	return (
 		<main className="pb-[105px]">
-			<ProductDetail />
-			<ProductOrderButton />
+			<ProductDetail productId={productId} />
+			<ProductOrderButton productId={productId} />
 		</main>
 	)
 }
