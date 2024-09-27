@@ -26,7 +26,6 @@ export default async function _ProductListPage({
 		},
 		_.isNil
 	)
-	console.log("queryObj : ", queryObj)
 	const filterDefaultValue = getDefaultProductOrderFilterValue(
 		searchParams["orderFilter"] as string
 	)

@@ -141,15 +141,10 @@ export async function getBottomProductCategoryAction(
 export async function getAllTopProductCategoriesAction(
 	queryObj: ProductCategoryQuery
 ): Promise<any> {
-	console.log("getAllTopProductCategoriesAction ------ categList: ", queryObj)
 	const fetchPromises: any = [getTopProductCategoriesAction()]
 
 	if (!_.isEmpty(queryObj.ptcc)) {
 		fetchPromises.push(getMiddleProductCategoriesAction(String(queryObj.ptcc)))
-		console.log(
-			"getMiddleProductCategoriesAction(categList[0] pushed : ",
-			queryObj.ptcc
-		)
 	}
 	if (!_.isEmpty(queryObj.pmcc)) {
 		fetchPromises.push(getBottomProductCategoriesAction(String(queryObj.pmcc)))

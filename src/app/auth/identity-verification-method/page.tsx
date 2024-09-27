@@ -24,7 +24,6 @@ export default function IdentityVerificationPage() {
 	}
 
 	const onRadioChange = (radioName: RadioType) => {
-		console.log("onRadioChange - toss : ", radioName)
 		if (radioName != radio) {
 			setRadio(radioName as string)
 		}

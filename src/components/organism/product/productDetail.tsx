@@ -28,16 +28,6 @@ async function ProductDetail({ productId }: ProductDetailProps) {
 	}))
 
 	// todo : 상세 이미지 정보가 없으면 어떻게 하지 ?
-	// console.log(
-	// 	"ProductDetail ----- : \n",
-	// 	info,
-	// 	"\n\n",
-	// 	thumbnails,
-	// 	"\n\n",
-	// 	desc,
-	// 	"\n\n",
-	// 	descList
-	// )
 
 	return (
 		<div className="flex flex-col">

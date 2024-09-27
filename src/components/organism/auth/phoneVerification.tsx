@@ -148,7 +148,6 @@ function PhoneVerification(props: PhoneVerificationProps) {
 							defaultValue={mobileCarrier.skt.value}
 							onValueChange={(value) => {
 								// setPhoneCarrier(value)
-								console.log("on select change: ", value)
 								setValue("mobileCarrier", value)
 							}}
 						>

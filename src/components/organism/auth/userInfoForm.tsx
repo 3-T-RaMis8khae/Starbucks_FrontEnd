@@ -119,8 +119,6 @@ function UserInfoForm(props: UserInfoFormProps) {
 						<Select
 							defaultValue={mobileCarrier.skt.value}
 							onValueChange={(value) => {
-								// setPhoneCarrier(value)
-								console.log("on select change: ", value)
 								setValue("mobileCarrier", value)
 							}}
 						>
