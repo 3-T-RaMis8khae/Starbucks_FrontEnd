@@ -2,15 +2,13 @@ import { SearchParams } from "@/type/next"
 import _ from "lodash"
 
 import ProductCategWrapper from "@/components/atom/category/productCategWrapper"
-
-import ProductListWrapper from "@/components/molecule/product/productListWrapper"
 import { defaultPaginationRequest } from "@/type/common/request"
 import { GetProductListIdsRequest, OrderCondition } from "@/type/shop/product"
-import { getProductIds } from "@/action/product/productAction"
 import ProductDropdown from "@/components/atom/product/productDropdown"
 import { getDefaultProductOrderFilterValue } from "@/lib/productUtils"
-import ProductListPage from "@/components/page/product/listpage/productListPage"
 import { ProductCategoryQuery } from "@/type/shop/product-category"
+import ProductListCL from "@/components/page/product/listpage/productListCL"
+import React from "react"
 
 interface ProductListPageProps extends SearchParams {}
 
@@ -39,7 +37,7 @@ export default async function _ProductListPage({
 		orderCondition: filterDefaultValue.id as OrderCondition,
 		...defaultPagination
 	}
-	const res = await getProductIds(reqOption)
+	// const res = await getProductIds(reqOption)
 
 	return (
 		<section>
@@ -47,10 +45,10 @@ export default async function _ProductListPage({
 			<div className="flex itmes-center justify-end px-[30px] pt-2">
 				<ProductDropdown defaultValue={filterDefaultValue.value} />
 			</div>
-			<div className="px-[30px] py-4">
-				<ProductListWrapper productIds={res.content} />
-			</div>
-			{/*<ProductListPage searchParams={searchParams} />*/}
+			{/*<div className="px-[30px] py-4">*/}
+			{/*	<ProductListWrapper productIds={res.content} />*/}
+			{/*</div>*/}
+			<ProductListCL reqOption={reqOption} />
 		</section>
 	)
 }

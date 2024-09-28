@@ -17,7 +17,6 @@ interface ProductCategWrapperProps {
 }
 
 async function ProductCategWrapper({ queryObj }: ProductCategWrapperProps) {
-	console.log("Before get All top product categories : ", queryObj)
 	const res = await getAllTopProductCategoriesAction(queryObj)
 	const categoryList: ProductCategoryType[][] = res.map(
 		(

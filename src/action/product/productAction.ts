@@ -63,6 +63,14 @@ export async function getProductThumbnail(
 	return res.result
 }
 
+export async function getProductInfoAndThumbnail(id: number) {
+	const product = await Promise.all([
+		getProductInfo(id),
+		getProductThumbnail(id)
+	])
+	return { productInfo: product[0], productThumbnail: product[1] }
+}
+
 // ---------------------------- product detail ------------------------------------
 export async function getProductDetailInfoAction(
 	productId: string
