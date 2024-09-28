@@ -8,16 +8,16 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { loginSchema, loginSchemaType } from "@/schema/authSchema"
 import ErrorText from "@/components/atom/text/errorText"
 import { signIn } from "next-auth/react"
+import { routes } from "@/config/route"
+import { useRouter } from "next/navigation"
 
 // interface LoginFormProps {}
-const onLogIn = (data: loginSchemaType): void => {
+const onLogIn = (data: loginSchemaType) => {
 	console.log("on login : ", data, loginSchema.safeParse(data))
-	signIn("credentials", {
+	return signIn("credentials", {
 		loginId: data.loginId,
 		password: data.password,
 		redirect: false
-	}).then((res) => {
-		console.log("res in LOGIN FORM: ", res)
 	})
 }
 
@@ -29,13 +29,17 @@ function LoginForm() {
 	} = useForm({
 		resolver: zodResolver(loginSchema)
 	})
+	const router = useRouter()
 
 	return (
 		<form
 			onSubmit={handleSubmit(
 				(data, event) => {
 					console.log("on valid submit : ", data, event)
-					onLogIn(data as loginSchemaType)
+					onLogIn(data as loginSchemaType).then((res) => {
+						console.log("sign in res : ", res)
+						router.push(routes.shop_main)
+					})
 				},
 				(data, event) => {
 					console.log("on invalid submit : ", data, event)
