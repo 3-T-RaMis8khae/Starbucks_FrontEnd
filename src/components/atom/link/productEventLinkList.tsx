@@ -5,31 +5,12 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { NavItem } from "@/components/atom/nav/shopMainNav"
 
-export interface ProductEventNavItem {
-	name: string
-	href?: string
+export interface ProductEventLinkListProps {
+	productNavItems: NavItem[]
 }
 
-const navItems: NavItem[] = [
-	{ name: "추석 기프트", href: "/shop/promotion/ch" },
-	{ name: "골프 MD 출시", href: "/shop/promotion/golf" },
-	{
-		name: "오텀 펭귄북스 콜라보",
-		href: "/shop/promotion/penguin"
-	},
-	{ name: "오텀 애니버서리", href: "/shop/promotion/autumn" },
-	{ name: "추석 기프트", href: "/shop/promotion/ch" },
-	{ name: "골프 MD 출시", href: "/shop/promotion/golf" },
-	{
-		name: "오텀 펭귄북스 콜라보",
-		href: "/shop/promotion/penguin"
-	},
-	{ name: "오텀 애니버서리", href: "/shop/promotion/autumn" }
-]
-
 // todo : need to add server action to fetch event nav data
-function ProductEventLinkList() {
-	// const pathname = usePathname()
+function ProductEventLinkList({ productNavItems }: ProductEventLinkListProps) {
 	const router = useRouter()
 
 	const [activeIndex, setActiveIndex] = useState(0)
@@ -62,7 +43,7 @@ function ProductEventLinkList() {
 	useEffect(() => {
 		// 컴포넌트가 마운트된 후 초기 위치 설정
 		handleItemClick(activeIndex)
-		router.push(navItems[activeIndex].href)
+		router.push(productNavItems[activeIndex].href)
 	}, [])
 
 	useEffect(() => {
@@ -81,7 +62,7 @@ function ProductEventLinkList() {
 			className={`header-3 hidden-x-scroll items-center border-b-[1px] border-b-sb-gray-0 select-none`}
 			ref={UlRef}
 		>
-			{navItems.map((navItem, index) => (
+			{productNavItems.map((navItem, index) => (
 				<li key={index} ref={addToRefs} className="whitespace-nowrap px-3">
 					<Link
 						href={navItem.href}

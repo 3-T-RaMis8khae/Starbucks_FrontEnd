@@ -1,7 +1,8 @@
 import React from "react"
 import ProductList from "@/components/atom/product/productList"
-import { productItems } from "@/dummy/product-data"
+import { mainProductsObj, productNavItems } from "@/dummy/product-data"
 import ProductItemDy from "@/components/atom/product/productItemDy"
+import ProductEventLinkList from "@/components/atom/link/productEventLinkList"
 
 interface PageProps {
 	params: {
@@ -10,10 +11,12 @@ interface PageProps {
 }
 
 function Page({ params }: PageProps) {
+	const productItems =
+		mainProductsObj.find((productObj) => productObj.query === params.event)
+			?.items || mainProductsObj[0].items
 	return (
 		<section>
-			<div>Page params : {params.event} image</div>
-			<div className="px-[30px] py-4">
+			<div className="px-[30px] py-[30px]">
 				<ProductList>
 					{productItems.map((productItem) => (
 						<ProductItemDy key={productItem.uuid} item={productItem} />

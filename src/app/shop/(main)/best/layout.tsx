@@ -1,5 +1,6 @@
 import React from "react"
 import ProductEventLinkList from "@/components/atom/link/productEventLinkList"
+import { bestProductNavItems } from "@/dummy/best-product-data"
 
 export default function BestLayout({
 	children
@@ -8,7 +9,7 @@ export default function BestLayout({
 }) {
 	return (
 		<>
-			<ProductEventLinkList />
+			<ProductEventLinkList productNavItems={bestProductNavItems} />
 			{children}
 		</>
 	)
