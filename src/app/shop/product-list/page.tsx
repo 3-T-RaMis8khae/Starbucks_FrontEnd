@@ -45,9 +45,6 @@ export default async function _ProductListPage({
 			<div className="flex itmes-center justify-end px-[30px] pt-2">
 				<ProductDropdown defaultValue={filterDefaultValue.value} />
 			</div>
-			{/*<div className="px-[30px] py-4">*/}
-			{/*	<ProductListWrapper productIds={res.content} />*/}
-			{/*</div>*/}
 			<ProductListCL reqOption={reqOption} />
 		</section>
 	)
