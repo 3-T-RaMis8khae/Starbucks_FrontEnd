@@ -39,8 +39,8 @@ function ProductListCL({ reqOption }: ProductListCLProps) {
 			}
 			return undefined
 		},
-		refetchOnWindowFocus: false,
-		initialPageParam: 0
+		initialPageParam: 0,
+		refetchOnWindowFocus: false
 	})
 
 	const fetchNext = useCallback(async () => {
@@ -57,23 +57,10 @@ function ProductListCL({ reqOption }: ProductListCLProps) {
 		if (isPageEnd && hasNextPage) {
 			timerId = setTimeout(() => {
 				fetchNext()
-			}, 500)
+			}, 300)
 		}
-
 		return () => clearTimeout(timerId)
 	}, [fetchNext, isPageEnd, hasNextPage])
-
-	if (isLoading) {
-		return (
-			<div className="px-[30px] py-4">
-				<ProductList>
-					{Array.from({ length: defaultPaginationRequest.size }, (_, index) => (
-						<ProductItemSkeleton key={index} />
-					))}
-				</ProductList>
-			</div>
-		)
-	}
 
 	return (
 		<>
@@ -87,9 +74,20 @@ function ProductListCL({ reqOption }: ProductListCLProps) {
 				{/*		</React.Fragment>*/}
 				{/*	))}*/}
 				{/*</ProductList>*/}
-				{data?.pages?.map((page, index) => (
-					<ProductItemsWrapper key={index} productItemIds={page.content} />
-				))}
+				{isLoading ? (
+					<ProductList>
+						{Array.from(
+							{ length: defaultPaginationRequest.size },
+							(_, index) => (
+								<ProductItemSkeleton key={index} />
+							)
+						)}
+					</ProductList>
+				) : (
+					data?.pages?.map((page, index) => (
+						<ProductItemsWrapper key={index} productItemIds={page.content} />
+					))
+				)}
 			</div>
 			{(isFetching || hasNextPage || isFetchingNextPage) && <BaseLoader />}
 			<div className="w-full touch-none h-10 mb-10" ref={ref} />
