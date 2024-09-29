@@ -34,12 +34,12 @@ export type PhoneVerificationProps = Partial<PhoneVerificationType>
 function PhoneVerification(props: PhoneVerificationProps) {
 	// react hooks
 	const [isTermChecked, setIsTermChecked] = useState<boolean>(!!props.terms)
-	const [isPhoneVerified, setIsPhoneVerified] = useState<boolean>(false)
+	// const [isPhoneVerified, setIsPhoneVerified] = useState<boolean>(false)
 	const [phoneVerification, setPhoneVerification] = useState<string>("")
 	const [isBtClicked, setIsBtClicked] = useState<boolean>(false)
-	const [phoneCarrier, setPhoneCarrier] = useState<string>(
-		mobileCarrier.skt.value
-	)
+	// const [phoneCarrier, setPhoneCarrier] = useState<string>(
+	// 	mobileCarrier.skt.value
+	// )
 
 	const {
 		register,

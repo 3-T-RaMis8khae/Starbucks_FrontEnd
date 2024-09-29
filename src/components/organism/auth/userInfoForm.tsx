@@ -32,14 +32,9 @@ export interface UserInfoFormType {
 
 export type UserInfoFormProps = Partial<UserInfoFormType>
 
-function UserInfoForm(props: UserInfoFormProps) {
+function UserInfoForm() {
 	// react hooks
-	const {
-		register,
-		handleSubmit,
-		setValue,
-		formState: { isValid }
-	} = useForm({
+	const { register, handleSubmit, setValue } = useForm({
 		resolver: zodResolver(phoneVerifySchema)
 	})
 	useEffect(() => {

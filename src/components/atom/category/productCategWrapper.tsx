@@ -27,8 +27,7 @@ async function ProductCategWrapper({ queryObj }: ProductCategWrapperProps) {
 		) => {
 			if (_.isNull(item) || _.isUndefined(item)) redirect("/not-found")
 
-			const productCateg = item.map((categ) => mapProductCategoryFrom(categ))
-			return productCateg
+			return item.map((categ) => mapProductCategoryFrom(categ))
 		}
 	)
 

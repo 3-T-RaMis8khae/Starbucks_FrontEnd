@@ -11,10 +11,7 @@ import {
 	trimTopCategory
 } from "@/lib/actionUtils"
 import { routes } from "@/config/route"
-import {
-	createQueryParamObj,
-	createQueryParamString
-} from "@/lib/queryParamUtils"
+import { createQueryParamString } from "@/lib/queryParamUtils"
 
 export const mapProductCategoryFrom = (
 	productCategory:

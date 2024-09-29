@@ -1,4 +1,4 @@
-import { ProductGroupType, ProductItemType } from "@/type/shop/product"
+import { ProductItemType } from "@/type/shop/product"
 import { NavItem } from "@/components/atom/nav/shopMainNav"
 
 export const productItems: ProductItemType[] = [

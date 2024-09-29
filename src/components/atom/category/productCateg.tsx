@@ -17,8 +17,7 @@ export interface ProductCategProps {
 
 async function ProductCateg({
 	categoryList,
-	categoryCodeObj,
-	type
+	categoryCodeObj
 }: ProductCategProps) {
 	const categList = _.map(_.values(categoryCodeObj), (value) => value)
 

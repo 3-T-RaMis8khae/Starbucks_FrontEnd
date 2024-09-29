@@ -1,8 +1,7 @@
 import React from "react"
 import ProductList from "@/components/atom/product/productList"
-import { mainProductsObj, productNavItems } from "@/dummy/product-data"
+import { mainProductsObj } from "@/dummy/product-data"
 import ProductItemDy from "@/components/atom/product/productItemDy"
-import ProductEventLinkList from "@/components/atom/link/productEventLinkList"
 
 interface PageProps {
 	params: {

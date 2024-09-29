@@ -1,6 +1,5 @@
 import React from "react"
 
-import { productDetailData_tumbler1 } from "@/dummy/product-detail-data"
 import ProductDetailThumbnail from "@/components/atom/product/productDetailThumbnail"
 import ProductDetailThumbnailCarousel from "@/components/atom/carousel/productDetailThumbnailCarousel"
 import ProductDetailInfo from "@/components/atom/product/productDetailInfo"
