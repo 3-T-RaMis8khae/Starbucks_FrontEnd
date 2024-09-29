@@ -63,12 +63,12 @@ const nextConfig = {
 				pathname: "/**"
 			}
 		]
-	}
+	},
 	// todo: env 설정
-	// env: {
-	// 	API_URL: process.env.API_URL,
-	// 	API_KEY: process
-	// }
+	env: {
+		API_BASE_URL: process.env.API_BASE_URL,
+		API1_BASE_URL: process.env.API1_BASE_URL
+	}
 }
 
 export default nextConfig
