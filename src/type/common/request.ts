@@ -6,5 +6,5 @@ export interface PaginationRequest {
 
 export const defaultPaginationRequest: PaginationRequest = {
 	page: 0,
-	size: 20
+	size: 8
 }
